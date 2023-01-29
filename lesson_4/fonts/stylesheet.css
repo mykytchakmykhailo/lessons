@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Aboreto';
+    src: url('Aboreto-Regular.woff2') format('woff2'),
+        url('Aboreto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nanum Brush Script';
+    src: url('NanumBrush.woff2') format('woff2'),
+        url('NanumBrush.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
