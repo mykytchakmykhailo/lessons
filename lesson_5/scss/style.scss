@@ -1,0 +1,163 @@
+/*Обнуление*/
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+:focus,
+:active {
+	outline: none;
+}
+
+a:focus,
+a:active {
+	outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
+}
+/* шрифти*/
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,500,700&display=swap);
+
+
+body{
+	margin: 0 auto;
+	font-family: "Poppins";
+	width: 1440px;
+	height: 2350px;
+}
+.contane {
+	font-size: 14px;
+	
+}
+
+h2{
+	line-height: 40px;
+	font-size: 25px;
+	font-weight: 700;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+p{
+	display: inline-block;
+	padding: 0 0 20px 0;
+	font-weight: 300;
+	line-height: 25px;
+	color: #6C757D;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+}
+.top__content{
+	margin: 0 312px;
+}
+.title {
+	font-weight: 700;
+	width: 400px;
+	height: 80px;
+}
+.text__van{
+	margin-top: 40px;
+	width: 820px;
+	height: 450;
+}
+.logo__main{
+	width: 1240px;
+	height: 400px;
+	overflow: hidden;
+	margin: 70px 100px;
+}
+.main__content{
+}
+.title__two{
+width: 605px;
+height: 120px;
+margin: 0 523px 0 312px ;
+}
+.text__two{
+width: 816px;
+height: 325px;
+margin: 40px 401px 0 223px;
+}
+.images__slide {
+	margin: 80px 100px;
+	word-spacing: 15px;
+}
+.text{
+	width: 816px;
+	height: 175px;
+	margin: 0 312px;
+}
+.next{
+	width: 100px;
+	height: 100px;
+	margin-left: 50%;
+}
