@@ -1,0 +1,152 @@
+/*Обнуление*/
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+:focus,
+:active {
+	outline: none;
+}
+
+a:focus,
+a:active {
+	outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
+}
+/* шрифти*/
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,500,700&display=swap);
+
+
+body{
+	font-family: "Poppins";
+}
+main{
+	max-width: 1440px;	
+	margin: 0 auto;
+}
+.contain {
+	max-width: 816px;
+	margin: 0 auto;
+}
+h2{
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+	margin: 20px 0;
+	font-weight: 700;
+	font-size: 25px;
+}
+p{
+	margin: 40px 0;
+	max-width: 605px;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 25px;
+	color: #6C757D;
+	max-width: 816px;
+}
+.img{
+	max-width: 1240px;
+	margin: 40px -200px;
+
+}
+.images{
+	margin: 80px -200px;
+	width: 1240px;	
+}
+.img__left {
+	max-width: 100%;
+	height: 400px;
+	padding: 10px;
+}
+.img__right {
+	max-width: 100%;
+	height: 400px;
+	padding: 10px;
+}
+.button{
+	margin: 0 50% 10px ;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #000;
+	width: 100px;
+	height: 30px;
+	border-radius: 10px 10px 10px ;
+	border: 1px solid#000;
+	&:active{
+		margin: 2.30% 50% ;
+	}
+}
