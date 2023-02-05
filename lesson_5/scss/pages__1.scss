@@ -1,0 +1,259 @@
+/*Обнуление*/
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+:focus,
+:active {
+	outline: none;
+}
+
+a:focus,
+a:active {
+	outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
+}
+/* шрифти*/
+/*invoker1*/
+body{
+	font-family: "Poppins";
+} 
+
+p{
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 25px;
+	color: #6C757D;
+	padding: 0 0 30px;
+	&:last-child{
+		padding: 0;
+	}
+}
+h2{
+	font-weight: 700;
+	font-size: 25px;
+	line-height: 40px;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+main{
+	max-width: 1440px;
+	margin: 0 auto;
+	border: 2px solid rgb(209, 4, 4);
+}
+.containe {
+	border: 2px solid rgb(96, 4, 209);
+	max-width: 1240px;
+	margin: 0 auto;
+}
+.content__containe{
+	border: 4px solid rgb(0, 0, 0);
+	max-width: 816px;
+	margin: 0 auto;
+}
+/* Контентна частина*/
+.title {
+	border: 1px solid rgb(0, 0, 0);
+	margin: 0 0 40px 0;
+	max-width: 400px;
+}
+.text {
+	border: 2px solid rgb(8, 189, 129);
+	margin: 0 0 80px 0;
+}
+.images {	
+	border: 2px solid rgb(6, 5, 5);
+	margin: 0 0 80px;
+	min-width: 1240px;
+}
+.great__imgo{
+	min-width: 1240px;
+	max-height: 400px;
+}
+.title__two { 
+	border: 2px solid rgb(9, 9, 9);
+	margin: 0 0 40px 0;
+	max-width: 605px;	
+}
+.text__two p:last-child{
+	margin:0 0 80px;
+	padding: 0;
+
+}
+.images__slide {
+	margin: 0 0 80px 0;
+	max-width: 1260px;
+}
+.img__left{
+	border: 1px solid#000;
+	min-width: 605px;
+	max-width: 605px;
+	max-height: 400px;
+	min-height: 400px;
+	margin: 5px;
+}
+.img__right{
+	border: 1px solid#000;
+	min-width: 605px;
+	max-width: 605px;
+	max-height: 400px;
+	min-height: 400px;
+	margin: 5px;
+}
+.text__last p{
+	padding: 0 0 0 0;
+	margin: 0 0 20px;
+}
+/* некст тренировка*/
+
+.invoker__info {
+	margin: 20px 300px;
+	padding-left: 20px;
+	width: 600px;
+	height: 300px;
+	border: 4px solid#000;
+	overflow: hidden;
+	font-size: 20px;
+}
+.invoke__img{
+width: 300px;
+height: 300px;
+}
+.invoke__text{
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+}
+/*invoker_2*/
+.invoker__inform {
+	margin: -90px 1000px;
+	padding-left: 20px;
+	width: 600px;
+	height: 300px;
+	border: 4px solid#000;
+	overflow: scroll;
+	font-size: 20px;
+}
+.invoke__imgs {
+	width: 300px;
+height: 300px;
+}
+.invoke__text {
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+}
+/* мясник*/
+.pudge__info {
+	width: 600px;
+	height: 300px;
+	border: 4px solid#000;
+	overflow: hidden;
+	font-size: 20px;
+	overflow: auto;
+}
+.pudge__img{
+	width: 300px;
+}
+.pudge__text{
+	display: inline;	
+}
+/*мясник2*/
+.pudge__inform{
+	width: 600px;
+	height: 300px;
+	border: 4px solid#000;
+	overflow: hidden;
+	font-size: 20px;
+	overflow: auto;
+	margin: -20px 800px;
+
+}
+.pudge__imgs {
+	width: 300px;
+	margin: 0 0 0 130px;
+}
+.pudge__texton {
+	max-width: 700px;
+	max-height: 900px;
+	border: 4px solid#000;
+	overflow: hidden;
+	font-size: 20px;
+	overflow: auto;
+	padding: 30px;
+	
+}
+
