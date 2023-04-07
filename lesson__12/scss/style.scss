@@ -1,0 +1,176 @@
+@import "_reset.scss";
+@import url('https://fonts.googleapis.com/css?family=Inter:300,500,600,700,800@display=swap');
+body{
+background: #efe4e4;}
+.wrapper {
+
+}
+.block {
+	border: 1px solid#000;
+	max-width:100%;
+	height: 600px;
+}
+.head {
+	border: 1px solid#000;
+	max-width: 100%;
+	height: 130px;
+	background-color: aqua;
+	display: flex;
+}
+.hmara{
+width: 150px;
+height: 100px;
+background-color: #ffffff;
+border-radius: 100px 100px 40px 20px ;
+margin: 0 50px;
+&:hover{
+transform: translate(1000px,0);
+transition: 10s;
+}
+}
+.sonne{
+width: 100px;
+height: 100px;
+background-color: yellow;
+border-radius: 50%;
+position: absolute;
+margin-left: 1200px;
+}
+.glaz{
+	position: absolute;
+	margin-top: 20px;
+	margin-left: 10px;
+	background: url(../img/img/2.jpg) no-repeat 0 0 /70px;
+width: 70px;
+height: 20px;
+border: 1px solid#000;
+}
+.rot{
+width: 50px;
+border: 2px solid#000;
+margin-top: 80px;
+position: absolute;
+margin-left: 20px;
+}
+.sonne:hover .rot{
+	transform: rotate(20deg);
+	transition: 5s;
+}
+.sonne:hover{
+transform: scale(20,20);
+transition: 15s;
+}
+.center{
+	border: 5px solid#000;
+	height: 400px;
+	background-color: rgb(224, 217, 208);
+}
+.eatrh {
+	border: 5px solid#000;
+	height: 70px;
+	background-color: darkgreen;
+}
+.auto {
+	border: 1px solid#000;
+	width: 300px;
+	height: 100px;
+	margin-top: 250px;
+	border-radius: 22px 22px;
+	background-color: red;
+	display: flex;
+	margin-left: 20px;
+	position: relative;
+}
+.auto:hover{
+transform: translate(1000px,0px);
+transition: 10s;}
+.opone{
+	border: 1px solid#000;
+	width: 70px;
+	height: 70px;
+	border-radius: 50px 50px;
+	background-color: #000;
+	margin-top: 80px;
+	margin-left: 50px;
+	
+}
+.disk{
+	background-color: cadetblue;
+	width: 50px;
+height: 50px;
+margin-left: 10px;
+margin-top: 10px;
+border: 3px solid#fff;
+border-radius: 50px 50px;
+}
+.fire{
+	border: 3px solid#eddddd;
+width: 10px;
+height: 50px;
+position: absolute;
+margin-top: 20px;
+left: 20px;
+background-color: chartreuse;
+}
+.kabina{
+	position: absolute;
+	background: url(../img/img/original.jpg)
+	no-repeat 0px 0px;
+	background-size: cover;
+width: 150px;
+height: 80px;
+bottom: 98px;
+margin-left: 50px;	border: 3px solid#000000;
+
+}
+.garmate{
+width: 200px;
+height: 20px;
+border: 3px solid#000000;
+position: absolute;
+background: #000;
+position: absolute;
+margin-left: 180px;
+margin-top: -30px;
+}
+.derevo{
+margin: 0 1000px;
+
+;}
+
+.natur{
+	border: 3px solid#eddddd;
+	width: 30px;
+height: 300px;
+position: absolute;
+background-color: brown;
+margin: 30px 120px;
+}
+.natur-1{
+	border: 3px solid#eddddd;
+	width: 30px;
+height: 300px;
+position: absolute;
+background-color: brown;
+}
+.konocha{
+width: 200px;
+height: 200px;
+background-color: rgba(0, 128, 0, 0.499);
+border-radius: 100px 100px;
+margin-left: -80px;
+margin-top: -40px;
+}
+.derevo:hover{
+transform: skew(10deg,10deg);
+transition: 5s;
+}
+.auto:hover .garmate{
+transform: rotate(-15deg);
+transition: 10s;
+}
+.block:hover .gif{
+transform: translate(1300px,50px) scale(2,2);
+transition: 10s;
+
+}
