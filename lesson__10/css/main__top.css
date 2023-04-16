@@ -1,0 +1,9 @@
+.main__top {
+  color: white;
+  max-width: 1240px;
+  background: url("../img/img/12.png") 0 0/100% 100% no-repeat;
+}
+
+.main__top-title {
+  font-size: 40px;
+}
