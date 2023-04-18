@@ -1,0 +1,445 @@
+@import "_reset.scss";
+@import url('https://fonts.googleapis.com/css?family=Inter:300,500,600,700,800@display=swap');
+@import "header.scss";
+@import "main.scss";
+@import"footer.scss";
+
+.anime {
+	overflow: clip;
+	background-image: url("../img/img/kop.jpg");
+	background-repeat: no-repeat;
+background-size: 100% 100%;
+z-index: 60;
+}
+.anime__wrapper{
+	max-width: 100%;
+	height: 940px;
+}
+.anime__top{
+	position: relative;
+width: 100%;
+height: 200px;
+}
+
+
+
+/* хмаринки*/
+.anime__cloud-file{
+position: relative;}
+.anime__cloud {
+	z-index: 70;
+	position: absolute;
+width: 600px;
+height: 200px;
+background: url("/img/img/hmara.png") 0 0/100% 100% repeat;
+animation-name: cloud;
+animation-duration: 30s;
+margin: 0 40px;
+animation-iteration-count: infinite;
+}
+@keyframes cloud{
+0%{
+	translate: -400px;
+}
+1%{
+}
+50%{
+translate: 800px 60px;
+}
+100%{
+translate: 2000px 0px;}
+}
+.anime__cloud-2{
+	z-index: 71;
+	position: absolute;
+width: 900px;
+height: 400px;
+background: url("/img/img/hmara.png") 0 0/100% 100% repeat;
+animation-name: cloud-2;
+animation-duration: 30s;
+animation-iteration-count: infinite;
+}
+@keyframes cloud-2{
+0%{
+translate: -200px;}
+100%{
+translate: 2000px 0px;}
+}
+.anime__cloud-3{
+	z-index: 73;
+	position: absolute;
+width: 900px;
+height: 400px;
+background: url("/img/img/hmara.png") 0 0/100% 100% repeat;
+animation-name: cloud-3;
+animation-duration: 20s;
+animation-iteration-count: infinite;
+}
+@keyframes cloud-3{
+0%{
+	opacity: 0;
+translate: -10px;}
+2%{
+opacity: 1;}
+100%{
+translate: 2000px 0;
+}
+}
+
+/* сонечко*/
+.anime__sonne{
+	left: 1600px;
+	position: absolute;
+width: 200px;
+height: 200px;
+background: url("../img/img/sonne.png") 0 0/100% 100% no-repeat;
+animation-name: sonn;
+animation-duration: 200s;
+animation-iteration-count: infinite;
+
+}
+@keyframes sonn{
+1%{
+rotate: (0deg);
+}
+100%{
+rotate: (1800deg);}
+}
+/*центер*/
+
+.anime__center {
+	position: relative;
+	height: 600px;
+}
+.anime__plit {
+	z-index: 2;
+	top: 260px;
+	background: url("../img/img/plit.png")0 0/100% 100% no-repeat;
+	position: absolute;
+	width: 200px;
+	height: 200px;
+
+}
+.anime__korova{
+	position: absolute;
+	bottom: 200px;
+	z-index: 1;
+width: 200px;
+height: 200px;
+background: url("../img/img/korowa.png") 0 0/100% 100%;
+animation-name:korova ;
+animation-duration: 23s;
+animation-iteration-count: infinite;
+
+}
+@keyframes korova{
+1%{translate: 0px 0px;}
+30%{translate: 5px 10px;}
+70%{translate: -10px -40px;}
+100%{}
+}
+.anime__korova-language{
+border: 2px solid#000;
+	width: 140px;
+height: 40px;
+overflow: hidden;
+color:black;
+display: inline-block;
+padding: 7px;
+background-color: white;
+text-align: center;
+border-radius: 150px 150px 133px 34px / 75px 75px 75px 0px;
+position: absolute;
+left: 130px;
+animation-name: korova-lang;
+animation-duration: 5s;
+animation-iteration-count: infinite;
+}
+@keyframes korova-lang{
+0%{
+opacity: 0;
+visibility: hidden;}
+50%{
+	opacity: 1;
+	visibility: visible;
+
+}
+100%{
+	visibility: hidden;
+	opacity: 0;
+}
+}
+/*корова 2*/
+.anime__korova-2{
+		bottom: 200px;
+		position: absolute;
+left: 500px;
+top: 220px;
+	width: 300px;
+	height: 200px;
+	background: url("../img/img/korova2.png") 0 0/100% 100%;
+	animation-name: korova-2;
+	animation-duration: 5s;
+	animation-delay: 0s;
+	animation-direction: alternate-reverse;
+	animation-timing-function: cubic-bezier(.1,.29,1,1.01);
+	animation-iteration-count: infinite;
+}
+@keyframes korova-2{
+0%{translate: 0px 0px;
+rotate: (0deg);
+}
+10%{rotate: (10deg);}
+30%{rotate: (-10deg);}
+40%{rotate: (10deg);}
+50%{rotate: (-10deg);}
+60%{rotate: (10deg);}
+70%{rotate: (-10deg);}
+80%{rotate: (10deg)}
+100%{translate: 800px 0px;
+	
+}
+}
+.anime__korova-languagetwo{
+
+	border: 2px solid#000;
+	width: 140px;
+height: 40px;
+overflow: hidden;
+color:black;
+display: inline-block;
+padding: 7px;
+background-color: white;
+text-align: center;
+border-radius: 150px 150px 133px 34px / 75px 75px 75px 0px;
+position: absolute;
+left: 310px;
+animation-name: korova-lang-two;
+animation-duration: 5s;
+animation-iteration-count: infinite;
+}
+@keyframes korova-lang-two{
+0%{
+opacity: 0;
+visibility: hidden;}
+50%{
+	opacity: 1;
+	visibility: visible;
+
+}
+100%{
+	opacity: 0;
+	visibility: hidden;
+}
+}
+.anime__plit-two {
+	z-index: 2;
+	top: 260px;
+	left: 800px;
+	background: url("../img/img/plit.png")0 0/100% 100% repeat;
+	position: absolute;
+	width: 400px;
+	height: 200px;
+
+}
+
+/*коровка 1 (((*/
+
+.anime__korova-1{
+		bottom: 200px;
+		position: absolute;
+left: 500px;
+top: 220px;
+	width: 300px;
+	height: 200px;
+	background: url("../img/img/korova1.png") 0 0/100% 100%;
+	animation-name: korova-1;
+	animation-duration: 10s;
+	animation-delay: 0s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate-reverse;
+
+}
+@keyframes korova-1{
+	0%{translate: 90px 0px;
+	rotate: (0deg);
+	}
+	10%{rotate: (10deg);}
+	30%{rotate: (-10deg);}
+	40%{rotate: (10deg);}
+	50%{rotate: (-10deg);}
+	60%{rotate: (10deg);}
+	70%{rotate: (-10deg);}
+	80%{rotate: (10deg)}
+	100%{translate: 400px 0px;
+		
+	}
+	}
+
+	/*динозавр*/
+	.anime__dino{
+		z-index: 41;
+		bottom: 200px;
+		position: absolute;
+left: -400;
+top: 520px;
+	width: 300px;
+	height: 200px;
+	background: url("../img/img/динозавр3.png") 0 0/100% 100%;
+	animation-name: dino;
+	animation-duration: 11s;
+	animation-delay: 0s;
+	animation-fill-mode: forwards;
+}
+@keyframes dino{
+	0%{translate: -400px 0px;
+		rotate: (0deg);
+		}
+		10%{rotate: (10deg);}
+		30%{rotate: (-10deg);}
+		40%{rotate: (10deg);}
+		50%{rotate: (-10deg);}
+		60%{rotate: (10deg);}
+		70%{translate: 340px 120px;
+			rotate: (-10deg);}
+		80%{rotate: (10deg);
+			translate: 340px 120px;}
+		90%{	translate: 540px -170px;	}
+		100%{translate: 540px -170px;
+			visibility: hidden;
+		}
+}
+.anime__vader{
+	bottom: 200px;
+position: absolute;
+	left: -300px;
+top: 520px;
+width: 300px;
+height: 200px;
+background: url("../img/img/вейдер.png") 0 0/100% 100%;
+animation-name: vader,vader-2;
+animation-duration: 7s;
+animation-delay: 4s;
+animation-fill-mode: forwards;
+z-index: 40;
+}
+@keyframes vader{
+	0%{translate: -400px 0px;
+	rotate: (0deg);
+	}
+	10%{rotate: (10deg);}
+	30%{rotate: (-10deg);}
+	40%{rotate: (10deg);}
+	50%{rotate: (-10deg);}
+	60%{rotate: (10deg);}
+	70%{translate: 340px 120px;
+		rotate: (-10deg);}
+	80%{rotate: (10deg);
+		translate: 340px 120px;}
+	90%{	translate: 840px -170px;	}
+	100%{translate: 840px -170px;
+	}
+}
+@keyframes vader-2{
+	0%{}
+	100%{ visibility:hidden ;}
+}
+.anime__nlo-file{}
+.anime__nlo {
+	bottom: 1000px;
+position: relative;
+width: 900px;
+height: 200px;
+background: url("../img/img/нло.png") 0 0/100% 100%;
+animation-duration: 10s;
+animation-delay: 2s;
+animation-name: nlo;
+animation-fill-mode: forwards;
+
+}
+
+@keyframes nlo{
+	0%{translate: -400px 0px;
+	rotate: (0deg)
+	scale(2,2);
+	}
+	10%{rotate: (10deg);}
+	30%{rotate: (-10deg);}
+	40%{}
+	70%{}
+	80%{rotate: (10deg);
+	scale: (5,5);}
+	90%{translate: 340px 320px;	
+	}
+	100%{translate: 2040px 120px;}
+	}
+.anime__laser {
+	top: 200px;
+	left: -240px;
+	position: absolute;
+	width: 900px;
+	height: 200px;
+	background: url("../img/img/лазер.png") 0 0/100% 100% no-repeat;
+	animation-duration: 8s;
+	animation-name: laser;
+	animation-fill-mode: forwards;
+
+}
+@keyframes laser{
+	0%{
+		
+		
+		visibility: hidden;
+	}
+	10%{}
+	30%{}
+	40%{}
+	70%{	}
+	80%{opacity: 0;
+		visibility: hidden;}
+	100%{
+		opacity: 1;
+		visibility: visible;
+	}
+}
+.anime__naruto {
+}
+.anime__naruto-files {
+	bottom: 200px;
+	position: absolute;
+		left: 400px;
+		top: -200;
+	top: 520px;
+	width: 400px;
+	height: 400px;
+	background: url("../img/img/наруто.png") 0 0/100% 100%;
+	animation-name: naruto;
+	animation-duration: 17s;
+	animation-delay: 13s;
+visibility: hidden;
+opacity: 0;
+}
+@keyframes naruto{
+0%{translate: 30px 0;
+opacity: 0;visibility: hidden;}
+50%{opacity: 1;visibility: visible;}
+100%{translate: 30px -300px;opacity: 0;visibility: hidden;}
+}
+.anime__naruto-language {
+	
+	border: 2px solid#000;
+	width: 140px;
+height: 100px;
+overflow: hidden;
+color:black;
+display: inline-block;
+padding: 7px;
+background-color: white;
+text-align: center;
+border-radius: 150px 150px 133px 34px / 75px 75px 75px 0px;
+position: absolute;
+left: 310px;
+animation-name: korova-lang-two;
+animation-duration: 5s;
+animation-iteration-count: infinite;
+}
