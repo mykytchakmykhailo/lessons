@@ -1,0 +1,9 @@
+.header__content {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.header__bottom {
+  background-size: 100% 100%;
+  background: url("../img/img/12.png") 0 0 no-repeat;
+}
