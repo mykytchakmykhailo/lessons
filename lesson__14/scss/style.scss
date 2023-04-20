@@ -1,0 +1,115 @@
+@import "_reset.scss";
+@import url('https://fonts.googleapis.com/css?family=Inter:300,500,600,700,800@display=swap');
+@import "header.scss";
+@import "main.scss";
+@import"footer.scss";
+
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,500,700,display:swap);
+
+body{
+font-family: "Poppins",sans-serif;
+}
+.main__wrapper {
+	padding: 0 15px;
+	background: #F8F9FA;
+overflow: clip;
+	max-height: 100%;
+}
+.main__contain {
+	padding: 100px 0 100px 0;
+	max-width: 1240px;
+	margin: 0 auto;
+}
+.main__top {
+	font-weight: 300;
+font-size: 12px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	flex-shrink: 1;
+
+}
+.main__top-link {
+	color: rgba(73, 80, 87, 0.5);
+display: flex;
+	justify-content: space-between;
+	font-weight: 500;
+	line-height: 25px;
+}
+.main__left-link{
+	transition-duration: 0.8s;
+}
+.main__left-link:hover{
+	color: #495057;}
+
+.main__top-categories {
+}
+
+.main__top-menu {
+}
+.main__right-menu {
+	display: flex;
+	gap: 20px;
+}
+.main__right-link {
+	transition-duration: 0.8s;
+	&:hover{color: #495057;}
+}
+.main__cards {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding-top: 44px;
+	justify-content: space-between;
+	row-gap: 45px;
+}
+.main__cards-contain {
+display: flex;
+flex-direction: column;
+align-items: self-start;
+row-gap: 15px;
+flex-basis: 393px;
+}
+.main__cards-img {
+	margin-bottom: 15px;
+}
+.main__cards-images {
+	max-width: 393px;
+	height: 250px;
+}
+.main__data {
+	line-height: 20px;
+}
+.main__cards-text {
+	font-weight: 700;
+font-size: 25px;
+line-height: 40px;
+}
+.main__sub-text {
+	line-height: 20px;
+}
+.main__name-author {
+	line-height: 20px;
+}
+.main__line{
+	width: 390px;
+	border: 1px solid #E5E5E5;
+}
+.main__button-wrapper {
+}
+.main__top-button {
+	display: flex;
+	justify-content: center;
+	padding-top: 60px;
+}
+.main__button-link {
+	align-items: center;
+	padding: 7px 50px;
+	background: #212529;
+	border-radius: 3px;
+	color: white;
+	transition-duration: 3s;
+&:hover{
+color:  #212529;
+background: #F8F9FA;}
+}
