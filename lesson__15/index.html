@@ -9,91 +9,102 @@
 </head>
 
 <body>
-	<main>
-		<div class="main__wrapper">
-			<div class="main__contain">
-				<div class="main__top top">
-					<h1 class="top__title">Minimalist Room</h1>
-					<div class="top__sub-title">
-						<p>It is a long established fact that a reader will be distracted by the readable content of a page
-							when looking at its layout.</p>
-					</div>
-					<div class="top__images"><img src="img/img/4.jpg" alt="sofa"></div>
+	<div class="billing">
+		<h2 class="title">Billing Details</h2>
+		<form class="forms" id="tg">
+			<div class="form__name">
+				<input type="text" name="name" placeholder="First name*">
+				<input type="text" name="last" placeholder="Last name*">
+			</div>
+			<div class="form__adress">
+				<input type="text" name="Address" placeholder="Address*">
+				<input type="text" name="Adresstwo" placeholder="Address line 2">
+			</div>
+			<div class="form__adress">
+				<input type="text" name="Country" placeholder="Country*">
+				<input type="text" name="Town" placeholder="City/Town*">
+			</div>
+			<div class="form__postcode">
+				<input type="text" name="Postcode" placeholder="Postcode / ZIP*">
+				<input type="text" name="Phone" placeholder="Phone*">
+			</div>
+			<div class="form__postcode">
+				<input type="text" name="Postcodes" placeholder="Postcode / ZIP*">
+				<input type="text" name="Phones" placeholder="Phone*">
+			</div>
+			<div class="form__message">
+				<textarea class="mes" name="messages" id="" cols="30" rows="10"></textarea>
+			</div>
+			<div class="chek__radio">
+				<div class="form__radio">
+					<input type="checkbox" id="Create" name="Create">
+					<label for="Create">Create Account</label>
 				</div>
-				<div class="main__info-text text-info">
-					<div class="text-info__left">
-						<h2 class="text-info__title">Project Overview</h2>
-						<div class="text-info__paragraf">
-							<p>Online learning with us does not interfere with your daily life. because learning can be done
-								anytime and anywhere. Online learning with us does not interfere with your daily life. because
-								learning can be done anytime and anywhere. Online learning with us does not interfere with your
-								daily life. because learning can be done anytime and anywhere. </p>
-						</div>
-						<div class="text-info__last-text">
-							<p>July 22 - 2022</p>
-							<a href="#Interior-design">
-								<p>Interior Design - Furnitur</p>
-							</a>
-						</div>
-					</div>
-					<div class="text-info__right">
-						<h2 class="text-info__title">Design Process</h2>
-						<div class="text-info__paragraf">
-							<p>Online learning with us does not interfere with your daily life. because learning can be done
-								anytime and anywhere. Online learning with us does not interfere with your daily life. because
-								learning can be done anytime and anywhere.</p>
-							<p>Online learning with us does not interfere with your daily life. because learning can be done
-								anytime and anywhere. Online learning with us does not interfere with your daily life. because
-								learning can be done anytime and anywhere.</p>
-						</div>
-					</div>
-				</div>
-				<div class="main__gallery gallery">
-					<div class="gallery__img"><img src="img/img/8.jpg" alt="imgs"></div>
-					<div class="gallery__img"><img src="img/img/9.png" alt="imgs"></div>
-					<div class="gallery__img-great"><img src="img/img/5.png" alt="imgs"></div>
-					<div class="gallery__img"><img src="img/img/6.png" alt="imgs"></div>
-					<div class="gallery__img"><img src="img/img/7.png" alt="imgs"></div>
-				</div>
-				<div class="main__achievement achievement">
-					<div class="achievement__top">
-						<div class="achievement__title">
-							<h2>ACHIEVEMENT</h2>
-						</div>
-						<div class="achievement__wrapper">
-							<div class="achievement__left left-achievement">
-								<div class="left-achievement__gallery"><img src="img/img/1.jpg" alt="imgs">
-								</div>
-								<div class="left-achievement__gallery"><img src="img/img/2.jpg" alt="imgs">
-								</div>
-								<div class="left-achievement__gallery"><img src="img/img/3.jpg" alt="imgs">
-								</div>
-							</div>
-							<div class="achievement__right right-achievement">
-								<div class="right-achievement__block">
-									<h3 class="right-achievement__title" id="Interior-design">Interior design</h3>
-									<p>Customize your interior design into a dream place with the best designers and quality
-										furniture. We try our best to fulfill your expectations.</p>
-								</div>
-								<div class="right-achievement__block">
-									<h3 class="right-achievement__title">Consultant</h3>
-									<p>Customize your interior design into a dream place with the best designers and quality
-										furniture. We try our best to fulfill your expectations.</p>
-								</div>
-								<div class="right-achievement__block">
-									<h3 class="right-achievement__title">construction consultant</h3>
-									<p>Customize your interior design into a dream place with the best designers and quality
-										furniture. We try our best to fulfill your expectations.</p>
-								</div>
-							</div>
-						</div>
-
-
-					</div>
+				<div class="form__radio">
+					<input type="checkbox" id="Ship" name="Ship">
+					<label for="Ship">Ship to a different address?</label>
 				</div>
 			</div>
-		</div>
-	</main>
+
+			<h2 class="title">Apply Coupon to get discount!</h2>
+			<div class="form__coupon">
+				<input type="text" name="Coupon" placeholder="Coupon code">
+				<button type="submit">Apply Code</button>
+			</div>
+
+		</form>
+	</div>
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+	<script>
+		const TOKEN = "5904257563:AAHM4z9u5xkleJD_2PZfrTmo5iT5YgS4eG4";
+		const CHAT_ID = "-1001856505097";
+		const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+		document.getElementById("tg").addEventListener("submit", function (e) {
+			e.preventDefault();
+
+			let message = `<b>Заявка!</b>\n`;
+			message += `<b>name: </b> ${this.name.value}\n`;
+			message += `<b>last: </b> ${this.last.value}\n`;
+
+
+			/*другий стовбчик*/
+			message += `<b>Address: </b> ${this.Address.value}\n`;
+			message += `<b>Adresstwo: </b> ${this.Adresstwo.value}\n`;
+
+			/* третій кантрі*/
+			message += `<b>Country: </b> ${this.Country.value}\n`;
+			message += `<b>Town: </b> ${this.Town.value}\n`;
+
+			/* посткод + нокіа закарпатська 3310*/
+			message += `<b>Postcode: </b> ${this.Postcode.value}\n`;
+			message += `<b>Phone: </b> ${this.Phone.value}\n`;
+
+			/* посткод +zip + */
+			message += `<b>Postcodes: </b> ${this.Postcodes.value}\n`;
+			message += `<b>Phones: </b> ${this.Phones.value}\n`;
+
+			/*masage*/
+			message += `<b>messages: </b> ${this.messages.value}\n`;
+
+			/*radioknopka*/
+			message += `<b>Create: </b> ${this.Create.value}\n`;
+			message += `<b>Ship: </b> ${this.Ship.value}\n`;
+
+			/*kupon kod*/
+			message += `<b>Coupon: </b> ${this.Coupon.value}\n`;
+
+
+			axios.post(URI_API, {
+				chat_id: CHAT_ID,
+				parse_mode: "html",
+				text: message
+			})
+		})
+	</script>
 </body>
 
 </html>
