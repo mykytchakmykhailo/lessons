@@ -1,0 +1,123 @@
+
+@import "reset.scss";
+@import "header.scss";
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
+
+
+
+h1{
+    font-size: 32px;
+}
+.main__wrapper {
+    font-size: 24px;
+    max-width: 1240px;
+    margin: 0 auto;
+    font-family: "Barriecito","Bad Script";
+
+}
+.main__top_text {
+    margin-bottom: 50px;
+}
+.main_top_h1 {
+font-size: 50px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: -1px;
+}
+.main_top_p {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 150%; }
+.main_center {
+}
+.center {
+    
+    
+}
+.center_1block {
+    display: flex;
+    gap: 70px;
+}
+p{
+    padding: 10px 0;
+    max-width: 560px;
+    color: rgb(218, 131, 17);
+    font-weight: 600;
+}
+
+.center_1block-text {
+    padding: 5px;
+    border-radius: 10%;
+
+}
+/* Анімація зміщення вмісту */
+@-webkit-keyframes slide-inside {
+    0% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+    }
+    25% {
+      -webkit-transform: translate(-20px, 15px); /* зсув вліво і вниз */
+              transform: translate(-20px, 15px);
+    }
+    50% {
+      -webkit-transform: translate(20px, -15px); /* зсув вправо і вверх */
+              transform: translate(20px, -15px);
+    }
+    75% {
+      -webkit-transform: translate(-15px, -10px); /* зсув вліво і вверх */
+              transform: translate(-15px, -10px);
+    }
+    100% {
+      -webkit-transform: translate(0, 0); /* повернення в початкову позицію */
+              transform: translate(0, 0);
+    }
+  }
+  @keyframes slide-inside {
+    0% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+    }
+    25% {
+      -webkit-transform: translate(-20px, 15px);
+              transform: translate(-20px, 15px);
+    }
+    50% {
+      -webkit-transform: translate(20px, -15px);
+              transform: translate(20px, -15px);
+    }
+    75% {
+      -webkit-transform: translate(-15px, -10px);
+              transform: translate(-15px, -10px);
+    }
+    100% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+    }
+  }
+  
+  /* Стилі для контейнера і зображення */
+  .center_1block-img {
+      overflow: hidden; /* обрізає вміст, що виходить за межі блоку */
+      position: relative; /* для коректного позиціонування */
+      width: 610.667px;
+      height: 433px;
+
+  }
+  
+  .center_1block-img img {
+      animation: slide-inside 200000s ease infinite; /* анімація триває 20 секунд */
+      -webkit-animation: slide-inside 40s ease infinite;
+      position: absolute; /* фіксуємо зображення в межах блоку */
+      top: 0;
+      left: 0;
+      width: 120%; /* робимо зображення трохи більшим за контейнер */
+      height: 120%; /* для ефекту зміщення всередині */
+      object-fit: cover; /* зберігає пропорції зображення */
+  }
+
+  
+
+
+  
