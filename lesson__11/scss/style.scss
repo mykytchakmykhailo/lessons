@@ -1,0 +1,527 @@
+@import "reset.scss";
+@import "header.scss";
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
+
+/* Базові стилі */
+h1 {
+  font-size: 2rem; /* 32px при базі 16px */
+}
+
+.main__wrapper {
+  font-size: 1.5rem; /* 24px */
+  max-width: 1270px; /* Замість 1240px */
+  width: 90vw; /* 90% ширини вьюпорту */
+  margin: 0 auto;
+  font-family: "Barriecito", "Bad Script";
+}
+
+.main__top_text {
+  display: inline-block;
+  margin-bottom: 4vw; /* 50px ≈ 4vw */
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.main_top_h1 {
+  font-size: 3vw; /* 50px ≈ 4vw */
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.08vw; /* -1px */
+}
+
+.main_top_p {
+  font-size: 1.5vw; /* 36px ≈ 3vw */
+  font-weight: 400;
+  line-height: 150%;
+}
+
+p {
+  padding: 0.8vw 0; /* 10px ≈ 0.8vw */
+  max-width: 45vw; /* 560px ≈ 45vw */
+  color: rgb(218, 131, 17);
+  font-weight: 600;
+}
+
+/* 1-й блок */
+.center_1block {
+  margin-bottom: 1vw; /* 130px ≈ 10vw */
+  display: flex;
+  gap: 5vw; /* 70px ≈ 5vw */
+  justify-content: space-between;
+}
+
+.center_1block-text {
+  padding: 0.4vw; /* 5px ≈ 0.4vw */
+  border-radius: 10%;
+  transform: translateX(100%);
+  opacity: 0;
+  animation: slideInFromRight 1s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.center_1block-img {
+  overflow: hidden;
+  position: relative;
+  width: 50vw; /* 610.667px ≈ 50vw */
+  height: 24vw; /* 433px ≈ 35vw */
+}
+
+.center_1block-img img {
+  width: 50rem;
+  animation: slide-inside 40s ease infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  object-fit: cover;
+}
+
+/* 2-й блок */
+.main_center-2block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_center-2block-left {
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(-8vw); /* -100px ≈ -8vw */
+  transition: all 1s ease-out;
+}
+
+.main_center-2block-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.main_center-2block-right {
+  overflow: hidden;
+  position: relative;
+}
+
+.main_center-2block-right img {
+  width: 50rem; /* 610.667px ≈ 50vw */
+  height: 25vw; 
+  transform: translateX(100%);
+  transition: transform 2s ease-out;
+}
+
+.main_center-2block-right.show img {
+  transform: translateX(0);
+}
+
+/* 3-й блок */
+.main_center-3block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main_3block-left {
+width: 50rem;
+}
+
+.main_3block-left img {
+  width: 39.80rem; /* 610.667px ≈ 50vw */
+  height: 25vw; 
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 2s ease-out, opacity 1s ease-out;
+}
+
+.main_3block-right {
+  
+  opacity: 0;
+  transform: translateX(4vw); /* 50px ≈ 4vw */
+  transition: transform 1s ease-out 0.5s, opacity 1s ease-out 0.5s;
+}
+
+.main_center-3block.show .main_3block-left img,
+.main_center-3block.show .main_3block-right {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* 4-й блок */
+.main_center-4block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_4block-left {
+  padding: 0.8vw 0; /* 10px ≈ 0.8vw */
+  max-width: 45vw; /* 560px ≈ 45vw */
+  color: rgb(218, 131, 17);
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-4vw); /* -50px ≈ -4vw */
+  transition: transform 1s ease-out 1s, opacity 1s ease-out 1s;
+}
+
+.main_4block-right img {
+  width: 39.45rem; /* 610.667px ≈ 50vw */
+  height: 25vw; 
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.main_center-4block.show .main_4block-right img,
+.main_center-4block.show .main_4block-left {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* 5-й блок */
+.main_center-5block {
+  display: flex;
+  align-items: center;
+  
+}
+
+
+
+.main_center-5block img {
+  width: 39.70rem; /* 610.667px ≈ 50vw */
+  height: 25vw; 
+  order: 1;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.main_center-5block p {
+  padding-left: 10rem;
+  order: 2;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.main_center-5block .visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Анімації */
+@keyframes slideInFromLeft {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-inside {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-1.6vw, 1.2vw); } /* -20px, 15px */
+  50% { transform: translate(1.6vw, -1.2vw); } /* 20px, -15px */
+  75% { transform: translate(-1.2vw, -0.8vw); } /* -15px, -10px */
+  100% { transform: translate(0, 0); }
+}
+
+/* Медіа-запити для корекції */
+@media (max-width: 1515px) {
+  .center_1block-img {
+    height: 30vw; /* 433px ≈ 35vw */
+  }
+  
+  .center_1block-img img {
+    width: 50rem;
+  }
+  .main_center-2block-right img {
+    height: 30vw; 
+  }
+  .main_3block-left img {
+    height: 30vw; 
+  }
+  .main_4block-right img {
+    height: 30vw; 
+  
+  }
+  .main_center-5block img {
+    height: 30vw; 
+  
+  }
+  .main_4block-left p{
+    padding: 0 2rem;
+  }
+  
+}
+@media (max-width: 1269px) {
+  p{
+    font-size: 1.3rem;
+  }
+  
+  .center_1block-img {
+    height: 50vw; /* 433px ≈ 35vw */
+  }
+  
+  .center_1block-img img {
+    width: 40rem;
+  }
+  .main_center-2block-right{
+    width:50rem;
+  }
+  .main_center-2block-right img {
+    width: 37rem;
+    height: 25vw; 
+  }
+  .main_3block-left {
+    width: 50rem;
+  }
+  .main_3block-left img {
+   width: 35.5rem;
+    height: 25vw; 
+  }
+  .main_3block-right{
+    margin-left: 2rem;
+  }
+  .main_4block-right img {
+    width: 35.5rem;
+    height: 25vw; 
+  
+  }
+  .main_center-5block img {
+    width: 35.5rem;
+    height: 25vw; 
+  
+  }
+  .main_4block-left p{
+    padding: 0 2rem;
+  }
+}
+
+
+@media (max-width: 1025px) {
+  p{
+    font-size: 1rem;
+  }
+  .center_block_h1{
+    margin-top: -1rem;
+  }
+  .center_1block-img {
+    width: 30rem;
+    height: 30vw; /* 433px ≈ 35vw */
+  }
+  
+  .center_1block-img img {
+    width: 35rem;
+    height: 25rem;
+  }
+  .main_center-2block-right{
+    width:50rem;
+  }
+  .main_center-2block-right img {
+    width: 37rem;
+    height: 30vw; 
+  }
+  .main_3block-left {
+    width: 50rem;
+  }
+  .main_3block-left img {
+   width: 28.7rem;
+    height: 30vw; 
+  }
+  .main_3block-right{
+      padding-right: 2rem;
+  }
+  .main_4block-right img {
+    width: 28.3rem;
+    height: 30vw; 
+  
+  }
+  .main_4block-right{
+    width: 28rem;
+  }
+  .main_4block-left p{
+    padding: 0 2rem;
+  }
+  .main_center-5block img {
+    width: 29rem;
+    height: 30vw; 
+  
+  }
+  .center-5block-right{
+    margin-left: -2.2rem;
+  }
+}
+
+
+
+@media (max-width: 767px) {
+  body{
+    overflow-x: hidden;
+  }
+  .main_4block-left {
+    width: 100%;
+  }
+  .main_4block-left p {
+    width: 100vw;
+    max-width: none;
+    padding: 0 1rem;
+    margin-left: -6rem;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+  }
+  .center-5block-right p {
+    width: 100vw;
+    max-width: none;
+    padding: 0 1rem;
+    margin-right: -35rem;
+    font-size: 1.1rem;
+    margin-left: 0;
+    box-sizing: border-box;
+  }
+}
+  p {
+    width: 100%; /* Параграф займає всю ширину контейнера */
+    max-width: none; /* Прибираємо обмеження ширини */
+    padding: 0 1rem; /* Додаємо невеликі горизонтальні відступи для естетики */
+    margin: 0; /* Прибираємо зовнішні відступи */
+    box-sizing: border-box; /* Враховуємо відступи у ширині */
+  }
+  .main__top_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .main_top_h1{
+    font-size: 2.2rem;
+  }
+  .main_top_p{
+    font-size: 1.7rem;
+  }
+  .center_1block{
+    flex-direction: column;
+  }
+  .center_1block-img{
+    width: 100%;
+  }
+  .center_1block-img img {
+    animation: none;
+    width: 100%;
+    height: 100%; /* Змінюй при потребі */
+    object-fit: cover; /* Обрізає зайві частини, щоб заповнити блок */
+    object-position: top; /* Змінюй на left, right, top, bottom */
+  }
+  .center_1block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .center_1block-text p{
+    font-size: 1.3rem;
+  }
+  .main_center-2block{
+    flex-direction: column-reverse;
+
+  }
+  .main_center-2block-right img{
+    width: 100%;
+    height: auto;
+  }
+  .main_center-2block-right{
+    width: 100%;
+  }
+  .block-left-h1 p{
+    font-size: 1.1rem;
+  }
+  .main_center-2block-left :nth-child(2){
+    font-size: 1rem;
+
+  }
+  .main_center-2block-left{
+    margin-bottom: 2rem;
+  }
+  .main_center-3block{
+    flex-direction: column-reverse;
+  }
+  .main_3block-right p{
+    font-size: 1.1rem;
+  }
+  .main_3block-left{
+    width: 100%;
+  }
+  .main_3block-left img{
+    width: 100%;
+    height: auto;
+  }
+  .main_center-4block{
+    flex-direction: column;
+  }
+  .main_4block-left p{
+    font-size: 1.1rem;
+  }
+ .main_4block-right{
+  width: 100%;
+
+ }
+ .main_4block-right img{
+  width: 100%;
+  height: auto;
+ }
+ .main_center-5block{
+ flex-direction: column-reverse;
+
+ }
+ .center-5block-left img{
+  width: 100%;
+  height: auto;
+ }
+ .center-5block-left{
+  width: 100%;
+  border: 1px solid #000;
+ }
+ .center-5block-right p{
+  font-size: 1.1rem;
+  margin-left: -2rem;
+ }
+ .center_block_h1{
+  margin-left: 5rem;
+ }
+ 
+
+
+
+@media (max-width: 530px) {
+  .main_4block-left p {
+    width: 100vw;
+    max-width: none;
+    padding: 0 1rem;
+    margin: 0;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    position: relative;
+    left: calc(-1 * ((100vw - 100%) / 2)); /* Зсуваємо вліво */
+  }
+  .center-5block-right p {
+    width: 100vw;
+    max-width: none;
+    padding: 0 1rem;
+    margin: 0;
+    font-size: 1.1rem;
+    margin-left: 5.5rem;
+    box-sizing: border-box;
+    position: relative;
+    left: calc(-1 * ((100vw - 100%) / 2)); /* Зсуваємо вліво */
+  }
+  .main__wrapper {
+    width: 100vw; /* Розширюємо контейнер на весь в’юпорт */
+    max-width: none;
+    margin: 0;
+    overflow-x: hidden; /* Додаємо, щоб контейнер не викликав скрол */
+  }
+  
+}
