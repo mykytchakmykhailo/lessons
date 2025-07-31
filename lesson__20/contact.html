@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MykyWeb | Контакти</title>
   <link rel="stylesheet" href="./css/contact.css">
+  <script>console.log("HTML and CSS link loaded");</script>
 </head>
 <body>
   <!-- Навігація -->
@@ -34,42 +35,52 @@
     <div class="container">
       <h2>Зв’яжіться з нами</h2>
       <p>Готові розпочати? Заповніть форму для обговорення вашого проекту!</p>
-      <form id="contact-form" class="contact-form fade-in" action="https://script.google.com/macros/s/AKfycbxcVxyHUcApGyFHUfNDkrmU94tN5KIBFDoI7IiYxDS4qgrAPdx1vcxFd_i1pFlr82lPlA/exec">
-        <div class="form-group">
-          <label for="name">Ім’я</label>
-          <input type="text" id="name" name="name" placeholder="Ваше ім’я" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Ваш email" required>
-        </div>
-        <div class="form-group">
-          <label for="country">Ваша країна</label>
-          <select id="country" name="country" required>
-            <option value="" disabled selected>Оберіть країну</option>
-            <option value="Україна">Україна</option>
-            <option value="США">США</option>
-            <option value="Польща">Польща</option>
-            <option value="Німеччина">Німеччина</option>
-            <option value="Інша">Інша</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="service">Послуги</label>
-          <select id="service" name="service" required>
-            <option value="" disabled selected>Оберіть послугу</option>
-            <option value="Веб-сайти">Веб-сайти</option>
-            <option value="Дизайн">Дизайн</option>
-            <option value="Інтеграція та підтримка">Інтеграція та підтримка</option>
-            <option value="Усі послуги">Усі послуги</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Повідомлення</label>
-          <textarea id="message" name="message" placeholder="Ваше повідомлення" required></textarea>
-        </div>
-        <button type="submit" class="contact-btn">Відправити</button>
-      </form>
+      <div class="form-wrapper">
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="name">Ім’я</label>
+            <input type="text" id="name" name="name" placeholder="Ваше ім’я" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Ваш email" required>
+          </div>
+          <div class="form-group">
+            <label for="platforms">Додаткові платформи</label>
+            <input type="text" id="platforms" name="platforms" placeholder="Напр., Telegram: @username, WhatsApp: +123456789">
+          </div>
+          <div class="form-group">
+            <label for="country">Ваша країна</label>
+            <select id="country" name="country" required>
+              <option value="" disabled selected>Оберіть країну</option>
+              <option value="Україна">Україна</option>
+              <option value="США">США</option>
+              <option value="Польща">Польща</option>
+              <option value="Німеччина">Німеччина</option>
+              <option value="Інша">Чеська республіка</option>
+              <option value="Інша">Словакія</option>                           
+              <option value="Інша">Венгрія</option>
+              <option value="Інша">Інша</option>
+
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="service">Послуги</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Оберіть послугу</option>
+              <option value="Веб-сайти">Веб-сайти(верстка з 0)</option>
+              <option value="Дизайн">Дизайн</option>
+              <option value="Інтеграція та підтримка">Інтеграція та підтримка</option>
+              <option value="Усі послуги">Усі послуги (під ключ)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Повідомлення</label>
+            <textarea id="message" name="message" placeholder="Ваше повідомлення" required></textarea>
+          </div>
+          <button type="submit" class="contact-btn">Відправити</button>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -80,15 +91,15 @@
     </div>
   </footer>
 
+  <!-- Скрипти -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/form-submit.js"></script>
+  <script src="./js/contact-animation.js"></script>
   <script>
     document.querySelector('.menu-toggle').addEventListener('click', () => {
       document.querySelector('.nav-menu').classList.toggle('active');
       document.querySelector('.menu-toggle').classList.toggle('active');
     });
   </script>
-  <script src="js/scroll.js"></script>
-  <script src="js/scrolltwo.js"></script>
-  <script src="js/scrollthree.js"></script>
-  <script src="js/form-submit.js"></script>
 </body>
 </html>
