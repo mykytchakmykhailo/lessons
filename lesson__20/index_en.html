@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MykyWeb | Digital Solutions for Your Business</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <h1 class="logo">
+        <span class="logo-top">MykyWeb</span><br>
+        <span class="logo-bottom">MykyWeb</span>
+      </h1>
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="price_en.html">Pricing</a></li>
+        <li><a href="contact_en.html">Contact</a></li>
+        <li class="lang-switch">
+          <a href="index.html">UA</a> |
+          <a href="index_en.html" class="active">EN</a> |
+          <a href="index_cz.html">CZ</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <section id="home">
+    <div class="container">
+      <div class="img_animation fade-in">
+        <div class="img_an-left">           
+          <div class="img_anim-1"><img src="img/main/1.png" alt=""></div>
+          <div class="img_anim-2"><img src="img/main/2.png" alt=""></div>
+          <div class="img_anim-3"><img src="img/main/3.png" alt=""></div>
+        </div>
+        <div class="img_an-right">            
+          <div class="img_anim-4"><img src="img/main/4.png" alt=""></div>
+        </div>
+      </div>
+      <div class="text_sub-img">     
+        <h2>Digital Solutions for Your Business</h2>
+        <h3>High-tech websites, unique design, transparent pricing</h3>
+      </div>
+      <div class="butt_cena">  
+        <a href="price_en.html" class="btn">Find Out Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section id="about">
+    <div class="container">
+      <h3 class="fade-in">About Us</h3>
+      <div class="fade-in">
+        <p>I am a self-taught web developer currently studying at the University of Information Technology. I create modern and functional web solutions: from landing pages to multi-page websites. My services include developing basic and budget-friendly designs, connecting forms to Telegram, hosting websites on domains, and basic JavaScript for interactivity. I work with HTML, CSS, SCSS, and JavaScript to build websites that help businesses grow.</p>
+        <p>My goal is to provide high-quality and affordable solutions for clients worldwide. If you want a stylish and effective website for your business, fill out the form or click the button below!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="grid">
+        <div class="card fade-in-left">
+          <h3>Websites</h3>
+          <p>Landing pages for quick online business launches.<br>
+             Simple websites for small businesses or personal projects.<br>
+             Multi-page websites for companies with extended functionality.<br>
+             Responsive design for proper display on all devices.</p>
+        </div>
+        <div class="card">
+          <h3>Design</h3>
+          <p>Basic designs for a quick start at an affordable price.<br>
+             Budget custom designs for a unique website look.<br>
+             Working with HTML, CSS, SCSS to create modern interfaces.</p>
+        </div>
+        <div class="card fade-in-right">
+          <h3>Integration & Support</h3>
+          <p>Connecting forms to Telegram for convenient lead collection.<br>
+             Hosting websites on domains for a full launch.<br>
+             Basic JavaScript for adding interactive elements.<br>
+             Working with clients worldwide for global reach.</p>
+       ECCE
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <div class="container">
+      <h2>Portfolio</h2>
+      <div class="grid">
+        <div class="card fade-in-left-portfolio">
+          <h3>Project 1</h3>
+          <a href="https://mykytchakmykhailo.github.io/lessons/lesson__11/"><p>A simple adaptive HTML/CSS project created during learning with humorous content. Demonstrates basic layout and text handling skills.</p></a>
+        </div>
+        <div class="card">
+          <h3>Project 2</h3>
+          <a href="https://mykytchakmykhailo.github.io/lessons/lesson__17/"><p>Created an adaptive landing page on the theme "Minimalist Room" to showcase layout and design skills. The site includes sections describing the project, design process, and achievements in interior design.</p></a>
+        </div>
+        <div class="card fade-in-right-portfolio">
+          <h3>Project 3</h3>
+          <a href="https://mykytchakmykhailo.github.io/lessons/lesson__18/"><p>Created an adaptive landing page to demonstrate web development skills. Used HTML, CSS, and SCSS for modern design and basic JavaScript for interactivity (e.g., scroll animations and burger menu).</p></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Ready to start? Write to discuss your project!</p>
+      <div class="flex">
+            <a href="mailto:mykytchak.mykhailo@student.uzhnu.edu.ua?subject=Запит%20на%20обговорення%20проєкту" class="contact-btn" target="_blank">Write email</a>
+        <a href="contact.html" class="contact-btn">Feedback Form</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 MykyWeb. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('.nav-menu').classList.toggle('active');
+      document.querySelector('.menu-toggle').classList.toggle('active');
+    });
+  </script>
+      <script src="js/mail.js"></script>
+
+  <script src="js/scroll.js"></script>
+  <script src="js/scrolltwo.js"></script>
+  <script src="js/scrollthree.js"></script>
+  <script src="js/jakor.js"></script>
+  <script src="js/form-submit.js"></script>
+</body>
+</html>
