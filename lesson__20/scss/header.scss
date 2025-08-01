@@ -1,0 +1,510 @@
+
+@import "reset.scss";
+@import url('https://fonts.googleapis.com/css?family=Bad+Script:400,700&display=swap');
+
+header {
+
+    font-family: "Bad Script",sans-serif;
+    margin: 0 auto;
+    height: 165px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.header_wrap{
+    z-index: 9;
+    background: rgb(175, 246, 139);
+        width: 100%;
+        height: 95px;
+
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.header_logo img{
+    
+width: 155px;
+    height: auto;      /* Збереже пропорції */
+    display: block;   
+}
+
+@media (max-width: 1025px){
+    
+   
+    .header_logo img{
+        width: 170px;
+    }
+    header{
+        height: 120px;
+        font-size: 18px;
+    }
+}
+@media (max-width: 769px){
+    .header_logo{
+        margin-right: 0%;
+    }
+    .header_logo img{
+        width: 140px;
+    }
+    header{
+        height: 110px;
+        font-size: 17px;
+    }
+    
+    
+}
+
+
+
+
+.header__menu {
+    display: flex;
+    padding: 20px; /* Внутрішні відступи */
+}
+
+.header-menu {
+    gap: 30px;
+    display: flex;
+}
+@media (max-width: 769px){
+    
+    .header-menu{
+        flex-direction: column;
+        position: absolute;
+        left: 80%;
+        top: 12%;
+        background: rgb(175, 246, 139);
+        transition: 1s;
+        
+    } 
+}
+
+
+
+
+
+
+
+
+
+.menu_golovna {
+    position: relative;
+    display: inline-block;
+    
+    // Базовий стан псевдоелемента (завжди присутній)
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0; // Початкова ширина 0
+        height: 3px;
+        background-color: rgb(0, 0, 0);
+        transition: width 0.3s ease-out; // Додаємо плавний перехід
+    }
+
+    &:hover {
+        color: rgb(0, 0, 0);
+        text-shadow: 5px 5px 20px #04890f;
+        transition: 0.3s;
+        &::after {
+            box-shadow: 10px 10px 10px #000;
+            width: 100%; // Розширюється до 100% при наведенні
+        }
+    }
+}
+
+
+
+.menu_portf {
+    position: relative;
+    display: inline-block;
+    
+    // Базовий стан псевдоелемента (завжди присутній)
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0; // Початкова ширина 0
+        height: 3px;
+        background-color: rgb(0, 0, 0);
+        transition: width 0.3s ease-out; // Додаємо плавний перехід
+    }
+
+    &:hover {
+        color: rgb(0, 0, 0);
+        transition: 0.5s;
+        text-shadow: 5px 5px 20px #04890f;
+        &::after {
+            box-shadow: 10px 10px 10px #000;
+            width: 100%; // Розширюється до 100% при наведенні
+        }
+    }
+}
+
+
+
+
+//це кнопка
+.menu__poslugy {
+    position: relative;
+    display: inline-block;
+    
+    // Базовий стан псевдоелемента (завжди присутній)
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0; // Початкова ширина 0
+        height: 3px;
+        background-color: rgb(0, 0, 0);
+        transition: width 0.3s ease-out; // Додаємо плавний перехід
+    }
+
+    &:hover {
+        color: rgb(0, 0, 0);
+        transition: 0.5s;
+        text-shadow: 5px 5px 20px #04890f;
+        &::after {
+            box-shadow: 10px 10px 10px #000;
+            width: 100%; // Розширюється до 100% при наведенні
+        }
+    }
+}
+.menu__poslugy {
+    position: relative;
+}
+
+.submenu {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    background-color: #06fe026c; /* Колір фону */
+    width: 200px; /* Збільшена ширина */
+    border-radius: 20px; /* Закруглені кути для квадратного вигляду */
+    padding: 10px; /* Внутрішні відступи */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Тінь для об'єму */
+}
+
+.menu__poslugy:hover .submenu {
+    max-height: 290px; /* Збільшена висота */
+    opacity: 1;
+}
+
+.submenu li {
+    list-style: none;
+    margin: 5px 0; /* Відступи між пунктами */
+}
+
+.submenu a {
+    display: block;
+    text-decoration: none;
+    white-space: nowrap; /* Запобігає перенесенню тексту */
+    padding: 5px 10px; /* Внутрішні відступи для посилань */
+    color: #333; /* Колір тексту */
+    transition: 0.3s;
+}
+
+.submenu a:hover {
+    background-color: #00ff483d; /* Ефект при наведенні */
+    border-radius: 10px;
+    text-shadow: 1px 1px 20px #000;
+}
+
+//це зверху стилізація для послуг для саб меню
+
+
+//це кнопка
+.menu_contact {
+    position: relative;
+    display: inline-block;
+    
+    // Базовий стан псевдоелемента (завжди присутній)
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0; // Початкова ширина 0
+        height: 3px;
+        background-color: rgb(0, 0, 0);
+        transition: width 0.3s ease-out; // Додаємо плавний перехід
+    }
+
+    &:hover {
+        color: rgb(0, 0, 0);
+        transition: 0.5s;
+        text-shadow: 5px 5px 20px #04890f;
+        &::after {
+            box-shadow: 10px 10px 10px #000;
+            width: 100%; // Розширюється до 100% при наведенні
+        }
+    }
+}
+//це стилізація для саб меню
+.menu_contact {
+    position: relative;
+}
+
+.submenu {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    left: -40px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    background-color: #fedc02f6;
+    width: 200px;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.menu_contact:hover .submenu {
+    max-height: 290px; /* Висота для 5 пунктів */
+    opacity: 1;
+}
+
+.submenu li {
+    list-style: none;
+    margin: 5px 0;
+}
+
+.submenu a {
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 5px 10px;
+    color: #333;
+    transition: 0.3s;
+}
+
+.submenu a:hover {
+    background-color: #00ff483d;
+    border-radius: 10px;
+    text-shadow: 1px 1px 20px #000;
+}
+
+//меню бургер//
+
+.burger {
+    display: none;
+    width: 35px;
+    height: 25px;
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+}
+@media (max-width: 769px){
+    
+    .burger{
+        display: flex;
+        
+    }
+    .burger span{
+        position: fixed;
+        left: 200%;
+    }
+}
+//випадаюче плавне меню/
+@media (max-width: 769px) {
+    .submenu{
+        position: absolute;
+        left: 114%;
+        top: -60%;
+    }
+    .header-menu {
+        border-radius: 10%;
+        width: 180px;
+        flex-direction: column;
+        position: absolute;
+        left: 0%;
+        top: 19%;
+        background-color: #0be01d89;
+        padding: 20px;
+        gap: 30px;
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+        display: none; /* Ховаємо без анімації спочатку */
+    }
+
+    .header-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        display: flex;
+        animation: bounceIn 0.8s ease forwards; /* Стрибки при появі */
+    }
+
+    .header-menu.closing {
+        animation: spinOut 0.8s ease forwards; /* Обертання при закритті */
+    }
+
+    .burger {
+        position: absolute;
+        left: 85%;
+        top: 33%;
+        display: flex;
+    }
+
+    .burger span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    40% { opacity: 1; transform: translateY(20px); }
+    60% { transform: translateY(-10px); }
+    80% { transform: translateY(4px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spinOut {
+    0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
+    100% { opacity: 0; transform: translateY(-20px) rotate(360deg); }
+}
+
+
+
+
+
+.burger span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #333, #666);
+    border-radius: 3px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.burger span:nth-child(1) {
+    top: 0;
+}
+
+.burger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burger span:nth-child(3) {
+    bottom: 0;
+}
+
+.burger.active span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Ховер-ефект */
+.burger:hover span {
+    background: linear-gradient(90deg, #444, #777);
+}
+
+
+
+.header-menu {
+    right: 20px; /* Притиснуте до правого краю */
+    padding: 20px; /* Внутрішні відступи */
+}
+.header-menu.active {
+    display: flex; /* Показуємо меню при active */
+}
+
+
+
+/* Для екранів 769px */
+@media (max-width: 769px) {
+    .header_logo{
+        margin-left: -5rem;
+    }
+    .header-menu {
+        font-size: 1.5rem;
+      border-radius: 10%;
+      width: 12rem;
+      flex-direction: column;
+      position: absolute;
+      left: 1.5rem; /* Переміщуємо меню ближче до правого краю */
+      top: 10rem; /* Зміщуємо трохи вище */
+      background: rgb(175, 246, 139);
+      padding: 20px;
+      gap: 30px;
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+      display: none;
+    }
+  
+    .header-menu.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      display: flex;
+      animation: bounceIn 0.8s ease forwards;
+    }
+  
+    .burger {
+      position: absolute;
+      left: 85%; /* Залишаємо бургер праворуч */
+      top: 33%;
+      display: flex;
+    }
+  }
+  
+  /* Для екранів 500px */
+  @media (max-width: 500px) {
+    .header_logo{
+        margin-left: -3rem;
+    }
+    .header-menu {
+        font-size: 1rem;
+      width: 12rem; /* Зменшуємо ширину для менших екранів */
+      position: absolute;
+      left: 0rem; /* Зсуваємо ще ближче до правого краю */
+      top: 6rem; /* Зміщуємо вище */
+      background: rgb(175, 246, 139);
+      padding: 15px; /* Зменшуємо відступи */
+    }
+  
+    .header-menu.active {
+      display: flex;
+    }
+  
+    .burger {
+      left: 80%; /* Зсуваємо бургер лівіше */
+      top: 30%; /* Зміщуємо вище */
+    }
+    .submenu{
+        left: 11rem;
+    }
+  }
