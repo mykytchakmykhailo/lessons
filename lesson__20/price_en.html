@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MykyWeb | Pricing</title>
+  <link rel="stylesheet" href="./css/pricing.css">
+  <script>console.log("HTML and CSS link loaded");</script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <h1 class="logo">
+        <span class="logo-top">MykyWeb</span><br>
+        <span class="logo-bottom">MykyWeb</span>
+      </h1>
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index_en.html#home">Home</a></li>
+        <li><a href="index_en.html#about">About Us</a></li>
+        <li><a href="index_en.html#services">Services</a></li>
+        <li><a href="index_en.html#portfolio">Portfolio</a></li>
+        <li><a href="price_en.html">Pricing</a></li>
+        <li><a href="contact_en.html">Contact</a></li>
+        <li class="lang-switch">
+          <a href="price.html">UA</a> |
+          <a href="price_en.html" class="active">EN</a> |
+          <a href="price_cz.html">CZ</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Pricing Section -->
+  <section id="pricing-section" class="pricing-section">
+    <div class="container">
+      <h2>Our Pricing</h2>
+      <p>Explore our rates for professional web development and design services.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card" data-direction="left">
+          <h3>Template Landing Page Design</h3>
+          <p class="price">$80</p>
+          <p>Fast template-based landing page design. Customization of ready-made layouts, color and font adjustments, basic optimization for your needs. Ideal for startups and small businesses.</p>
+        </div>
+        <div class="pricing-card" data-direction="right">
+          <h3>Simple Template-Based Pixel-Perfect Layout</h3>
+          <p class="price">$100</p>
+          <p>Precise layout of a single-page landing page using a pixel checker. Basic adaptation with HTML, CSS, and SCSS for all devices. Ideal for startups and small businesses. No complex animations or integrations. Timeline: 3-5 days.</p>
+        </div>
+        <div class="pricing-card" data-direction="left">
+          <h3>Layout with Animations and JavaScript</h3>
+          <p class="price">$170</p>
+          <p>Precise landing page layout with pixel-perfect checker and basic JavaScript. Includes complex animations and appearance effects, adapted with HTML, CSS, and SCSS for all devices. Ideal for modern projects with unique designs. Timeline: 5-7 days.</p>
+        </div>
+        <div class="pricing-card" data-direction="right">
+          <h3>Two-Page Landing Layout with Animations</h3>
+          <p class="price">$180–$250</p>
+          <p>Precise layout of a two-page landing page with pixel-perfect checker and basic JavaScript. Includes complex animations and appearance effects, adapted with HTML, CSS, and SCSS for all devices. Additional page for $75 available only with the main layout order. Ideal for modern projects with unique designs.</p>
+        </div>
+        <div class="pricing-card" data-direction="left">
+          <h3>Form Integration with Telegram via Axios</h3>
+          <p class="price">$50</p>
+          <p>Connecting contact forms to Telegram using Axios for convenient lead collection. Precise integration via Telegram Bot API, tailored to your layout.</p>
+        </div>
+        <div class="pricing-card" data-direction="right">
+          <h3>Remote Technical Support for Driver Installation</h3>
+          <p class="price">$20</p>
+          <p>Remote assistance with installing drivers for your PC or devices. Diagnosis, search, and installation of up-to-date drivers via video call or remote access. Works only with Windows.</p>
+        </div>
+        <div class="pricing-card" data-direction="left">
+          <h3>Domain Purchase and Website Hosting</h3>
+          <p class="price">$40–$100</p>
+          <p>Purchase of a domain name of your choice and hosting of the finished layout on the domain without an admin panel. Includes domain registration, file uploads to hosting, DNS setup, and basic functionality checks.</p>
+        </div>
+        <div class="pricing-card" data-direction="right">
+          <h3>All-Inclusive</h3>
+          <p class="price">$550–$800</p>
+          <p>Design (template or unique)<br>
+             Responsive layout (HTML, SCSS, JS, animations)<br>
+             Two pages<br>
+             Form integration with Telegram<br>
+             Domain purchase and hosting</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 MykyWeb. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./js/pricing-animation.js"></script>
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('.nav-menu').classList.toggle('active');
+      document.querySelector('.menu-toggle').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
