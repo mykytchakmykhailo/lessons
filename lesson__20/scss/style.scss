@@ -1,0 +1,1820 @@
+@import "reset.scss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Prata&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Prata&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: RGB(28, 26, 34);
+  
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Навігація */
+nav {
+  background: rgb(28, 26, 34);
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav .container {
+  background-color: rgb(28, 26, 34);
+  font-family: "Prata", serif;
+  font-weight: 400;
+  overflow: hidden;
+  position: relative;
+  height: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 9%;
+  width: 83%;
+  height: 1px;
+  background-color: #a09898;
+}
+
+nav .logo {
+  visibility: visible;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f8f8f8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav .logo:hover .logo-top {
+  transform: translateY(-40px);
+  transition: 0.3s;
+}
+
+nav .logo:hover .logo-bottom {
+  transform: translateY(-29px);
+  transition: 0.3s;
+}
+
+.logo-top {
+  transition: 0.7s;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.logo-bottom {
+  transition: 0.8s;
+  position: absolute;
+  top: 32px;
+  left: 0;
+}
+
+nav .nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  font-family: "Inter", sans-serif;
+}
+
+nav .nav-menu li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+nav .nav-menu li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #facc15;
+  transition: width 0.3s ease;
+}
+
+nav .nav-menu li a:hover::after {
+  width: 100%;
+}
+
+nav .nav-menu li a:hover {
+  color: #facc15;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.menu-toggle span::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: #facc15;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease;
+}
+
+.menu-toggle:hover span::before {
+  width: 100%;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  background-color: #facc15;
+}
+
+.menu-toggle.active span:nth-child(1)::before {
+  width: 0;
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+  background-color: #facc15;
+}
+
+.menu-toggle.active span:nth-child(3)::before {
+  width: 0;
+}
+
+/* Головна секція й зображення */
+.img_animation {
+  display: flex;
+  padding-bottom: 7%;
+}
+
+.img_animation img {
+  width: 60%;
+  height: 20%;
+}
+
+.img_an-left {
+  margin-left: 8%;
+}
+
+.img_anim-1 img {}
+
+.img_anim-2 img {}
+
+.img_anim-3 img {
+  width: 50%;
+}
+
+.img_anim-4 {}
+
+.img_anim-4 img {
+  width: 55%;
+}
+
+/* Анімація для 1 блоку */
+.img_anim-1, .img_anim-2, .img_anim-3 {
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: slideInLeft 1s ease-in-out forwards, pulse 2s ease-in-out infinite;
+  position: relative;
+}
+
+.img_anim-1 {
+  animation-delay: 0.2s, 2s;
+}
+
+.img_anim-2 {
+  animation-delay: 0.5s, 2s;
+}
+
+.img_anim-3 {
+  animation-delay: 0.8s, 2s;
+}
+
+.img_anim-4 {
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideInRight 1.3s ease-in-out forwards;
+  animation-delay: 1.2s;
+  position: relative;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(0) scale(1.05); }
+}
+
+.text_sub-img h2 {
+  font-family: "Inter", sans-serif;
+  color: rgb(250, 204, 21);
+}
+
+.text_sub-img h3 {
+  color: #B19B71;
+  font-size: 1.5rem;
+  margin-bottom: 5%;
+}
+
+.butt_cena {}
+
+#home {
+  background-color: rgb(28, 26, 34);
+  color: #ffffff;
+  padding: 8rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(28, 26, 34);
+  opacity: 0.2;
+}
+
+.img_an-right img {
+  width: 50%;
+  margin-left: -30px;
+}
+
+.container div {
+  color: #B19B71;
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+}
+
+.img_an-right img {
+  top: -10rem;
+  position: relative;
+  align-items: center;
+  width: 50rem;
+  height: 50rem;
+  margin-left: 10px;
+}
+
+#home .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 1.2s ease-out;
+}
+
+/* JavaScript поява */
+.fade-in {
+  margin-bottom: 5%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 3s ease-out, transform 0.3s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Затримка для елементів */
+.fade-in:nth-child(1) {
+  transition: 3s;
+  transition-delay: 1s;
+}
+
+.fade-in:nth-child(2) {
+    transition: 1s;
+
+  transition-delay: 1.3s;
+}
+
+/* Анімація для кнопки */
+.btn {
+  background: linear-gradient(45deg, #facc15, #ffd700, #ff6f00, #d4a017, #1e90ff, #00b7eb, #ff1493, #c71585, #facc15, #ffd700);
+  background-size: 800% 800%;
+  color: #0b1222;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10;
+  animation: gradientCycle 33s cubic-bezier(0.33, 0, 0.67, 1) infinite, pulse 2s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #facc15, #ffd700, #ff6f00, #d4a017, #1e90ff, #00b7eb, #ff1493, #c71585, #facc15, #ffd700);
+  background-size: 800% 800%;
+  animation: gradientCycle 55s cubic-bezier(0.33, 0, 0.67, 1) infinite, pulse 2s ease-in-out infinite;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Секція "Про нас" */
+#about {
+  padding: 6rem 1rem;
+  text-align: center;
+  background-color: rgb(28, 26, 34);
+}
+
+#about .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 1.2s ease-out;
+  
+}
+
+#about .container {
+  margin-top: -7rem;
+  
+}
+
+#about h3 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #facc15;
+}
+
+#about p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent);
+}
+
+/* Секція "Послуги" */
+#services {
+  background-color: rgb(28, 26, 34);
+  padding: 1rem 1rem;
+}
+
+#services .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#services h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #facc15;
+}
+
+#services .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+#services .card {
+  background: rgb(32, 30, 38);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#services .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#services .card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #facc15;
+}
+
+#services .card p {
+  font-size: 1rem;
+  color: #d1d5db;
+}
+
+@media (min-width: 768px) {
+  #services .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Анімація для лівої картки */
+#services .fade-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition-delay: 0.1s;
+}
+
+#services .fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Анімація для правої картки */
+#services .fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  transition-delay: 0.1s;
+}
+
+#services .fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Секція "Портфоліо" */
+#portfolio {
+  padding: 6rem 1rem;
+  background-color: rgb(28, 26, 34);
+}
+
+#portfolio .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#portfolio h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #facc15;
+}
+
+#portfolio .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+#portfolio .card {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#portfolio .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#portfolio .card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-size: 800% 800%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+#portfolio .card:hover::before {
+  opacity: 1;
+  animation: gradientCycle 60s linear infinite;
+}
+
+#portfolio .card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #facc15;
+}
+
+#portfolio .card p {
+  font-size: 1rem;
+  color: #d1d5db;
+}
+
+@media (min-width: 768px) {
+  #portfolio .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Анімація для лівої картки портфоліо */
+#portfolio .fade-in-left-portfolio {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 4s;
+}
+
+#portfolio .fade-in-left-portfolio.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Анімація для правої картки портфоліо */
+#portfolio .fade-in-right-portfolio {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 4s;
+}
+
+#portfolio .fade-in-right-portfolio.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Секція "Контакти" */
+#contact {
+  background-color: rgb(28, 26, 34);
+  color: #ffffff;
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+#contact .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+#contact p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #d1d5db;
+}
+
+#contact .flex {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+#contact .btn {
+  background: linear-gradient(45deg, #facc15, #ffd700);
+  color: #0b1222;
+}
+
+.contact-btn {
+  background: linear-gradient(45deg, #facc15, #ffd700, #ff6f00, #d4a017, #1e90ff, #00b7eb, #ff1493, #c71585, #facc15, #ffd700);
+  background-size: 800% 800%;
+  color: #0b1222;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10;
+  animation: gradientCycle 33s cubic-bezier(0.33, 0, 0.67, 1) infinite, pulse 2s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: linear-gradient(45deg, #facc15, #ffd700, #ff6f00, #d4a017, #1e90ff, #00b7eb, #ff1493, #c71585, #facc15, #ffd700);
+  background-size: 800% 800%;
+  animation: gradientCycle 55s cubic-bezier(0.33, 0, 0.67, 1) infinite, pulse 2s ease-in-out infinite;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Футер */
+footer {
+  background-color: rgb(28, 26, 34);
+  color: #d1d5db;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+/* Анімація появи */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивність для малих екранів */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    z-index: 101; /* Вище за меню */
+  }
+
+  nav .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: rgb(28, 26, 34);
+    flex-direction: column;
+    padding: 2rem 1rem;
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    visibility: hidden; /* Замість display: none */
+  }
+
+  nav .nav-menu.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible; /* Замість display: flex */
+  }
+
+  nav .nav-menu li {
+    margin: 1rem 0;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  nav .nav-menu.active li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  nav .nav-menu li:nth-child(1) { transition-delay: 0.1s; }
+  nav .nav-menu li:nth-child(2) { transition-delay: 0.2s; }
+  nav .nav-menu li:nth-child(3) { transition-delay: 0.3s; }
+  nav .nav-menu li:nth-child(4) { transition-delay: 0.4s; }
+  nav .nav-menu li:nth-child(5) { transition-delay: 0.5s; }
+  nav .nav-menu li:nth-child(6) { transition-delay: 0.6s; }
+  nav .nav-menu li:nth-child(7) { transition-delay: 0.7s; }
+
+  nav .nav-menu li a {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    display: block;
+  }
+
+  #home h2 {
+    font-size: 2rem;
+  }
+
+  #home p {
+    font-size: 1rem;
+  }
+
+  #about h2, #services h2, #portfolio h2, #contact h2 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  #contact .flex {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+
+
+//не чіпати поки що//
+
+/* Навігація */
+nav {
+  background: rgb(28, 26, 34);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+  height: auto;
+}
+
+nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 9%;
+  width: 83%;
+  height: 1px;
+  background-color: #a09898;
+}
+
+/* Логотип */
+nav .logo {
+  font-size: clamp(1.2rem, 3vw, 1.6rem); /* Адаптивний розмір шрифту для логотипу */
+  font-weight: 700;
+  color: #f8f8f8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+nav .logo-top {
+  transition: 0.7s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: inherit; /* Логотипи масштабуються разом з .logo */
+}
+
+nav .logo-bottom {
+  transition: 0.8s;
+  position: absolute;
+  top: clamp(1.5rem, 4vw, 2.1rem); /* Адаптивне позиціонування */
+  left: 0;
+  font-size: inherit; /* Логотипи масштабуються разом з .logo */
+}
+
+nav .logo:hover .logo-top {
+  transform: translateY(-40px); /* Без змін */
+  transition: 0.3s;
+}
+
+nav .logo:hover .logo-bottom {
+  transform: translateY(-29px); /* Без змін */
+  transition: 0.3s;
+}
+
+/* Меню */
+nav .nav-menu {
+  list-style: none;
+  display: flex;
+  gap: clamp(0.8rem, 2vw, 1.5rem); /* Адаптивний проміжок між пунктами меню */
+  font-family: "Inter", sans-serif;
+}
+
+nav .nav-menu li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: clamp(0.8rem, 2vw, 0.95rem); /* Адаптивний розмір шрифту меню */
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+nav .nav-menu li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #facc15;
+  transition: width 0.3s ease;
+}
+
+nav .nav-menu li a:hover::after {
+  width: 100%;
+}
+
+nav .nav-menu li a:hover {
+  color: #facc15;
+}
+
+/* Бургер-меню */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.menu-toggle span::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: #facc15;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease;
+}
+
+.menu-toggle:hover span::before {
+  width: 100%;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  background-color: #facc15;
+}
+
+.menu-toggle.active span:nth-child(1)::before {
+  width: 0;
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+  background-color: #facc15;
+}
+
+.menu-toggle.active span:nth-child(3)::before {
+  width: 0;
+}
+
+/* Медіа-запити */
+
+/* Планшети та малі екрани (до 768px) */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    z-index: 101;
+  }
+
+  nav .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: rgb(28, 26, 34);
+    flex-direction: column;
+    padding: 2rem 1rem;
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    visibility: hidden;
+  }
+
+  nav .nav-menu.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  nav .nav-menu li {
+    margin: 1rem 0;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  nav .nav-menu.active li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  nav .nav-menu li:nth-child(1) { transition-delay: 0.1s; }
+  nav .nav-menu li:nth-child(2) { transition-delay: 0.2s; }
+  nav .nav-menu li:nth-child(3) { transition-delay: 0.3s; }
+  nav .nav-menu li:nth-child(4) { transition-delay: 0.4s; }
+  nav .nav-menu li:nth-child(5) { transition-delay: 0.5s; }
+  nav .nav-menu li:nth-child(6) { transition-delay: 0.6s; }
+  nav .nav-menu li:nth-child(7) { transition-delay: 0.7s; }
+
+  nav .nav-menu li a {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Шрифт для бургер-меню */
+    padding: 0.5rem;
+    display: block;
+  }
+}
+
+/* Дуже малі екрани (до 480px) */
+@media (max-width: 480px) {
+  nav .logo {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Менший логотип */
+  }
+
+  nav .logo-bottom {
+    top: clamp(1.3rem, 3.5vw, 1.6rem); /* Адаптивне позиціонування */
+  }
+
+  nav .nav-menu {
+    width: 200px; /* Менша ширина меню */
+  }
+
+  nav .nav-menu li a {
+    font-size: clamp(0.7rem, 2vw, 0.9rem); /* Менший шрифт у бургер-меню */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//малі екрани//
+
+/* 2. Великі телефони / маленькі планшети (480px+) */
+
+
+
+/* 4. Ноутбуки (992px+) */
+@media (max-width: 992px) { 
+
+
+.container {
+}
+.logo {
+ 
+}
+
+.logo-top {
+}
+.logo-bottom {
+}
+.menu-toggle {
+  left: 47%;
+}
+.nav-menu {
+
+}
+.nav-menu {
+}
+.lang-switch {
+}
+.container {
+}
+.img_animation {
+}
+.fade-in {
+  flex-direction: column-reverse;
+}
+.img_an-left {
+  display: flex;
+
+}
+.img_an-left img{
+  width: 50%;
+  height: 100%;
+      position: relative;
+    left: -3%;
+  
+}
+.img_an-left{
+  position: absolute;
+  bottom: 0.5%;
+  left: 0;
+  
+}
+
+.img_anim-1 {
+}
+.img_anim-2 {
+
+}
+.img_anim-3 {
+  width: 130%;
+
+}
+.img_an-right {
+  
+}
+.img_anim-4 {
+}
+.img_anim-4 img{
+  
+}
+.text_sub-img {
+  padding-top:  5%;
+}
+.butt_cena {
+}
+.btn {
+}
+
+}
+
+
+
+/* 3. Планшети (768px+) */
+@media (max-width: 768px) { 
+  .img_an-right{
+    min-width: 300px;
+        position: relative;
+    left: -2%;
+
+  }
+  .img_anim-4 img{
+ width: 100%;
+ height: 70%; 
+}
+.nav-menu {
+}
+.container ul{
+  display: block;
+  top: 10%;
+  font-size: 0px;
+}
+.lang-switch ::before {
+  content: "";
+  background: #1C1A22;
+  width: 20px;
+  height: 20px;
+
+}
+
+/* Перемикач мов */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang-switch a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  font-weight: 500;
+  position: relative;
+  padding-left: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.lang-switch a:hover {
+  color: #facc15;
+}
+
+.lang-switch a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.2rem;
+  height: 1.2rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.lang-switch a[href="index.html"]::before {
+  background-image: url("../img/flags/ua.png");
+}
+
+.lang-switch a[href="index_en.html"]::before {
+  background-image: url("../img/flags/eng.png");
+}
+
+.lang-switch a[href="index_cz.html"]::before {
+  background-image: url("../img/flags/cz.png");
+}
+
+.img_anim-3 {
+  width: 180%;
+
+}
+}
+
+@media (max-width: 576px) {
+  .img_an-right{
+    min-width: 200px;
+    height: 25rem;
+        position: relative;
+    left: -3%;
+
+  }
+.img_anim-3 {
+  width: 240%;
+
+}
+
+} 
+
+
+@media (max-width: 480px) { 
+
+  .img_an-right{
+    position: relative;
+    left: -3%;
+    min-width: 200px;
+    height: 20rem;
+    
+
+  }
+.img_anim-3 {
+  width: 200%;
+
+}
+
+}
+
+
+
+
+
+
+
+
+/* Анімація для кнопок */
+@keyframes gradientCycle {
+  0% { background-position: 0% 50%; }
+  5% { background-position: 40% 50%; }
+  10% { background-position: 80% 50%; }
+  15% { background-position: 120% 50%; }
+  20% { background-position: 160% 50%; }
+  25% { background-position: 200% 50%; }
+  30% { background-position: 240% 50%; }
+  35% { background-position: 280% 50%; }
+  40% { background-position: 320% 50%; }
+  45% { background-position: 360% 50%; }
+  50% { background-position: 400% 50%; }
+  55% { background-position: 440% 50%; }
+  60% { background-position: 480% 50%; }
+  65% { background-position: 520% 50%; }
+  70% { background-position: 560% 50%; }
+  75% { background-position: 600% 50%; }
+  80% { background-position: 640% 50%; }
+  85% { background-position: 680% 50%; }
+  90% { background-position: 720% 50%; }
+  95% { background-position: 760% 50%; }
+  100% { background-position: 800% 50%; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.007); }
+}
+
+/* Стилі для кнопок */
+.btn {
+  background: linear-gradient(45deg, #facc15, #ffd700, #ff6f00, #d4a017, #1e90ff, #00b7eb, #ff1493, #c71585, #facc15, #ffd700);
+  background-size: 800% 800%;
+  color: #0b1222;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10;
+  animation: gradientCycle 33s cubic-bezier(0.33, 0, 0.67, 1) infinite, pulse 2s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #facc15, #ffd700, #ff6f00, #d4a017, #1e90ff, #00b7eb, #ff1493, #c71585, #facc15, #ffd700);
+  background-size: 800% 800%;
+  animation: gradientCycle 55s cubic-bezier(0.33, 0, 0.67, 1) infinite, pulse 2s ease-in-out infinite;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.contact-btn {
+  background: linear-gradient(45deg, #facc15, #ffd700, #ff6f00, #d4a017, #1e90ff, #00b7eb, #ff1493, #c71585, #facc15, #ffd700);
+  background-size: 800% 800%;
+  color: #0b1222;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10;
+  animation: gradientCycle 33s cubic-bezier(0.33, 0, 0.67, 1) infinite, pulse 2s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-btn:hover {
+  background: linear-gradient(45deg, #facc15, #ffd700, #ff6f00, #d4a017, #1e90ff, #00b7eb, #ff1493, #c71585, #facc15, #ffd700);
+  background-size: 800% 800%;
+  animation: gradientCycle 55s cubic-bezier(0.33, 0, 0.67, 1) infinite, pulse 2s ease-in-out infinite;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+
+
+
+
+/* Анімація для неонової обводки */
+@keyframes neonGlow {
+  0% { box-shadow: 0 0 10px #facc15, 0 0 20px #facc15, 0 0 30px #ffd700; }
+  20% { box-shadow: 0 0 10px #ff6f00, 0 0 20px #ff6f00, 0 0 30px #d4a017; }
+  40% { box-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #00b7eb; }
+  60% { box-shadow: 0 0 10px #ff1493, 0 0 20px #ff1493, 0 0 30px #c71585; }
+  80% { box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #facc15; }
+  100% { box-shadow: 0 0 10px #facc15, 0 0 20px #facc15, 0 0 30px #ffd700; }
+}
+
+/* Секція "Послуги" */
+#services {
+  padding: 6rem 1rem;
+  background-color: rgb(28, 26, 34);
+}
+
+#services .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#services h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #facc15;
+}
+
+#services .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+#services .card {
+  background: rgb(32, 30, 38); /* Однотонний фон, без градієнта */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid transparent;
+}
+
+#services .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px #facc15, 0 0 20px #facc15, 0 0 30px #ffd700;
+  animation: neonGlow 5s linear infinite;
+}
+
+#services .card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #facc15;
+}
+
+#services .card p {
+  font-size: 1rem;
+  color: #d1d5db;
+  flex-grow: 1;
+}
+
+/* Анімація для лівої картки */
+#services .fade-in-left-portfolio {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 1s;
+}
+
+#services .fade-in-left-portfolio.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Анімація для правої картки */
+#services .fade-in-right-portfolio {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 0.3s;
+}
+
+#services .fade-in-right-portfolio.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Секція "Портфоліо" */
+#portfolio {
+  padding: 6rem 1rem;
+  background-color: rgb(28, 26, 34);
+}
+
+#portfolio .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#portfolio h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #facc15;
+}
+
+#portfolio .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+#portfolio .card {
+  background: rgb(32, 30, 38); /* Однотонний фон, без градієнта */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid transparent;
+}
+
+#portfolio .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px #facc15, 0 0 20px #facc15, 0 0 30px #ffd700;
+  animation: neonGlow 5s linear infinite;
+}
+
+#portfolio .card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #facc15;
+}
+
+#portfolio .card p {
+  font-size: 1rem;
+  color: #d1d5db;
+  flex-grow: 1;
+}
+
+/* Анімація для лівої картки */
+#portfolio .fade-in-left-portfolio {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 1s;
+}
+
+#portfolio .fade-in-left-portfolio.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Анімація для правої картки */
+#portfolio .fade-in-right-portfolio {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 0.3s;
+}
+
+#portfolio .fade-in-right-portfolio.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Адаптивність для малих екранів */
+@media (max-width: 768px) {
+  #services .grid,
+  #portfolio .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  #services .card,
+  #portfolio .card {
+    min-height: auto; /* Адаптація до контенту */
+    width: 100%;
+    max-width: 100%; /* Запобігає розтягуванню */
+    box-sizing: border-box;
+  }
+
+  #services h2,
+  #portfolio h2 {
+    font-size: 2rem;
+  }
+
+  #services .card h3,
+  #portfolio .card h3 {
+    font-size: 1.3rem;
+  }
+
+  #services .card p,
+  #portfolio .card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #services .grid,
+  #portfolio .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Секція "Послуги" (#services) */
+#services .fade-in-left-portfolio {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 3s; /* Змінити затримку появи для карток зліва тут */
+}
+
+#services .fade-in-left-portfolio.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#services .fade-in-right-portfolio {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 6s; /* Змінити затримку появи для карток справа тут */
+}
+
+#services .fade-in-right-portfolio.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Секція "Портфоліо" (#portfolio) */
+#portfolio .fade-in-left-portfolio {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 1s; /* Змінити затримку появи для карток зліва тут */
+}
+
+#portfolio .fade-in-left-portfolio.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#portfolio .fade-in-right-portfolio {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: 2s; /* Змінити затримку появи для карток справа тут */
+}
+
+#portfolio .fade-in-right-portfolio.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+
+/* Секція "Послуги" (#services) */
+#services .fade-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition-delay: 2s; /* Змінити затримку появи для карток зліва тут */
+}
+
+#services .fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#services .fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  transition-delay: 3s; /* Змінити затримку появи для карток справа тут */
+}
+
+#services .fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+/* Логотип */
+.container{}
+
+nav .logo-top {
+  transition: 0.7s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: inherit; /* Логотипи масштабуються разом з .logo */
+}
+
+nav .logo-bottom {
+  transition: 0.8s;
+  position: absolute;
+  top: clamp(1.6rem, 4vw, 2.1rem); /* Адаптивне позиціонування */
+  left: 0;
+  font-size: inherit; /* Логотипи масштабуються разом з .logo */
+}
+
+nav .logo:hover .logo-top {
+  transform: translateY(-40px); /* Без змін */
+  transition: 0.3s;
+}
+
+nav .logo:hover .logo-bottom {
+  transform: translateY(-25px); /* Без змін */
+  transition: 0.3s;
+}
+
+
+}
+
+
+
+@media (max-width: 768px){
+  
+  .img_an-left{
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Закріплення меню на малих екранах */
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1rem;
+  }
+
+  /* Додаємо відступ для контенту, щоб він не перекривався меню */
+  body {
+   margin-top: 20%;
+    /* Висота меню + відступ, налаштуйте за потреби */
+  }
+
+  /* Забезпечуємо коректне відображення контейнера меню */
+  nav .container {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Корекція для бургер-меню */
+  .menu-toggle {
+    display: flex;
+    z-index: 101;
+  }
+
+  /* Корекція для навігаційного меню */
+  nav .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: rgb(28, 26, 34);
+    flex-direction: column;
+    padding: 2rem 1rem;
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    visibility: hidden;
+  }
+
+  nav .nav-menu.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+ .img_anim-4{
+  top: 12%;
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Плавне відкриття та закриття бургер-меню на малих екранах */
+@media (max-width: 768px) {
+
+
+
+
+  nav .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: rgb(28, 26, 34);
+    flex-direction: column;
+    padding: 2rem 1rem;
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  }
+
+  nav .nav-menu.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  }
+
+  nav .nav-menu li {
+    margin: 1rem 0;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  nav .nav-menu.active li {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  nav .nav-menu li:nth-child(1) { transition-delay: 0.1s; }
+  nav .nav-menu li:nth-child(2) { transition-delay: 0.2s; }
+  nav .nav-menu li:nth-child(3) { transition-delay: 0.3s; }
+  nav .nav-menu li:nth-child(4) { transition-delay: 0.4s; }
+  nav .nav-menu li:nth-child(5) { transition-delay: 0.5s; }
+  nav .nav-menu li:nth-child(6) { transition-delay: 0.6s; }
+  nav .nav-menu li:nth-child(7) { transition-delay: 0.7s; }
+}
+
+
+
+
+
+
+
+
+
+/* Стилі для блоку меню на малих екранах */
+@media (max-width: 768px) {
+  .nav-menu {
+    margin-top: 60px; /* Зміщуємо блок меню вниз */
+  
+  }
+  /* Зберігаємо відступ для контенту сторінки */
+
+}

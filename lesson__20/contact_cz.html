@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MykyWeb | Kontakt</title>
+  <link rel="stylesheet" href="./css/contact.css">
+  <script>console.log("HTML and CSS link loaded");</script>
+</head>
+<body>
+  <!-- Navigace -->
+  <nav>
+    <div class="container">
+      <h1 class="logo">
+        <span class="logo-top">MykyWeb</span><br>
+        <span class="logo-bottom">MykyWeb</span>
+      </h1>
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index_cz.html#home">Domů</a></li>
+        <li><a href="index_cz.html#about">O nás</a></li>
+        <li><a href="index_cz.html#services">Služby</a></li>
+        <li><a href="index_cz.html#portfolio">Portfolio</a></li>
+        <li><a href="price_cz.html">Ceny</a></li>
+        <li><a href="contact_cz.html">Kontakt</a></li>
+         <li class="lang-switch">
+          <a href="index.html">UA</a> |
+          <a href="index_en.html">EN</a> |
+          <a href="index_cz.html" >CZ</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Sekce formuláře -->
+  <section id="contact-form-section" class="contact-form-section">
+    <div class="container">
+      <h2>Kontaktujte nás</h2>
+      <p>Jste připraveni začít? Vyplňte formulář a prodiskutujeme váš projekt!</p>
+      <div class="form-wrapper">
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="name">Jméno</label>
+            <input type="text" id="name" name="name" placeholder="Vaše jméno" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Váš email" required>
+          </div>
+          <div class="form-group">
+            <label for="platforms">Další platformy</label>
+            <input type="text" id="platforms" name="platforms" placeholder="Např. Telegram: @username, WhatsApp: +123456789">
+          </div>
+          <div class="form-group">
+            <label for="country">Vaše země</label>
+            <select id="country" name="country" required>
+              <option value="" disabled selected>Vyberte zemi</option>
+              <option value="Ukrajina">Ukrajina</option>
+              <option value="USA">USA</option>
+              <option value="Polsko">Polsko</option>
+              <option value="Německo">Německo</option>
+              <option value="Česká republika">Česká republika</option>
+              <option value="Slovensko">Slovensko</option>
+              <option value="Maďarsko">Maďarsko</option>
+              <option value="Jiná">Jiná</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="service">Služby</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Vyberte službu</option>
+              <option value="Webové stránky">Webové stránky (od nuly)</option>
+              <option value="Design">Design</option>
+              <option value="Integrace a podpora">Integrace a podpora</option>
+              <option value="Všechny služby">Všechny služby (na klíč)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Zpráva</label>
+            <textarea id="message" name="message" placeholder="Vaše zpráva" required></textarea>
+          </div>
+          <button type="submit" class="contact-btn">Odeslat</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 MykyWeb. Všechna práva vyhrazena.</p>
+    </div>
+  </footer>
+
+  <!-- Skripty -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/form-submit.js"></script>
+  <script src="./js/contact-animation.js"></script>
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('.nav-menu').classList.toggle('active');
+      document.querySelector('.menu-toggle').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
