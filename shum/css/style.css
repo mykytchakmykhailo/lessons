@@ -1,0 +1,1056 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+body {
+  width: 100%;
+  background-color: #191009;
+  color: #ff6200;
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.header_wrapper {
+  width: 1270px;
+  margin: 0 auto;
+}
+
+.header {
+  position: fixed;
+  height: auto;
+  min-height: 4rem;
+  font-family: "Lobster", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+  width: 100%;
+  max-width: 1270px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; /* Змінено з space-between на center */
+  text-align: center;
+  padding: 10px 10px;
+  background-color: #191009;
+  box-sizing: border-box;
+  z-index: 1200;
+}
+
+.logo_header {
+  flex: 0 0 auto;
+}
+
+.logo_header img {
+  top: auto;
+  width: clamp(100px, 30vw, 120px);
+  height: auto;
+}
+
+.header nav {
+  margin-top: 0;
+  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header nav a {
+  color: #cac5c5;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-size: clamp(1.5rem, 2vw, 1.1rem);
+}
+
+.header nav a:hover {
+  color: lch(59.52% 88.49 51.3deg / 0.908);
+}
+
+.hero-block,
+.comedian-van-block,
+.new-photo-block,
+.comedian-block,
+.pro-nas-block,
+.kontakti-block {
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-img {
+  margin-top: 7rem;
+  width: 100%;
+  max-width: 1270px;
+  aspect-ratio: 16/9;
+  background-color: #191009;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-block img,
+.comedian-van-block img,
+.new-photo-block img,
+.comedian-block img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain; /* Зображення видно повністю */
+}
+
+.hero-block h1,
+.hero-block p,
+.comedian-van-block h2,
+.comedian-van-block p,
+.comedian-block h2,
+.comedian-block p,
+.new-photo-block h2,
+.new-photo-block p {
+  color: #c1aaaa;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 1270px;
+  background-color: #191009;
+}
+
+.pro-nas-block {
+  text-align: center;
+  width: 100%;
+  max-width: 1270px;
+  font-size: 1.3rem;
+}
+
+.kontakti-block {
+  text-align: center;
+  width: 100%;
+  max-width: 1270px;
+}
+
+.footer-block {
+  width: 100%;
+  text-align: center;
+  padding: 10px 15px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  margin: 0 auto;
+  max-width: 1270px;
+}
+
+/* Бургер-меню стилі */
+.burger-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: clamp(24px, 6vw, 32px); /* Адаптивна ширина */
+  height: clamp(18px, 4.5vw, 24px); /* Адаптивна висота */
+  position: relative;
+  z-index: 1300;
+}
+
+.burger-line {
+  display: block;
+  width: 100%;
+  height: clamp(2px, 0.5vw, 3px); /* Адаптивна товщина ліній */
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease; /* Плавна анімація */
+}
+
+.burger-line:nth-child(1) {
+  top: 0;
+}
+
+.burger-line:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger-line:nth-child(3) {
+  bottom: 0;
+}
+
+.burger-menu-toggle.active .burger-line:nth-child(1) {
+  transform: translateY(clamp(8px, 2vw, 10px)) rotate(45deg); /* Верхня лінія формує хрестик */
+}
+
+.burger-menu-toggle.active .burger-line:nth-child(2) {
+  opacity: 0; /* Середня лінія зникає */
+}
+
+.burger-menu-toggle.active .burger-line:nth-child(3) {
+  transform: translateY(clamp(-8px, -2vw, -10px)) rotate(-45deg); /* Нижня лінія формує хрестик */
+}
+
+.nav-menu {
+  display: flex;
+}
+
+.nav-menu.active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 250px;
+  height: 100vh;
+  background-color: #060201;
+  padding: 60px 20px 20px;
+  transition: left 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+.nav-menu.active.show {
+  left: 0;
+}
+
+.nav-menu.active a {
+  margin: 15px 0;
+  font-size: 1.2rem;
+}
+
+/* Медіа-запити */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 15px;
+  }
+  .logo_header img {
+    margin-bottom: 10px;
+  }
+  .header nav {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+  .burger-menu-toggle {
+    display: block;
+    position: absolute;
+    right: 15px; /* Виправлено вирівнювання */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .nav-menu.active {
+    display: flex;
+  }
+  .hero-block,
+  .comedian-van-block,
+  .new-photo-block,
+  .comedian-block,
+  .pro-nas-block,
+  .kontakti-block {
+    padding: 0;
+    max-width: 100%;
+  }
+  .comedian-block {
+    padding: 0 3rem;
+  }
+  .pro-nas-block,
+  .kontakti-block {
+    padding: 20px 10px;
+  }
+  .hero-block img,
+  .comedian-van-block img,
+  .new-photo-block img,
+  .comedian-block img {
+    height: auto;
+    max-height: 50vh;
+  }
+}
+@media (max-width: 480px) {
+  main {
+    overflow: hidden;
+  }
+  .header {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+  .logo_header img {
+    max-width: clamp(50px, 12vw, 60px);
+  }
+  .hero-block img,
+  .comedian-van-block img,
+  .new-photo-block img,
+  .comedian-block img {
+    max-height: 40vh;
+  }
+}
+nav a:nth-child(5) {
+  color: red;
+  font-weight: bold;
+}
+
+.hero-block p {
+  font-size: 2.2rem;
+}
+
+.comedian-block h2 {
+  font-size: 1.5rem;
+}
+
+.comedian-block h3 {
+  font-size: 2rem;
+}
+
+.comedian-block p {
+  font-size: 1.2rem;
+}
+
+.left_hero {
+  position: absolute;
+  rotate: -51deg;
+  top: 20;
+  left: 220px;
+  z-index: 2000;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+}
+
+.right_hero {
+  position: absolute;
+  top: -650px;
+  left: -600px;
+  rotate: 50deg;
+  z-index: 4600;
+}
+
+.left_vova {
+  position: absolute;
+  top: -550px;
+  left: -120px;
+  rotate: 80deg;
+  z-index: 4500;
+}
+
+.hero-img {
+  margin-top: 7rem;
+  width: 100%;
+  max-width: 1270px;
+  aspect-ratio: 16/9;
+  background-color: #191009;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Початкова прозорість для банера */
+  animation: fadeIn 2s ease-in-out forwards; /* Анімація появи банера */
+  position: relative; /* Для позиціонування дочірніх елементів */
+}
+
+/* Анімація появи банера */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Початкові позиції фотографій (за межами екрана) */
+.left_vova {
+  transform: translateX(-100%); /* Починає зліва за межами */
+  animation: slideInLeft 1s ease-in-out 1s forwards; /* Затримка 1с */
+}
+
+.right_hero {
+  transform: translateX(100%); /* Починає справа за межами */
+  animation: slideInRight 1s ease-in-out 2s forwards; /* Затримка 2с */
+}
+
+.left_hero {
+  transform: translateY(100%); /* Починає знизу за межами */
+  animation: slideInUp 1s ease-in-out 3s forwards; /* Затримка 3с */
+}
+
+/* Анімації для входу фотографій */
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInUp {
+  to {
+    transform: translateY(0);
+  }
+}
+/* Стилі для зображень у дочірніх контейнерах */
+.left_vova img,
+.right_hero img,
+.left_hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.hero-block h1 {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 1270px;
+  background-color: #191009;
+}
+
+.hero-block h1 span {
+  display: inline-block; /* Щоб масштабування впливало лише на текст */
+  animation: pulse 2s ease-in-out infinite; /* Пульсування тексту */
+  text-shadow: 0 0 15px rgba(255, 98, 0, 0.7); /* Початкове світіння */
+  animation: pulse 2s ease-in-out infinite, glow 4s ease-in-out infinite; /* Пульсування + зміна кольорів */
+}
+
+/* Анімація пульсування */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* Анімація різнокольорового світіння */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 15px rgba(255, 98, 0, 0.7); /* Помаранчевий (#ff6200) */
+  }
+  33% {
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Бірюзовий */
+  }
+  66% {
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.7); /* Фіолетовий */
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(255, 98, 0, 0.7); /* Повернення до помаранчевого */
+  }
+}
+.hero-block p {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: auto;
+  max-width: 1270px;
+  background-color: #191009;
+  font-size: 2.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ff6200;
+  display: inline-block;
+  width: 0;
+}
+
+.hero-block p.loaded {
+  animation: typing 1s steps(32, end) forwards 0.5s, blink 0.5s step-end infinite;
+}
+
+/* Анімація друкування */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 36ch; /* Збільшено для повного тексту */
+  }
+}
+/* Анімація мигаючого курсора */
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+}
+/* Стилі для секції коміків (ізольовані) */
+/* Контейнер для всіх блоків коміків */
+.comedian-container {
+  gap: 20px; /* Невеликий інтервал між блоками */
+}
+
+.comedian-container {
+  gap: 20px; /* Невеликий інтервал між блоками */
+}
+
+/* Стилі для окремих блоків коміків */
+.comedian-block {
+  opacity: 0; /* Початкова прозорість для анімації */
+  transform: translateY(50px); /* Початкове зміщення вниз */
+  animation: none; /* Без анімації за замовчуванням */
+  transition: opacity 2.5s ease-out, transform 1.5s ease-out; /* Плавний перехід */
+  background-color: #191009; /* Фон, щоб відповідати стилю сайту */
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* Клас для активації анімації при скролі */
+.comedian-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Затримки для кожного блоку */
+.comedian-block:nth-child(1).visible {
+  transition-delay: 0.4s;
+}
+
+.comedian-block:nth-child(2).visible {
+  transition-delay: 0.4s;
+}
+
+.comedian-block:nth-child(3).visible {
+  transition-delay: 0.4s;
+}
+
+/* Стилі для заголовків */
+.comedian-block h2,
+.comedian-block h3 {
+  opacity: 0; /* Початкова прозорість для заголовків */
+  transform: translateY(20px); /* Початкове зміщення вниз */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Плавна анімація */
+}
+
+/* Клас для активації анімації заголовків */
+.comedian-block.visible h2,
+.comedian-block.visible h3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s; /* Заголовки з’являються першими */
+}
+
+/* Стилі для зображень у блоках коміків */
+.comedian-block img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover; /* Зображення заповнює контейнер */
+  border-radius: 10px; /* Заокруглені кути для естетики */
+  opacity: 0; /* Початкова прозорість для анімації */
+  transform: translateY(20px); /* Початкове зміщення вниз */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Плавна анімація */
+}
+
+/* Клас для активації анімації зображення */
+.comedian-block.visible img {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.5s; /* Зображення з’являються другими */
+}
+
+/* Стилі для тексту в блоках коміків */
+.comedian-block p {
+  opacity: 0; /* Початкова прозорість для тексту */
+  transform: translateY(20px); /* Початкове зміщення вниз */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Плавна анімація */
+}
+
+/* Клас для активації анімації тексту */
+.comedian-block.visible p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 3s; /* Текст з’являється останнім */
+}
+
+/* Медіа-запити для адаптивності */
+@media (max-width: 1024px) {
+  .comedian-block {
+    /* Залишено без змін, як у вашому коді */
+  }
+}
+@media (max-width: 768px) {
+  .comedian-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .comedian-block {
+    flex: 1 1 100%; /* На малих екранах блоки на всю ширину */
+    max-width: 90%;
+  }
+}
+.pro-nas-block h2 {
+  color: #c1aaaa;
+  animation: pulse 2s ease-in-out infinite; /* Пульсуюча анімація */
+}
+
+/* Анімація пульсації */
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Початковий розмір */
+  }
+  50% {
+    transform: scale(1.05); /* Збільшення на 5% */
+  }
+  100% {
+    transform: scale(1); /* Повернення до початкового розміру */
+  }
+}
+.kontakty_wrapp {
+  display: flex;
+  align-items: center;
+}
+
+.cont_inst img {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  transition: 1s;
+}
+
+.cont_fa img {
+  display: block;
+  width: 3rem;
+  height: 2rem;
+}
+
+.cont_yo img {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+}
+
+.kontakty_wrapp {
+  display: flex;
+  align-items: center;
+}
+
+.cont_inst img {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  transition: 1s;
+  animation: floatInst 2.5s ease-in-out infinite; /* Унікальна анімація для Instagram */
+}
+
+.cont_fa img {
+  display: block;
+  width: 3rem;
+  height: 2rem;
+  animation: floatFa 3s ease-in-out infinite 0.2s; /* Унікальна анімація для Facebook із затримкою */
+}
+
+.cont_yo img {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  animation: floatYo 2s ease-in-out infinite 0.4s; /* Унікальна анімація для YouTube із затримкою */
+}
+
+/* Анімація для Instagram (швидша, більший діапазон) */
+@keyframes floatInst {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px); /* Підйом на 12px */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Анімація для Facebook (повільніша, менший діапазон) */
+@keyframes floatFa {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px); /* Підйом на 8px */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.kontakti-block {
+  color: #c1aaaa;
+}
+
+/* Анімація для YouTube (найшвидша, середній діапазон) */
+@keyframes floatYo {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Підйом на 10px */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.hero-block p {
+  color: #d5c8c8;
+}
+
+@media (min-width: 768px) {
+  .comedian-block p {
+    text-align: center; /* Забезпечуємо однакове вирівнювання на малих екранах */
+    max-width: 90%; /* Адаптивна ширина для малих екранів */
+    margin: 0 auto; /* Центрування на малих екранах */
+  }
+  .banner_wrap img {
+    width: 100%; /* Гнучка ширина відносно контейнера */
+    max-width: 30rem; /* Обмеження максимальної ширини */
+    height: auto; /* Зберігаємо пропорції */
+    object-fit: contain; /* Забезпечуємо видимість усього зображення */
+  }
+}
+@media (max-width: 1224px) {
+  .comedian-block p {
+    text-align: center; /* Забезпечуємо однакове вирівнювання на малих екранах */
+    max-width: 90%; /* Адаптивна ширина для малих екранів */
+    margin: 0 auto; /* Центрування на малих екранах */
+  }
+  .left_vova {
+    top: -33rem;
+  }
+  .right_hero {
+    top: -45rem;
+  }
+}
+@media (max-width: 1164px) {
+  .left_vova {
+    top: -30rem;
+  }
+  .right_hero {
+    top: -45rem;
+  }
+}
+@media (max-width: 1069px) {
+  .hero-block {
+    margin-top: 2rem; /* Більший відступ для десктопів */
+  }
+  .left_vova {
+    top: -25rem;
+  }
+  .right_hero {
+    top: -25rem;
+    left: -25rem;
+  }
+  .right_hero img {
+    rotate: 30deg;
+    width: 80%;
+    height: 80%;
+  }
+  .banner_wrap {
+    width: 25rem;
+  }
+}
+@media (max-width: 968px) {
+  .left_vova {
+    width: 100%;
+    top: -20rem;
+    left: -7%;
+  }
+  .right_hero {
+    top: -25rem;
+    left: -23rem;
+  }
+  .right_hero img {
+    rotate: 30deg;
+    width: 80%;
+    height: 80%;
+  }
+  .banner_wrap {
+    width: 25rem;
+  }
+}
+@media (max-width: 868px) {
+  .pro-nas-block {
+    padding: 0 20px;
+    font-size: 0.8rem;
+  }
+  .pro-nas-block h2 {
+    font-size: 1.5rem;
+  }
+  .left_vova {
+    top: -18rem;
+    left: -10%;
+  }
+  .right_hero {
+    top: -25rem;
+    left: -23rem;
+  }
+  .right_hero img {
+    rotate: 30deg;
+    width: 80%;
+    height: 80%;
+  }
+  .banner_wrap {
+    width: 22rem;
+  }
+  .comedian-block p {
+    text-align: center; /* Забезпечуємо однакове вирівнювання на малих екранах */
+    max-width: 90%; /* Адаптивна ширина для малих екранів */
+    margin: 0 auto; /* Центрування на малих екранах */
+  }
+  .comedian-container h3 {
+    font-size: 1.2rem;
+  }
+  .comedian-container p {
+    font-size: 0.8rem;
+  }
+  .hero-block p {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+  }
+  .hero-block h1 {
+    margin-bottom: 0%;
+    font-size: 2rem;
+  }
+  .pro-nas-block h2 {
+    margin-top: 8%;
+    margin-bottom: 4%;
+  }
+  .comedian-container p {
+    margin-bottom: -6%;
+  }
+}
+@media (max-width: 768px) {
+  .burger-menu-toggle.active .burger-line:nth-child(1) {
+    transform: translateY(clamp(9px, 2.5vw, 11px)) rotate(45deg); /* Корекція позиціонування хрестика */
+  }
+  .burger-menu-toggle.active .burger-line:nth-child(3) {
+    transform: translateY(clamp(-9px, -2.5vw, -11px)) rotate(-45deg); /* Корекція позиціонування хрестика */
+  }
+  .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: -20px;
+    left: -100%;
+    width: 200px; /* Зменшено ширину меню для компактності */
+    height: 100vh;
+    background-color: #060201;
+    padding: 50px 15px 15px; /* Зменшено верхній відступ */
+    transition: left 0.4s ease-in-out; /* Трохи швидша анімація */
+    z-index: 1000;
+  }
+  .nav-menu.active a {
+    margin: 10px 0; /* Зменшено відступи між пунктами меню */
+    font-size: 1.1rem; /* Трохи менший шрифт для компактності */
+  }
+  .comedian-container p {
+    margin-bottom: -9%;
+  }
+  .left_vova {
+    width: 100%;
+    top: 0rem;
+    left: 0%;
+  }
+  .right_hero {
+    top: 0rem;
+    left: 0rem;
+  }
+  .left_hero img {
+    left: 0;
+    top: 0;
+  }
+  .right_hero img {
+    rotate: 30deg;
+    width: 120%;
+    height: 80%;
+  }
+  .banner_wrap {
+    width: 25rem;
+  }
+}
+@media (max-width: 768px) {
+  .logo_header img {
+    max-width: clamp(120px, 30vw, 150px); /* Збільшено розмір для малих екранів */
+  }
+  .left_vova img {
+    transform: scale(2.7); /* Зменшуємо масштаб на планшетах */
+  }
+  .left_vova {
+    top: 10%;
+    left: -12%;
+    z-index: 230;
+  }
+  .right_hero img {
+    top: 0rem;
+    rotate: 0deg;
+    left: 0rem;
+    transform: scale(2.7); /* Зменшуємо масштаб */
+  }
+  .right_hero {
+    z-index: 220;
+    top: 0%;
+    rotate: 80deg;
+  }
+  .left_hero img {
+    transform: scale(2.3); /* Зменшуємо масштаб */
+  }
+  .left_hero {
+    left: 45%;
+    z-index: 240;
+  }
+  .banner_wrap {
+    scale: 1.5;
+  }
+  .hero-img {
+    height: 500px;
+  }
+}
+@media (max-width: 686px) {
+  .comedian-container p {
+    margin-bottom: -6%;
+  }
+  .left_vova img {
+    transform: scale(1.7); /* Зменшуємо масштаб на планшетах */
+  }
+  .left_vova {
+    left: -18%;
+  }
+  .right_hero img {
+    top: 0rem;
+    rotate: 0deg;
+    left: 0rem;
+    transform: scale(1.7); /* Зменшуємо масштаб */
+  }
+  .right_hero {
+    top: 15%;
+    left: -10%;
+    rotate: 80deg;
+  }
+  .left_hero img {
+    left: 2rem;
+    transform: scale(1.3); /* Зменшуємо масштаб */
+  }
+  .left_hero {
+    top: 22%;
+    left: 55%;
+  }
+  .banner_wrap {
+    scale: 1.5;
+  }
+  .hero-img {
+    height: 500px;
+    border: 1px solid #000;
+  }
+}
+@media (max-width: 580px) {
+  h1 span {
+    font-size: 1.5rem;
+    margin-bottom: -2%;
+  }
+  .comedian-container p {
+    margin-top: 3%;
+    margin-bottom: -11%;
+  }
+  .right_hero {
+    left: -15%;
+  }
+}
+@media (max-width: 550px) {
+  .right_hero {
+    left: -10%;
+  }
+  .left_vova img {
+    left: 15%;
+  }
+}
+@media (max-width: 479px) {
+  .comedian-container h3 {
+    font-size: 1.2rem;
+  }
+  .comedian-container p {
+    font-size: 0.8rem;
+  }
+  .hero-block p {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+  }
+  .hero-block h1 {
+    margin-bottom: 1%;
+    font-size: 2rem;
+  }
+  .hero-block {
+    margin-top: 0rem; /* Зменшено відступ від хедера до першого блоку */
+  }
+  .left_hero img {
+    transform: scale(1.7);
+  }
+  .left_hero {
+    left: 50%;
+  }
+  .right_hero {
+    left: -10%;
+  }
+  .left_vova {
+    left: -20%;
+  }
+  .logo_header img {
+    max-width: clamp(120px, 30vw, 150px); /* Збільшено розмір для малих екранів */
+  }
+}
+@media (max-width: 410px) {
+  .tp p {
+    font-size: 0.9rem;
+    padding: 0 20px;
+  }
+  .hero-block {
+    margin-top: -2rem; /* Зменшено відступ від хедера до першого блоку */
+  }
+  .left_hero img {
+    transform: scale(1.7);
+  }
+  .left_hero {
+    left: 50%;
+  }
+  .right_hero {
+    left: -20%;
+  }
+  .left_vova {
+    left: -20%;
+  }
+  .logo_header img {
+    max-width: clamp(120px, 30vw, 150px); /* Збільшено розмір для малих екранів */
+  }
+}
+@media (max-width: 320px) {
+  .left_vova img {
+    transform: scale(1.5); /* Повертаємо до початкового розміру на маленьких екранах */
+  }
+  .left_vova {
+    left: -10%;
+    top: 10%;
+  }
+  .right_hero img {
+    transform: scale(1.6);
+  }
+  .left_hero img {
+    transform: scale(1.2);
+  }
+  .left_hero {
+    rotate: 280deg;
+    top: 65%;
+    left: 30%;
+  }
+  .right_hero {
+    rotate: -70deg;
+    left: 20%;
+  }
+}
+@media (max-width: 410px) {
+  .tp p {
+    font-size: 0.7rem;
+  }
+}/*# sourceMappingURL=style.css.map */
