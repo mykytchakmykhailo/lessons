@@ -1,0 +1,874 @@
+@charset "UTF-8";
+:root {
+  --text-color: #c1aaaa;
+  --accent-color: #ff6200;
+  --hover-color: lch(59.52% 88.49 51.3 / 0.908);
+  --background-color: #191009;
+  --menu-background: #060201;
+}
+
+body {
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--accent-color);
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.header_wrapper,
+.poster-section,
+.form-section,
+.footer-block {
+  width: 100%;
+  max-width: 1270px;
+  margin: 0 auto;
+}
+
+.header {
+  position: fixed;
+  height: auto;
+  min-height: 4rem;
+  font-family: "Lobster", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.5vw, 2.3rem); /* Точно як у index.css */
+  width: 100%;
+  max-width: 1270px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  padding: 10px 10px;
+  background-color: #191009;
+  box-sizing: border-box;
+  z-index: 1200;
+}
+
+.logo_header {
+  flex: 0 0 auto;
+}
+
+.logo_header img {
+  width: clamp(100px, 30vw, 120px);
+  height: auto;
+}
+
+.header nav {
+  margin-top: 0;
+  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header nav a {
+  color: #cac5c5;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-size: clamp(1.5rem, 2vw, 1.1rem); /* Точно як у index.css */
+}
+
+.header nav a:hover {
+  color: lch(59.52% 88.49 51.3deg / 0.908);
+}
+
+nav a:nth-child(6) {
+  color: red;
+  font-weight: bold;
+}
+
+.burger-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: clamp(24px, 6vw, 32px);
+  height: clamp(18px, 4.5vw, 24px);
+  position: relative;
+  z-index: 1300;
+}
+
+.burger-line {
+  display: block;
+  width: 100%;
+  height: clamp(2px, 0.5vw, 3px);
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.burger-line:nth-child(1) {
+  top: 0;
+}
+
+.burger-line:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger-line:nth-child(3) {
+  bottom: 0;
+}
+
+.burger-menu-toggle.active .burger-line:nth-child(1) {
+  transform: translateY(clamp(8px, 2vw, 10px)) rotate(45deg);
+}
+
+.burger-menu-toggle.active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu-toggle.active .burger-line:nth-child(3) {
+  transform: translateY(clamp(-8px, -2vw, -10px)) rotate(-45deg);
+}
+
+.nav-menu {
+  display: flex;
+}
+
+.nav-menu.active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: -20px;
+  left: -100%;
+  width: 200px;
+  height: 100vh;
+  background-color: #060201;
+  padding: 50px 15px 15px;
+  transition: left 0.4s ease-in-out;
+  z-index: 1000;
+}
+
+.nav-menu.active.show {
+  left: 0;
+}
+
+.nav-menu.active a {
+  margin: 15px 0;
+  font-size: 1.2rem;
+}
+
+.poster-section {
+  margin: clamp(6rem, 15vw, 8rem) auto clamp(2rem, 5vw, 3rem);
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.poster-img {
+  width: 100%;
+  max-width: 1270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.poster-img img {
+  width: 50%;
+  max-width: 50%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  box-sizing: border-box;
+  transition: 1s;
+}
+
+.poster-img img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 868px) {
+  .header nav a {
+    font-size: clamp(1.1rem, 2.2vw, 1.2rem); /* Точно як у index.css */
+  }
+}
+@media (max-width: 768px) {
+  .poster-img img {
+    max-height: clamp(30vh, 60vw, 50vh);
+  }
+}
+@media (max-width: 480px) {
+  .poster-img img {
+    max-height: clamp(25vh, 50vw, 40vh);
+  }
+}
+.form-section {
+  padding: clamp(1rem, 5vw, 2rem) 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: clamp(2rem, 15vw, 4rem);
+}
+
+.form-section h2 {
+  color: #fff;
+  font-family: "Lobster", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1.5rem;
+  animation: glow 4s ease-in-out infinite;
+  text-shadow: 0 0 15px rgba(255, 98, 0, 0.7);
+}
+
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  background-color: var(--menu-background);
+  color: #fff;
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  font-family: "Comfortaa", sans-serif;
+  resize: vertical;
+  box-shadow: 0 0 10px rgba(255, 98, 0, 0.3);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out, border-color 0.3s;
+}
+
+.form-container.visible input:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.form-container.visible input:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.form-container.visible textarea {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+  outline: none;
+  border-color: var(--hover-color);
+  box-shadow: 0 0 15px rgba(255, 98, 0, 0.5);
+}
+
+.form-container input::placeholder,
+.form-container textarea::placeholder {
+  color: #cac5c5;
+  font-family: "Comfortaa", sans-serif;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.form-container input:focus::placeholder,
+.form-container textarea:focus::placeholder {
+  opacity: 0.3;
+}
+
+.form-container button {
+  width: fit-content;
+  padding: 14px 30px;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  background: linear-gradient(45deg, var(--accent-color), var(--hover-color));
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-family: "Lobster", sans-serif;
+  box-shadow: 0 4px 15px rgba(255, 98, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s, transform 0.3s;
+}
+
+.form-container button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.4s ease;
+}
+
+.form-container button:hover::before {
+  left: 100%;
+}
+
+.form-container button:hover {
+  box-shadow: 0 6px 20px rgba(255, 98, 0, 0.7);
+  transform: scale(1.1);
+}
+
+.form-container button:active {
+  transform: scale(0.95);
+}
+
+.form-container.visible button {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
+
+.footer-block {
+  text-align: center;
+  padding: 10px 15px;
+  flex-shrink: 0;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: var(--text-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 15px rgba(255, 98, 0, 0.7);
+  }
+  33% {
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+  }
+  66% {
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(255, 98, 0, 0.7);
+  }
+}
+@media (max-width: 868px) {
+  .form-section h2 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  }
+  .form-container input,
+  .form-container textarea,
+  .form-container button {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+  }
+  .form-container {
+    max-width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 15px;
+  }
+  .logo_header img {
+    margin-bottom: 10px;
+    max-width: clamp(120px, 30vw, 150px);
+  }
+  .header nav {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+  .burger-menu-toggle {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .nav-menu.active {
+    display: flex;
+    width: 80vw;
+    min-width: 200px;
+    padding: 50px 15px 15px;
+  }
+  .nav-menu.active a {
+    font-size: 1.1rem;
+  }
+  .poster-section,
+  .form-section {
+    padding: 0 10px;
+    max-width: 100%;
+  }
+  .poster-img img {
+    max-height: clamp(30vh, 60vw, 50vh);
+    transform: scale(1.3);
+  }
+  .form-section {
+    margin-top: clamp(1.5rem, 12vw, 3rem);
+  }
+}
+@media (max-width: 480px) {
+  .header {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+  .logo_header img {
+    max-width: clamp(50px, 12vw, 60px);
+  }
+  .poster-img img {
+    max-height: clamp(25vh, 50vw, 40vh);
+    transform: scale(1.2);
+  }
+  .form-section h2 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  }
+  .form-container input,
+  .form-container textarea,
+  .form-container button {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+  }
+  .form-section {
+    margin-top: clamp(1rem, 10vw, 2.5rem);
+  }
+}
+/* Стилі для секції постера */
+.poster-section {
+  width: 100%;
+  max-width: 1270px;
+  margin: clamp(6rem, 15vw, 8rem) auto clamp(2rem, 5vw, 3rem); /* Відступи як у оригіналі */
+  padding: 0 clamp(10px, 2vw, 15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards; /* Анімація появи, як у оригіналі */
+  box-sizing: border-box;
+}
+
+/* Стилі для контейнера зображення постера */
+.poster-img {
+  width: 100%;
+  max-width: 600px; /* Обмеження ширини для гармонії з .form-container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px; /* Заокруглені кути, як у .form-container */
+}
+
+/* Стилі для зображення постера */
+.poster-img img {
+  width: 100%;
+  height: auto;
+  max-height: clamp(300px, 50vh, 400px); /* Адаптивна висота */
+  object-fit: contain; /* Зображення не обрізається */
+  display: block;
+  transition: transform 0.3s ease; /* Плавна анімація для hover */
+}
+
+/* Ефект при наведенні */
+.poster-img img:hover {
+  transform: scale(1.05); /* Легке збільшення, як у оригіналі */
+}
+
+/* Адаптивність для планшетів */
+@media (max-width: 768px) {
+  .poster-section {
+    margin: clamp(5rem, 12vw, 6rem) auto clamp(1.5rem, 4vw, 2rem);
+    padding: 0 10px;
+  }
+  .poster-img {
+    max-width: 90%; /* Адаптивна ширина */
+  }
+  .poster-img img {
+    max-height: clamp(250px, 40vh, 300px); /* Менша висота */
+  }
+}
+/* Адаптивність для мобільних */
+@media (max-width: 480px) {
+  .poster-section {
+    margin: clamp(4rem, 10vw, 5rem) auto clamp(1rem, 3vw, 1.5rem);
+  }
+  .poster-img {
+    max-width: 95%;
+  }
+  .poster-img img {
+    max-height: clamp(200px, 35vh, 250px); /* Ще менша висота */
+  }
+}
+/* Стилі для секції постера */
+.poster-section {
+  width: 100%;
+  max-width: 1270px;
+  margin: clamp(6rem, 15vw, 8rem) auto clamp(2rem, 5vw, 3rem); /* Відступи як у оригіналі */
+  padding: 0 clamp(10px, 2vw, 15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards; /* Анімація появи */
+  box-sizing: border-box;
+}
+
+/* Стилі для контейнера зображення постера */
+.poster-img {
+  width: 100%;
+  max-width: 1350px; /* Обмеження ширини для гармонії з .form-container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Стилі для зображення постера */
+.poster-img img {
+  width: 100%;
+  height: auto;
+  max-height: clamp(600px, 50vh, 400px); /* Адаптивна висота */
+  object-fit: contain; /* Зображення не обрізається */
+  display: block;
+  transition: transform 0.3s ease; /* Плавна анімація для hover */
+}
+
+/* Ефект при наведенні */
+.poster-img img:hover {
+  transform: scale(1.05); /* Легке збільшення */
+}
+
+/* Стилі для секції форми */
+.form-section {
+  width: 100%;
+  max-width: 1270px;
+  margin: clamp(2rem, 10vw, 4rem) auto; /* Адаптивні відступи */
+  padding: clamp(1rem, 3vw, 2rem) clamp(10px, 2vw, 15px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Стилі для заголовка форми */
+.form-section h2 {
+  font-family: "Lobster", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1.5rem;
+  color: transparent;
+  background: linear-gradient(90deg, var(--accent-color), #00ffff, #ff00ff, var(--accent-color));
+  background-size: 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientShift 8s ease-in-out infinite; /* Градієнтна анімація */
+}
+
+/* Анімація для заголовка */
+@keyframes gradientShift {
+  0% {
+    background-position: 0%;
+  }
+  50% {
+    background-position: 400%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+/* Стилі для контейнера форми */
+.form-container {
+  width: 100%;
+  max-width: 600px; /* Обмеження ширини */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.5rem); /* Адаптивний відступ між елементами */
+}
+
+/* Стилі для полів вводу і текстової області */
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: clamp(8px, 1.5vw, 10px);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  background-color: var(--menu-background);
+  color: #fff;
+  font-family: "Comfortaa", sans-serif;
+  resize: vertical;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out, border-color 0.3s;
+}
+
+/* Анімація появи для полів форми */
+.form-container.visible input:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.form-container.visible input:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.form-container.visible textarea {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+/* Стилі для фокусу */
+.form-container input:focus,
+.form-container textarea:focus {
+  outline: none;
+  border-color: var(--hover-color);
+  box-shadow: 0 0 15px rgba(255, 98, 0, 0.5);
+}
+
+/* Стилі для плейсхолдерів */
+.form-container input::placeholder,
+.form-container textarea::placeholder {
+  color: #cac5c5;
+  font-family: "Comfortaa", sans-serif;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.form-container input:focus::placeholder,
+.form-container textarea:focus::placeholder {
+  opacity: 0.3;
+}
+
+/* Стилі для кнопки форми */
+.form-container button {
+  width: fit-content;
+  padding: clamp(12px, 2vw, 14px) clamp(25px, 4vw, 30px);
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  background: linear-gradient(45deg, var(--accent-color), var(--hover-color));
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-family: "Lobster", sans-serif;
+  box-shadow: 0 4px 15px rgba(255, 98, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s, transform 0.3s;
+}
+
+/* Ефект блиску на кнопці */
+.form-container button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.4s ease;
+}
+
+.form-container button:hover::before {
+  left: 100%;
+}
+
+.form-container button:hover {
+  box-shadow: 0 6px 20px rgba(255, 98, 0, 0.7);
+  transform: scale(1.1);
+}
+
+.form-container button:active {
+  transform: scale(0.95);
+}
+
+/* Анімація появи для кнопки */
+.form-container.visible button {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
+
+/* Адаптивність для планшетів */
+@media (max-width: 768px) {
+  .poster-img img {
+    margin: 6rem 0 2rem;
+    width: 100%;
+    max-height: clamp(600px, 50vh, 400px); /* Адаптивна висота */
+  }
+  .poster-section {
+    margin: clamp(5rem, 12vw, 6rem) auto clamp(1.5rem, 4vw, 2rem);
+    padding: 0 10px;
+  }
+  .poster-img {
+    max-width: 90%;
+  }
+  .poster-img img {
+    max-height: clamp(450px, 40vh, 300px);
+  }
+  .form-section {
+    margin: clamp(1.5rem, 8vw, 3rem) auto;
+    padding: clamp(0.8rem, 2vw, 1.5rem) 10px;
+  }
+  .form-container {
+    max-width: 90%;
+  }
+  .form-section h2 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  }
+  .form-container input,
+  .form-container textarea,
+  .form-container button {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+  }
+}
+/* Адаптивність для мобільних */
+@media (max-width: 480px) {
+  .poster-section {
+    margin: clamp(4rem, 10vw, 5rem) auto clamp(1rem, 3vw, 1.5rem);
+  }
+  .poster-img {
+    max-width: 95%;
+  }
+  .poster-img img {
+    max-height: clamp(200px, 35vh, 250px);
+  }
+  .form-section {
+    margin: clamp(1rem, 6vw, 2.5rem) auto;
+    padding: clamp(0.5rem, 1.5vw, 1rem) 10px;
+  }
+  .form-container {
+    max-width: 95%;
+  }
+  .form-section h2 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 15px;
+  }
+  .logo_header img {
+    margin-bottom: 10px;
+    max-width: clamp(120px, 30vw, 150px);
+  }
+  .header nav {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+  .burger-menu-toggle {
+    display: block;
+    position: absolute;
+    right: 41px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .nav-menu.active {
+    display: flex;
+  }
+  .burger-menu-toggle.active .burger-line:nth-child(1) {
+    transform: translateY(clamp(9px, 2.5vw, 11px)) rotate(45deg);
+  }
+  .burger-menu-toggle.active .burger-line:nth-child(3) {
+    transform: translateY(clamp(-9px, -2.5vw, -11px)) rotate(-45deg);
+  }
+  .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: -20px;
+    left: -100%;
+    width: 200px;
+    height: 100vh;
+    background-color: #060201;
+    padding: 50px 15px 15px;
+    transition: left 0.4s ease-in-out;
+    z-index: 1000;
+  }
+  .nav-menu.active a {
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
+}
+/* Змінні */
+/* Ефект при наведенні */
+.poster-img img:hover {
+  transform: scale(1.05);
+}
+
+/* Адаптивність для планшетів */
+@media (max-width: 768px) {
+  .poster-img img:hover {
+    transform: scale(1.35);
+  }
+}
+/* Адаптивність для мобільних (max-width: 480px) */
+@media (max-width: 480px) {
+  .poster-section {
+    margin: clamp(7rem, 10vw, 5rem) 0 clamp(1rem, 3vw, 1.5rem); /* Видалено бічні margin */
+    padding: 0;
+  }
+  .poster-img img:hover {
+    transform: scale(1.25);
+  }
+  .poster-img {
+    width: 100%;
+    max-width: 95%;
+    transform: scale(1.2); /* Перенесено scale з .poster-img img */
+    margin: 1rem 0;
+  }
+  .poster-img img {
+    max-height: clamp(200px, 35vh, 250px);
+    margin: 1rem 0;
+  }
+}
+/* Адаптивність для екранів до 460px */
+@media (max-width: 460px) {
+  .poster-img {
+    width: 100%; /* На всю ширину екрана */
+    max-width: 100%; /* На всю ширину екрана */
+    margin: 1rem 0;
+    padding: 0;
+    transform: scale(1.2); /* Збережено масштабування */
+  }
+  .poster-img img {
+    width: 100%;
+    max-height: clamp(200px, 35vh, 250px);
+    margin: 1rem 0;
+    padding: 0;
+  }
+}
+.footer-block {
+  width: 100%;
+  max-width: 1270px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px 15px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: var(--accent-color);
+}
+
+.form-container button {
+  margin: 2rem; /* Додано для зміщення кнопки нижче */
+}
+
+.form-section {
+  margin: clamp(2rem, 10vw, 4rem) auto clamp(0.5rem, 2vw, 1rem); /* Зменшено нижній відступ */
+  padding: clamp(1rem, 3vw, 2rem) clamp(10px, 2vw, 15px);
+}
+
+body {
+  overflow-x: hidden;
+}/*# sourceMappingURL=contact.css.map */
