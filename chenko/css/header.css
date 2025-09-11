@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* Загальні скидання */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+}
+
+/* Контейнер */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ======= NAVBAR ======= */
+.navbar {
+  position: fixed; /* важливо: поверх картинки */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.75); /* прозорість */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #0073e6;
+}
+
+/* ======= MOBILE BURGER ======= */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background: #333;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
+.nav-home a {
+  color: #0073e6;
+}
+
+.nav-about a {
+  color: #00b894;
+}
+
+.nav-contact a {
+  color: #e17055;
+}
+
+.nav-portfolio a {
+  color: #6c5ce7;
+}
+
+.nav-price a {
+  color: #d63031;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}/*# sourceMappingURL=header.css.map */
