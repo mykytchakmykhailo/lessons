@@ -66,7 +66,7 @@ main {
   text-align: center;
 }
 .sluzby_wrapper {
-  background: url("../img/workman/2.jpg");
+  background: url("./img/workman/2.jpg");
   background-size: cover; /* Розтягує зображення на весь блок, зберігаючи пропорції */
   background-position: center; /* Центрує зображення */
   background-repeat: no-repeat; /* Попереджає повторення */
@@ -248,6 +248,7 @@ background: #ffffff;
 .nashe_prace-links li:nth-child(even) {
   border-bottom: none; /* Прибираємо нижню лінію для парних рядків */
 }
+
 
 
 
