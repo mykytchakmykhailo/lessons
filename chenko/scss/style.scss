@@ -438,7 +438,7 @@ background: #ffffff;
   font-size: 3rem;
 }
 .chemumy_text {
-  background: url("/img/czflag/1.jpeg") no-repeat center center;
+  background: url("../img/czflag/1.jpeg") no-repeat center center;
   background-size: cover; /* Фон заповнює контейнер, як у відео */
   width: 100%; /* Повна ширина контейнера */
   height: 650px; /* Така ж висота, як у відео */
@@ -586,7 +586,7 @@ padding: 0 1%;
 }
 
 .chemumy_vid,
-.chemumy{
+.chemumy_text{
   flex: 0 0 50%;          /* займають по 50% */
   max-width: 50%;         /* щоб не розтягувались більше */
 }
@@ -691,6 +691,7 @@ padding: 0 1%;
     font-size: 18px;
   }
 }
+
 
 
 
