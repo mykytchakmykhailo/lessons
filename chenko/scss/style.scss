@@ -6,9 +6,6 @@
 *, *:before, *:after {
   box-sizing: border-box;
 }
-html {
-  overflow-x: hidden;
-}
 html, body {
   height: 100%;
   margin: 0;
@@ -810,4 +807,5 @@ padding: 0 1%;
     grid-template-columns: 1fr; /* Один блок на ряд на малих екранах */
   }
 }
+
 
