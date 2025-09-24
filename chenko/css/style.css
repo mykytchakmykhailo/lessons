@@ -1,0 +1,761 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("header.css");
+@import url("footer.css");
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 30px; /* Простір під футер */
+  flex: 1 0 auto; /* Дозволяє main розтягуватися */
+}
+
+.main_top {
+  margin: 0;
+}
+
+.main_top img {
+  width: 100%; /* Адаптивність */
+  height: auto; /* Гнучка висота, масштабується пропорційно ширині */
+  max-height: 50rem; /* Твоя бажана максимальна висота, як ліміт */
+  transition: opacity 0.5s ease; /* Плавний перехід між фото */
+  object-fit: cover; /* Заповнює простір без спотворень, обрізає якщо треба */
+  display: block; /* Прибирає зайві пробіли під img */
+}
+
+.overlay-text {
+  position: absolute;
+  top: 9%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.832);
+  font-size: 7rem;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  transition-delay: 2s;
+  z-index: 10;
+  padding: 20px;
+}
+
+.overlay-text.show {
+  opacity: 1;
+}
+
+#sliderImage {
+  transition: opacity 1s ease-in-out;
+}
+
+#sliderImage.fade-out {
+  opacity: 0;
+}
+
+.sluzby_block h2 {
+  margin-bottom: 7%;
+  text-align: center;
+}
+
+.sluzby_wrapper {
+  background-image: linear-gradient(to bottom right, #000000, #1c1d1b, #343632, #1c1b1f, rgba(34, 38, 30, 0.9803921569), rgba(34, 35, 34, 0.9803921569), rgba(11, 11, 11, 0.9803921569), rgba(0, 0, 0, 0.9803921569)); /* Градієнт */
+  background-size: 100% 100%; /* Розтягує зображення на весь блок, зберігаючи пропорції */
+  background-position: center; /* Центрує зображення */
+  background-repeat: no-repeat; /* Попереджає повторення */
+  padding: 5rem 0 7rem;
+  width: 100%; /* Гарантує повну ширину */
+  min-height: 400px; /* Встановлює мінімальну висоту, щоб блок не стискався */
+}
+
+h1 {
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 5rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.sluzby_wrapper.visible h1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sluzby {
+  font-family: "Oswald", sans-serif;
+  flex-wrap: wrap;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Заголовок */
+.sluzby_wrapper h1 {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity var(--title-duration, 800ms) var(--title-easing, ease), transform var(--title-duration, 800ms) var(--title-easing, ease);
+}
+
+/* Поява заголовка */
+.sluzby_wrapper h1.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Блоки */
+.sluzby_block {
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 20px;
+  max-width: 20rem;
+  opacity: 0;
+  border-radius: 10%;
+  color: #867f7f;
+  background: rgba(0, 0, 0, 0.937254902); /* Градієнт */
+  cursor: pointer;
+  transition: transform var(--appear-duration, 800ms) var(--appear-easing, ease), opacity var(--appear-duration, 800ms) var(--appear-easing, ease), box-shadow 200ms ease;
+  will-change: transform, opacity;
+}
+
+/* Стартові зсуви блоків */
+.sluzby_block:nth-child(1),
+.sluzby_block:nth-child(3) {
+  transform: translateX(-100px);
+}
+
+.sluzby_block:nth-child(2),
+.sluzby_block:nth-child(4) {
+  transform: translateX(100px);
+}
+
+/* Поява блоків */
+.sluzby_block.in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Hover — миттєво реагує */
+.sluzby_block:hover {
+  transform: translateY(-12px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  transition-delay: 0s !important;
+}
+
+.nashe_prace h2 {
+  margin-bottom: 3%;
+}
+
+.nashe_prace p {
+  margin-bottom: 8%;
+}
+
+.nashe_prace-wrapper {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.nashe_prace-image {
+  width: 100%; /* блок займає всю доступну ширину */
+  height: 400px; /* або будь-яку потрібну висоту */
+  overflow: hidden; /* зайве ховається */
+  border-radius: 8px;
+}
+
+.nashe_prace-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* розтягує, але зберігає пропорції */
+  border-radius: 8px;
+}
+
+.nashe_prace {
+  padding: 5%;
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  background: #ffffff;
+}
+
+.nashe_prace-links {
+  position: relative;
+  width: 100%;
+  max-width: 300px; /* Обмежуємо ширину списку для кращого вигляду, як на сайті */
+  margin: 0 auto; /* Центруємо список */
+}
+
+.nashe_prace-wrapper {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.nashe_prace-links {
+  width: 100%;
+  max-width: 600px; /* Додаємо максимальну ширину для кращого вигляду */
+  border-collapse: collapse; /* Імітуємо таблицю */
+  margin: 0 0 0 15%;
+}
+
+.nashe_prace-links li {
+  display: flex; /* Розташовуємо категорію і бренд у ряд */
+  justify-content: space-between; /* Розподіляємо вміст */
+  padding: 10px 0; /* Відступи для рядків */
+  font-size: 1rem;
+  border-bottom: 1px solid #ccc; /* Сіра лінія між рядками, як на зображенні */
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: rgba(157, 155, 155, 0.9176470588);
+}
+
+.nashe_prace-links li::after {
+  content: "";
+  position: absolute;
+  width: 100%; /* Ширина рядка */
+  height: 2px; /* Товща лінія, як на зображенні */
+  background: #000; /* Чорна лінія */
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0); /* Початково прихована */
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.nashe_prace-links li:hover::after {
+  transform: scaleX(1); /* Плавне розтягування при наведенні */
+}
+
+.nashe_prace-links li:hover {
+  color: rgb(0, 0, 0); /* Виділення при наведенні */
+}
+
+/* Імітація категорій через псевдокласи або структуру даних */
+.nashe_prace-links li:nth-child(odd)::before {
+  content: attr(data-category); /* Додаємо категорію через атрибут data-category */
+  margin-right: 20px; /* Відступ між категорією і брендом */
+}
+
+.nashe_prace-links li:nth-child(even) {
+  border-bottom: none; /* Прибираємо нижню лінію для парних рядків */
+}
+
+.onas {
+  font-family: "Oswald", "sans-serif";
+  text-align: center;
+  background: #000;
+  color: #ffffff;
+  padding: 30px 5px;
+}
+
+.onas_h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+.onas_p {
+  max-width: 50%;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+.onas {
+  padding: 10% 0;
+}
+
+.onas_wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Дозволяє переносити елементи на менших екранах */
+  justify-content: center; /* Центрує вміст */
+  align-items: center; /* Вирівнювання по вертикалі */
+  gap: 20px; /* Відстань між текстом і зображеннями */
+  padding: 30px 5px;
+  position: relative;
+}
+
+.onas_text {
+  max-width: 50%; /* Обмежуємо ширину тексту */
+  text-align: center; /* Текст по центру */
+  opacity: 0; /* Початково прихований */
+  transform: translateX(-100px); /* Зсув вліво */
+  transition: opacity 0.8s ease, transform 0.8s ease; /* Плавна анімація */
+}
+
+.onas_text.in {
+  opacity: 1; /* Поява тексту */
+  transform: translateX(0); /* Повернення до початкової позиції */
+}
+
+.onas_img {
+  display: flex;
+  flex-direction: column; /* Зображення розташовані вертикально */
+  justify-content: space-between; /* Розподіляє зображення зверху і знизу */
+  gap: 15px; /* Збільшуємо відстань між зображеннями для кращого вигляду */
+  width: 100%;
+  max-width: 360px; /* Збільшуємо ширину контейнера для більших зображень */
+  position: absolute; /* Позиціонуємо зображення відносно тексту */
+  right: 5%; /* Розташування справа від тексту */
+  top: 50%; /* Центруємо по вертикалі */
+  transform: translateY(-50%); /* Зміщення для вирівнювання по центру */
+}
+
+.onas_img img {
+  width: 100%; /* Зображення займає доступну ширину */
+  max-width: 350px; /* Збільшуємо максимальну ширину зображення */
+  height: auto; /* Зберігає пропорції */
+  max-height: 400px; /* Збільшуємо максимальну висоту для вівпорта */
+  object-fit: cover; /* Заповнює контейнер, обрізаючи зайве */
+  object-position: center; /* Центрує зображення */
+  border-radius: 8px; /* Заокруглення країв */
+  opacity: 0; /* Початково приховані */
+  transition: opacity 0.8s ease, transform 0.8s ease; /* Плавна анімація */
+}
+
+.onas_img.left img:nth-child(1) {
+  transform: translateX(-100px); /* Перше зображення зліва */
+}
+
+.onas_img img:nth-child(1) {
+  transform: translateX(100px); /* Друге зображення справа зверху */
+}
+
+.onas_img img:nth-child(2) {
+  transform: translateX(100px); /* Третє зображення справа знизу */
+}
+
+.onas_img img.in {
+  opacity: 1; /* Поява зображень */
+  transform: translateX(0); /* Повернення до початкової позиції */
+}
+
+@media (max-width: 768px) {
+  .onas_wrapper {
+    flex-direction: column; /* На малих екранах текст і зображення вертикально */
+    align-items: center;
+  }
+  .onas_h2 {
+    font-size: 1.4rem;
+  }
+  .onas_p {
+    max-width: 100%;
+  }
+  .onas_text {
+    max-width: 90%; /* Збільшуємо ширину тексту на малих екранах */
+  }
+}
+@media (max-width: 768px) and (max-width: 768px) {
+  .onas_img, .onas_img.left {
+    position: static; /* Скидаємо абсолютне позиціонування */
+    transform: none; /* Скидаємо зміщення */
+    max-width: 100%; /* Зображення займають повну ширину */
+  }
+  .onas_img img {
+    max-width: 100%; /* Зображення адаптуються до ширини контейнера */
+    max-height: 300px; /* Зменшуємо висоту для мобільних, щоб уникнути надмірного розміру */
+  }
+}
+@media (max-width: 768px) {
+  .onas_img img {
+    max-width: 100%; /* Зображення адаптуються до ширини контейнера */
+    max-height: 250px; /* Зменшуємо висоту для мобільних */
+  }
+}
+.onas_img.left {
+  left: 5%; /* Перше зображення зліва від тексту */
+  right: auto;
+  top: 50%; /* Центруємо по вертикалі */
+  transform: translateY(-50%);
+  max-width: 360px; /* Зберігаємо ширину для лівого зображення */
+  height: 100%; /* Зображення займає всю висоту контейнера .onas_text */
+  display: flex; /* Для правильного вирівнювання зображення */
+  align-items: center; /* Вирівнювання зображення по вертикалі */
+}
+
+.onas_img.left img {
+  width: 100%;
+  min-width: 0; /* Прибираємо фіксоване min-width */
+  max-width: 100%; /* Адаптуємо до контейнера */
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.onas_img.left img.in {
+  opacity: 1; /* Поява зображення */
+  transform: translateX(0); /* Повернення до початкової позиції */
+}
+
+@media (max-width: 768px) {
+  .onas_img.left {
+    position: static; /* Скидаємо абсолютне позиціонування */
+    transform: none; /* Скидаємо зміщення */
+    max-width: 100%; /* Зображення займає повну ширину */
+    height: auto; /* Скидаємо висоту для адаптивності */
+  }
+  .onas_img.left img {
+    max-width: 100%; /* Зображення адаптується до ширини контейнера */
+    height: auto; /* Зберігає пропорції на мобільних */
+    max-height: 300px; /* Обмежуємо висоту для мобільних */
+  }
+}
+.chemumy_vid video {
+  width: 100%;
+  max-width: 600px;
+  min-width: 0; /* Прибираємо фіксоване min-width */
+  height: 84%; /* Адаптивна висота */
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.chemumy {
+  background-color: #000;
+  font-family: "Oswald", sans-serif;
+  display: flex; /* Використовуємо Flexbox для розподілу */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.chemumy_h2 {
+  margin-bottom: 3%;
+  font-size: 3rem;
+}
+
+.chemumy_text {
+  background: url("img/czflag/1.jpeg") no-repeat center center;
+  background-size: cover; /* Фон заповнює контейнер, як у відео */
+  width: 100%; /* Повна ширина контейнера */
+  height: 650px; /* Така ж висота, як у відео */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.chemumy_text div,
+.chemumy_text p {
+  color: #000; /* текст чорний (можеш змінити на білий) */
+  font-weight: bold;
+}
+
+.chemumy_2024,
+.chemumy_2025 {
+  text-align: center;
+  min-height: 100px;
+}
+
+.counter-number {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.counter-text {
+  font-size: 1.9rem;
+  margin: 0.5rem 0;
+}
+
+.year-text {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .chemumy {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .overlay-text {
+    font-size: 2rem;
+    top: 4%;
+  }
+  .main_top img {
+    height: 24rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 3.2rem;
+  }
+  .sluzby_wrapper {
+    padding: 3rem 0 5rem;
+  }
+  .sluzby_block {
+    max-width: 100%;
+    border-radius: 0%;
+  }
+  .sluzby {
+    gap: 15px;
+  }
+  .sluzby_wrapper {
+    background-size: cover;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.4rem;
+  }
+  .nashe_prace-links li {
+    display: none;
+    border: 1px solid #000;
+  }
+  .nashe_prace {
+    padding: 0;
+    margin: 0 auto;
+  }
+  .nashe_prace-wrapper {
+    padding: 0 1%;
+  }
+}
+.nashe_prace-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* 📱 Мобілки */
+@media (max-width: 768px) {
+  .nashe_prace-image {
+    width: 100%; /* тепер блок рівно по ширині екрана */
+    max-width: 100%; /* щоб точно не виліз */
+    height: auto;
+  }
+  .nashe_prace-image img {
+    width: 100%;
+    height: auto; /* щоб картинка сама підлаштовувалась по пропорціях */
+    object-fit: cover;
+    display: block; /* прибирає зайвий відступ у картинок */
+  }
+}
+/* Нехай застосовується тільки на мобілках */
+@media (max-width: 768px) {
+  .nashe_prace-image {
+    width: 100vw; /* на всю ширину екрана */
+    max-width: 100vw;
+    height: 400px; /* фіксована висота */
+    margin-left: calc((100vw - 100%) / -2); /* прибираємо відступи батька */
+    margin-right: calc((100vw - 100%) / -2);
+    border-radius: 0; /* щоб збігалося з краями */
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+  }
+  .nashe_prace-image img {
+    width: 100%;
+    height: 100%; /* картинка рівно під блок */
+    display: block;
+    object-fit: cover; /* обрізає зайве, пропорції не ламаються */
+  }
+  /* Знімаємо будь-які бокові відступи у wrapper на мобілці */
+  .nashe_prace-wrapper {
+    padding: 0;
+    gap: 0; /* опціонально */
+  }
+  .nashe_prace-wrapper {
+    flex-wrap: wrap;
+  }
+  .chemumy {
+    display: flex; /* робимо флекс-контейнер */
+    flex-direction: column-reverse; /* колонки в ряд */
+    width: 100%; /* ширина блоку */
+  }
+  .chemumy_vid,
+  .chemumy_text {
+    max-width: 100%;
+    width: 100%;
+    height: 400px; /* щоб не розтягувались більше */
+  }
+}
+/* Анімація */
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/* Кнопки поверх картинки */
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  transform: translateY(-50%);
+  pointer-events: none; /* щоб не блокувало картинку */
+}
+
+.slider-btn {
+  pointer-events: auto; /* кнопки клікабельні */
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+/* Для мобілок */
+@media (max-width: 768px) {
+  .slider-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+.zapitannya_block {
+  margin: 0 auto;
+  background-color: #000000;
+  padding: 20px;
+  font-family: "Oswald", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Два блоки в ряд */
+  gap: 20px;
+}
+
+.zapitannya_item {
+  background-color: rgba(249, 249, 249, 0.9294117647);
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-rows: auto auto;
+  position: relative;
+  overflow: hidden; /* Для коректної анімації висоти */
+}
+
+.zapitannya_item h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.zapitannya_item p {
+  font-size: 2rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.zapitannya_item .arrow {
+  font-size: 1.2rem;
+  color: #000000;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block;
+  text-align: right;
+  transition: transform 0.5s ease-in-out, font-size 0.3s ease; /* Плавний транзишн для розвороту */
+}
+
+.zapitannya_item .details {
+  margin-top: 10px;
+  padding-top: 0;
+  border-top: 1px solid #ddd;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+  max-height: 0; /* Початкова висота 0 */
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease; /* Анімація розгортання */
+}
+
+.zapitannya_item .details.active {
+  max-height: 200px; /* Максимальна висота для анімації, можна налаштувати */
+  padding: 10px 0;
+}
+
+/* Анімація стрілки при кліку */
+.zapitannya_item .arrow.active {
+  transform: rotate(180deg); /* Плавний розворот вниз при відкритті */
+  font-size: 1.4rem; /* Збільшення розміру */
+}
+
+.h4 {
+  display: flex;
+  padding: 50px 0;
+  background-color: #000;
+  color: rgba(255, 255, 255, 0.816);
+  font-size: 3rem;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.h4 {
+  align-items: center;
+}
+
+.blue {
+  color: blue;
+}
+
+.red {
+  color: red;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .zapitannya_block {
+    grid-template-columns: 1fr; /* Один блок на ряд на малих екранах */
+  }
+}/*# sourceMappingURL=style.css.map */
