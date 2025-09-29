@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма заявки</title>
+    <link rel="stylesheet" href="./css/contact.css"> <!-- стиль форми -->
+</head>
+
+<body>
+    <!-- 🔗 Хедер (з твоїми готовими посиланнями) -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <div class="nav-links_left">
+                        <li class="nav-home"><a href="index.html#hlav">Hlavní</a></li>
+                        <li class="nav-about"><a href="index.html#sluzby">Služby</a></li>
+                        <li class="nav-portfolio"><a href="index.html#onas">O nás</a></li>
+                        <li class=" nav-price"><a href="index.html#zapitannya">Otázky</a></li>
+                    </div>
+
+
+                    <div class="logo">
+                        <a href="#" class="logo"><img src="img/logo/ChatGPT Image 13 вер. 2025 р.png" alt=""></a>
+                    </div>
+                    <div class="nav-links_right">
+                        <li class="nav-contact"><a href="contact.html">Kontakty</a></li>
+                    </div>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="form-section">
+            <div class="container">
+                <h1 class="form-title">Odešlete žádost</h1>
+                <form id="contactForm" class="form-container">
+                    <img src="img/contact/1.png" class="chenko" alt="">
+                    <div class="comic-bubble">„Já, Andrij Čeňko, jsem založil firmu ASI STAV, abych dělal práci poctivě
+                        a kvalitně. Děkuji, že si vybíráte nás!“ ✅</div>
+                    <div class="form-group">
+                        <label for="name">Vaše jméno</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Zpráva</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+
+                    <button type="submit" class="form-btn">Odeslat</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- 🔗 Футер -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column contact">
+                <p>General:</p>
+                <p>ASI STAV Plzeň s.r.o.</p>
+                <p>IČO: 17603099</p>
+                <p>sady Pětatřicátníků 322/8, Vnitřní Město, 301 00 Plzeň</p>
+                <p><strong>Kontakty:</strong></p>
+                <p>Objednávku: <a href="tel:+420777590181">+420 777 590 181</a></p>
+                <p>Majitel: <a href="tel:+420776070274">+420 776 070 274</a></p>
+            </div>
+            <div class="footer-column social">
+                <p><strong>Follow</strong></p>
+                <p><a href="#">Instagram</a></p>
+                <p><a href="#">Facebook</a></p>
+                <img src="img/logo/ChatGPT Image 13 вер. 2025 р.png" alt="" class="foot_img">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>©2025 ASI STAV Plzeň s.r.o., Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/form_te.js"></script>
+<script src="js/cont-img.js"></script>
+<script src="js/burg.js"></script>
+<script src="js/form.js"></script>
+
+</html>
