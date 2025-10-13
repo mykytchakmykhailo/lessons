@@ -1,0 +1,91 @@
+@import url('header.css');
+@import url('footer.css');
+@import url('style.css');
+
+
+#gall{
+    background: black;
+    padding: 84px 15px;
+}
+
+.gall-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 10px;
+}
+
+.gall-grid img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: 1s;
+  &:hover{
+transform: scale(1.02);
+  }
+  &:active{
+    
+  }
+}
+/* --- Lightbox styles --- */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80%;
+  margin: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.lightbox-nav {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.lightbox-nav span {
+  color: white;
+  font-size: 60px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+
+
+
+.gall-grid img {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.gall-grid img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+

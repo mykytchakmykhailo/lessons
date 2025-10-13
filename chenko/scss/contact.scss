@@ -1,0 +1,291 @@
+/* ====== Секція форми та футера ====== */
+@import url('header.css');
+@import url('footer.css');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.container a{
+    color: #8d8b8b;
+}
+header{
+    padding-bottom: 4%;
+      background: linear-gradient(135deg, #0f0f10 0%, #2a2525 100%,#000000 20%); /* Легкий градієнт для фону */
+}
+main{
+    z-index: 3;
+}
+/* Main займає доступний простір між хедером і футером */
+main {
+  flex: 1 0 auto; /* Розтягується, щоб заповнити простір */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px); /* Враховуємо приблизну висоту хедера (~100px) і футера (~100px) */
+  background: linear-gradient(135deg, #0f0f10 0%, #2a2525 100%,#000000 20%); /* Легкий градієнт для фону */
+}
+
+/* Секція форми */
+.form-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Контейнер форми */
+.form-container {
+  background: rgba(0, 0, 0, 0.95); /* Напівпрозорий білий фон */
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.43); /* М’яка тінь */
+  width: 100%;
+  max-width: 600px; /* Обмежуємо ширину форми */
+}
+
+/* Заголовок форми */
+.form-title {
+  
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 2.5rem;
+  color: #1bd50286;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Група полів форми */
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Поля вводу */
+.form-group input,
+.form-group textarea {
+  padding: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: "Oswald", sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4e555c;
+  box-shadow: 0 0 0 3px rgba(58, 62, 67, 0.15);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Кнопка відправки */
+.form-btn {
+  background: linear-gradient(135deg, #16191d 0%, #3b424a 100%);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.form-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(8, 208, 48, 0.655);
+}
+
+.form-btn:active {
+  transform: translateY(0);
+}
+
+/* 🔹 Анімація при кліку (focus) */
+.form-group input,
+.form-group textarea {
+  padding: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: "Oswald", sans-serif;
+  transition: all 0.3s ease;
+  background: #0f0f0f;
+  color: #fff;
+}
+
+/* Ефект при кліку */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #7d6dff;
+  box-shadow: 0 0 12px rgba(3, 218, 10, 0.6);
+  transform: scale(1.03); /* легке збільшення */
+}
+
+/* 🔹 Placeholder-анімація */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #777;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.form-group input:focus::placeholder,
+.form-group textarea:focus::placeholder {
+  transform: translateX(5px);
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .comic-bubble {
+width: 400px; 
+left: 0%; }
+  .chenko{
+    width: 70%;
+  }
+  
+  main {
+    padding-top: 5%;
+    min-height: calc(100vh - 150px); /* Менша висота хедера та футера */
+  }
+
+  .form-section {
+    padding: 1rem;
+  }
+
+  .form-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-container {
+    padding: 2rem 1rem;
+    margin: 0 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .form-btn {
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+}
+.form-container{
+
+    position: relative;
+}
+.comic-bubble {
+  position: absolute;
+  left: 58%;
+  top: 10%;
+  background: #fff;
+  color: #000;
+  padding: 1rem 1.2rem;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 1rem;
+  max-width: 240px;
+
+  border-radius: 35% 40% 35% 45% / 40% 35% 45% 35%; /* криві кути */
+  border: 3px solid #000; /* чорна обводка як у коміксах */
+  box-shadow: 4px 4px 0 #000; /* ефект намальованості */
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+}
+
+/* Трикутничок */
+.comic-bubble::after {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 40px;
+  border: 14px solid transparent;
+  border-right-color: #fff;
+  filter: drop-shadow(-3px 2px 0 #000);
+}
+
+/* Коли у фокусі будь-яке поле */
+.form-container:focus-within .comic-bubble {
+  opacity: 1;
+  transform: scale(1);
+}
+.logo {
+  top: 20%;
+  left: 49.5%;
+}
+
+@media (max-width: 768px) {
+.comic-bubble {
+  position: absolute;
+  left: 50%;
+
+}}
+@media (max-width: 537px) {
+.comic-bubble {
+  font-size: 1rem;
+  width: 40%;
+  position: absolute;
+  left: 50%;
+
+}}
+@media (max-width: 500px) {
+.comic-bubble {
+  font-size: 0.8rem;
+  width: 40%;
+  position: absolute;
+  left: 50%;
+
+}}
+@media (max-width: 395px) {
+.comic-bubble {
+  font-size: 0.6rem;
+  width: 60%;
+  position: absolute;
+  left: 40%;
+
+}}
