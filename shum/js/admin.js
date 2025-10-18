@@ -1,14 +1,17 @@
 function checkPassword() {
-  const passwordInput = document.getElementById('adminPassword').value;
+  const passwordInput = document.getElementById('adminPassword')?.value || '';
   const passwordError = document.getElementById('passwordError');
   const correctPassword = 'shum2025';
 
+  console.log('Перевірка пароля:', passwordInput);
   if (passwordInput === correctPassword) {
-    document.getElementById('passwordPrompt').style.display = 'none';
-    document.getElementById('adminContent').style.display = 'block';
+    document.getElementById('passwordPrompt')?.style.display = 'none';
+    document.getElementById('adminContent')?.style.display = 'block';
+    console.log('Успішний вхід о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
   } else {
     passwordError.textContent = 'Неправильний пароль!';
     passwordError.style.display = 'block';
+    console.log('Помилка пароля');
   }
 }
 
@@ -22,14 +25,15 @@ window.onload = function() {
 };
 
 async function saveBanner() {
-  console.log('Натискання кнопки "Зберегти афішу" о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
+  console.log('Натискання "Зберегти афішу" о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
   const fileInput = document.getElementById('bannerInput');
-  const file = fileInput.files[0];
+  const file = fileInput?.files[0];
   const successMessage = document.getElementById('successMessage');
   const errorMessage = document.getElementById('errorMessage');
   const preview = document.getElementById('preview');
 
   if (!file) {
+    console.log('Помилка: файл не вибрано');
     errorMessage.textContent = 'Помилка: виберіть зображення!';
     errorMessage.style.display = 'block';
     successMessage.style.display = 'none';
@@ -37,6 +41,7 @@ async function saveBanner() {
   }
 
   if (file.size > 2 * 1024 * 1024) {
+    console.log('Помилка: розмір файлу перевищує 2 МБ:', file.size);
     errorMessage.textContent = 'Помилка: розмір зображення перевищує 2 МБ!';
     errorMessage.style.display = 'block';
     successMessage.style.display = 'none';
@@ -45,15 +50,17 @@ async function saveBanner() {
 
   const formData = new FormData();
   formData.append('file', file);
-  formData.append('upload_preset', 'shum-upload'); // Заміни на твій upload preset, якщо інший
+  formData.append('upload_preset', 'shum'); // Оновлено на твій preset
   formData.append('folder', 'banners');
 
   try {
+    console.log('Відправка запиту до Cloudinary...');
     const response = await fetch(`https://api.cloudinary.com/v1_1/c-f65c836276cf5a43cecb0a74168b4d/image/upload`, {
       method: 'POST',
       body: formData
     });
     const data = await response.json();
+    console.log('Відповідь Cloudinary:', data);
     if (data.secure_url) {
       console.log('Афіша завантажена:', data.secure_url);
       preview.src = data.secure_url;
@@ -62,25 +69,26 @@ async function saveBanner() {
       errorMessage.style.display = 'none';
       updatePageWithBanner(data.secure_url);
     } else {
-      throw new Error('Помилка завантаження');
+      throw new Error('Немає secure_url у відповіді:', data.error?.message || 'невідома помилка');
     }
   } catch (error) {
-    console.log('Помилка при завантаженні афіші:', error);
-    errorMessage.textContent = 'Помилка при завантаженні зображення!';
+    console.error('Помилка при завантаженні афіші:', error);
+    errorMessage.textContent = `Помилка при завантаженні: ${error.message}`;
     errorMessage.style.display = 'block';
     successMessage.style.display = 'none';
   }
 }
 
 async function saveGalleryImages() {
-  console.log('Натискання кнопки "Зберегти зображення галереї" о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
+  console.log('Натискання "Зберегти галерею" о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
   const fileInput = document.getElementById('galleryInput');
-  const files = fileInput.files;
+  const files = fileInput?.files || [];
   const successMessage = document.getElementById('gallerySuccessMessage');
   const errorMessage = document.getElementById('galleryErrorMessage');
   const galleryPreview = document.getElementById('galleryPreview');
 
-  if (!files || files.length === 0) {
+  if (files.length === 0) {
+    console.log('Помилка: файли не вибрано');
     errorMessage.textContent = 'Помилка: виберіть зображення!';
     errorMessage.style.display = 'block';
     successMessage.style.display = 'none';
@@ -88,6 +96,7 @@ async function saveGalleryImages() {
   }
 
   if (files.length > 300) {
+    console.log('Помилка: ліміт 300 зображень');
     errorMessage.textContent = 'Помилка: ліміт 300 зображень!';
     errorMessage.style.display = 'block';
     successMessage.style.display = 'none';
@@ -99,6 +108,7 @@ async function saveGalleryImages() {
 
   for (let i = 0; i < files.length; i++) {
     if (files[i].size > 2 * 1024 * 1024) {
+      console.log('Помилка: розмір файлу перевищує 2 МБ:', files[i].name, files[i].size);
       errorMessage.textContent = `Помилка: розмір ${files[i].name} перевищує 2 МБ!`;
       errorMessage.style.display = 'block';
       successMessage.style.display = 'none';
@@ -108,19 +118,24 @@ async function saveGalleryImages() {
 
     const formData = new FormData();
     formData.append('file', files[i]);
-    formData.append('upload_preset', 'shum-upload'); // Заміни на твій upload preset
+    formData.append('upload_preset', 'shum'); // Оновлено на твій preset
     formData.append('folder', 'gallery');
 
     try {
+      console.log(`Відправка зображення ${i + 1}/${files.length}...`);
       const response = await fetch(`https://api.cloudinary.com/v1_1/c-f65c836276cf5a43cecb0a74168b4d/image/upload`, {
         method: 'POST',
         body: formData
       });
       const data = await response.json();
-      newImages.push(data.secure_url);
-      console.log(`Зображення галереї завантажено (${i + 1}/${files.length}):`, data.secure_url);
+      if (data.secure_url) {
+        newImages.push(data.secure_url);
+        console.log(`Зображення завантажено:`, data.secure_url);
+      } else {
+        throw new Error('Немає secure_url у відповіді:', data.error?.message || 'невідома помилка');
+      }
     } catch (error) {
-      console.log('Помилка при завантаженні:', error);
+      console.error('Помилка при завантаженні:', error);
       hasError = true;
       break;
     }
@@ -193,15 +208,15 @@ function removeGalleryImage(index, images) {
 }
 
 function updatePageWithBanner(url) {
-  console.log('Оновіть index.html для застосування афіші:', url, 'о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
+  console.log('Оновіть index.html для афіші:', url, 'о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
 }
 
 function updateGalleryPage(images) {
-  console.log('Оновіть galery.html для застосування галереї:', images, 'о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
+  console.log('Оновіть galery.html для галереї:', images, 'о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
 }
 
 function clearBanner() {
-  console.log('Натискання кнопки "Очистити афішу" о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
+  console.log('Очищення афіші о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
   const preview = document.getElementById('preview');
   const successMessage = document.getElementById('successMessage');
   const errorMessage = document.getElementById('errorMessage');
@@ -212,7 +227,7 @@ function clearBanner() {
 }
 
 function clearGalleryImages() {
-  console.log('Натискання кнопки "Очистити галерею" о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
+  console.log('Очищення галереї о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
   const galleryPreview = document.getElementById('galleryPreview');
   const successMessage = document.getElementById('gallerySuccessMessage');
   const errorMessage = document.getElementById('galleryErrorMessage');
