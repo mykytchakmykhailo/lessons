@@ -4,7 +4,10 @@ window.onload = function() {
   galleryContainer.innerHTML = ''; // Очищаємо статичні зображення
 
   fetch(`https://api.cloudinary.com/v1_1/c-f65c836276cf5a43cecb0a74168b4d/resources/image?folder=gallery&max_results=300&api_key=197628645921524`)
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+      return response.json();
+    })
     .then(data => {
       if (data.resources && data.resources.length > 0) {
         data.resources.forEach((item) => {
@@ -18,6 +21,7 @@ window.onload = function() {
           img.src = item.secure_url;
           img.alt = 'Динамічне зображення';
           img.className = 'gallery-img';
+          img.style.maxWidth = '100%'; // Додано для адаптивності
 
           link.appendChild(img);
           galleryItem.appendChild(link);
@@ -28,7 +32,7 @@ window.onload = function() {
       }
     })
     .catch(error => {
-      console.log('Помилка завантаження галереї:', error);
-      galleryContainer.innerHTML = '<p>Помилка завантаження.</p>';
+      console.error('Помилка завантаження галереї:', error);
+      galleryContainer.innerHTML = '<p>Помилка завантаження. Перевірте консоль.</p>';
     });
 };
