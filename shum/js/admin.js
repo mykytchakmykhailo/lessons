@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         preview.style.display = 'block';
         preview.onload = () => console.log('Зображення баннера завантажено в попередній перегляд');
 
-        // Оновлення bannerImage на основній сторінці (наприклад, index.html)
+        // Оновлення bannerImage на основній сторінці
         updateBannerImageOnMainPage(data.secure_url);
 
         successMessage.style.display = 'block';
@@ -253,26 +253,12 @@ document.addEventListener('DOMContentLoaded', () => {
     successMessage.style.display = 'block';
   }
 
-  function updatePageWithBanner(url) {
-    console.log('Оновіть index.html для афіші:', url, 'о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
-    // Логіка оновлення bannerImage на основній сторінці
-    fetch('/index.html', {
-      method: 'GET'
-    })
-      .then(response => response.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const bannerImage = doc.getElementById('bannerImage');
-        if (bannerImage) {
-          bannerImage.src = url + '?t=' + new Date().getTime();
-          // Тут можна зберегти оновлений HTML назад на сервер, якщо потрібно
-          console.log('bannerImage оновлено на index.html');
-        } else {
-          console.error('Елемент bannerImage не знайдено в index.html');
-        }
-      })
-      .catch(error => console.error('Помилка оновлення index.html:', error));
+  function updateBannerImageOnMainPage(url) {
+    console.log('Оновлення bannerImage на основній сторінці:', url, 'о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
+    // Спроба оновити bannerImage на основній сторінці (наприклад, index.html)
+    // Оскільки це клієнтська логіка, ми можемо оновити лише поточну сторінку або перенаправити
+    window.location.href = '/index.html?banner=' + encodeURIComponent(url);
+    // Примітка: Для реального оновлення на сервері потрібен бекенд (наприклад, Node.js)
   }
 
   function updateGalleryPage(images) {
@@ -344,4 +330,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
 
