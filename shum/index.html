@@ -139,7 +139,21 @@
   <script src="./js/anima.js"></script>
   <script src="./js/burger.js"></script>
   <script src="./js/smooth-scroll.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const bannerUrl = urlParams.get('banner');
+    if (bannerUrl) {
+      const bannerImage = document.getElementById('bannerImage');
+      if (bannerImage) {
+        bannerImage.src = decodeURIComponent(bannerUrl) + '?t=' + new Date().getTime();
+        console.log('bannerImage оновлено з URL:', decodeURIComponent(bannerUrl));
+      }
+    }
+  });
+</script>
 </body>
 
 
 </html>
+
