@@ -72,12 +72,12 @@ async function saveBanner() {
 
   const formData = new FormData();
   formData.append('file', file);
-  formData.append('upload_preset', 'shum_uzgh'); // Оновлено на ваш 6-символьний preset
+  formData.append('upload_preset', 'shum_uzgh');
   formData.append('folder', 'banners');
 
   try {
     console.log('Відправка запиту до Cloudinary...');
-    const response = await fetch(`https://api.cloudinary.com/v1_1/c-f65c836276cf5a43cecb0a74168b4d/image/upload`, {
+    const response = await fetch(`https://api.cloudinary.com/v1_1/dofeufhjd/image/upload`, {  // Оновлено Cloud name
       method: 'POST',
       body: formData
     });
@@ -145,12 +145,12 @@ async function saveGalleryImages() {
 
     const formData = new FormData();
     formData.append('file', files[i]);
-    formData.append('upload_preset', 'shum_uzgh'); // Оновлено на ваш 6-символьний preset
+    formData.append('upload_preset', 'shum_uzgh');
     formData.append('folder', 'gallery');
 
     try {
       console.log(`Відправка зображення ${i + 1}/${files.length}...`);
-      const response = await fetch(`https://api.cloudinary.com/v1_1/c-f65c836276cf5a43cecb0a74168b4d/image/upload`, {
+      const response = await fetch(`https://api.cloudinary.com/v1_1/dofeufhjd/image/upload`, {  // Оновлено Cloud name
         method: 'POST',
         body: formData
       });
@@ -272,11 +272,12 @@ async function fetchGalleryImages() {
   console.log('Завантаження зображень галереї о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
   const galleryPreview = document.getElementById('galleryPreview');
   try {
-    const response = await fetch(`https://api.cloudinary.com/v1_1/c-f65c836276cf5a43cecb0a74168b4d/resources/image?folder=gallery&max_results=300&api_key=197628645921524`);
+    const response = await fetch(`https://api.cloudinary.com/v1_1/dofeufhjd/resources/image?folder=gallery&max_results=300&api_key=197628645921524`);  // Оновлено Cloud name
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
     const data = await response.json();
+    console.log('Повна відповідь галереї:', JSON.stringify(data, null, 2));
     if (data.resources && data.resources.length > 0) {
       galleryPreview.innerHTML = '';
       data.resources.forEach((item, index) => {
@@ -303,7 +304,7 @@ async function fetchGalleryImages() {
       galleryPreview.innerHTML = '<p>Немає зображень у галереї.</p>';
     }
   } catch (error) {
-    console.log('Помилка завантаження галереї:', error);
+    console.error('Помилка завантаження галереї:', error.message);
     galleryPreview.innerHTML = '<p>Помилка завантаження галереї.</p>';
   }
 }
