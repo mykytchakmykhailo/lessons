@@ -1,7 +1,6 @@
 function checkPassword() {
   console.log('Функція checkPassword викликана о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
 
-  // Перевірка наявності елементів
   const passwordInput = document.getElementById('adminPassword');
   const passwordError = document.getElementById('passwordError');
   const passwordPrompt = document.getElementById('passwordPrompt');
@@ -19,7 +18,7 @@ function checkPassword() {
     return;
   }
 
-  const passwordValue = passwordInput.value.trim(); // Прибираємо пробіли
+  const passwordValue = passwordInput.value.trim();
   console.log('Введений пароль:', passwordValue ? passwordValue : '[порожньо]');
 
   const correctPassword = 'shum2025';
@@ -63,6 +62,7 @@ async function saveBanner() {
     return;
   }
 
+  console.log('Розмір файлу:', file.size, 'байт (200 КБайт = 204800 байт)');
   if (file.size > 2 * 1024 * 1024) {
     console.log('Помилка: розмір файлу перевищує 2 МБ:', file.size);
     errorMessage.style.display = 'block';
@@ -72,7 +72,7 @@ async function saveBanner() {
 
   const formData = new FormData();
   formData.append('file', file);
-  formData.append('upload_preset', 'shum');
+  formData.append('upload_preset', 'shum_uzgh'); // Оновлено на ваш 6-символьний preset
   formData.append('folder', 'banners');
 
   try {
@@ -81,8 +81,15 @@ async function saveBanner() {
       method: 'POST',
       body: formData
     });
+    console.log('Статус відповіді:', response.status);
+    if (response.status === 401) {
+      throw new Error('401 Unauthorized: Перевірте API Key, Cloud name або upload_preset (має бути Unsigned)');
+    }
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
     const data = await response.json();
-    console.log('Відповідь Cloudinary:', data);
+    console.log('Повна відповідь Cloudinary:', JSON.stringify(data, null, 2));
     if (data.secure_url) {
       console.log('Афіша завантажена:', data.secure_url);
       preview.src = data.secure_url;
@@ -91,10 +98,11 @@ async function saveBanner() {
       errorMessage.style.display = 'none';
       updatePageWithBanner(data.secure_url);
     } else {
-      throw new Error('Немає secure_url у відповіді:', data.error?.message || 'невідома помилка');
+      throw new Error(`Немає secure_url у відповіді: ${data.error?.message || 'невідома помилка'}`);
     }
   } catch (error) {
-    console.error('Помилка при завантаженні афіші:', error);
+    console.error('Помилка при завантаженні афіші:', error.message);
+    errorMessage.textContent = `Помилка: ${error.message}`;
     errorMessage.style.display = 'block';
     successMessage.style.display = 'none';
   }
@@ -137,7 +145,7 @@ async function saveGalleryImages() {
 
     const formData = new FormData();
     formData.append('file', files[i]);
-    formData.append('upload_preset', 'shum');
+    formData.append('upload_preset', 'shum_uzgh'); // Оновлено на ваш 6-символьний preset
     formData.append('folder', 'gallery');
 
     try {
@@ -146,15 +154,23 @@ async function saveGalleryImages() {
         method: 'POST',
         body: formData
       });
+      console.log('Статус відповіді:', response.status);
+      if (response.status === 401) {
+        throw new Error('401 Unauthorized: Перевірте API Key, Cloud name або upload_preset (має бути Unsigned)');
+      }
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
       const data = await response.json();
+      console.log('Повна відповідь Cloudinary:', JSON.stringify(data, null, 2));
       if (data.secure_url) {
         newImages.push(data.secure_url);
         console.log(`Зображення завантажено:`, data.secure_url);
       } else {
-        throw new Error('Немає secure_url у відповіді:', data.error?.message || 'невідома помилка');
+        throw new Error(`Немає secure_url у відповіді: ${data.error?.message || 'невідома помилка'}`);
       }
     } catch (error) {
-      console.error('Помилка при завантаженні:', error);
+      console.error('Помилка при завантаженні:', error.message);
       hasError = true;
       break;
     }
@@ -257,6 +273,9 @@ async function fetchGalleryImages() {
   const galleryPreview = document.getElementById('galleryPreview');
   try {
     const response = await fetch(`https://api.cloudinary.com/v1_1/c-f65c836276cf5a43cecb0a74168b4d/resources/image?folder=gallery&max_results=300&api_key=197628645921524`);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
     const data = await response.json();
     if (data.resources && data.resources.length > 0) {
       galleryPreview.innerHTML = '';
