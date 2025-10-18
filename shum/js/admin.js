@@ -77,7 +77,7 @@ async function saveBanner() {
 
   try {
     console.log('Відправка запиту до Cloudinary...');
-    const response = await fetch(`https://api.cloudinary.com/v1_1/dofeufhjd/image/upload`, {  // Оновлено Cloud name
+    const response = await fetch(`https://api.cloudinary.com/v1_1/dofeufhjd/image/upload`, {
       method: 'POST',
       body: formData
     });
@@ -101,7 +101,7 @@ async function saveBanner() {
       throw new Error(`Немає secure_url у відповіді: ${data.error?.message || 'невідома помилка'}`);
     }
   } catch (error) {
-    console.error('Помилка при завантаженні афіші:', error.message);
+    console.error('Помилка при завантаженні афіші:', error.message, 'Деталі:', error);
     errorMessage.textContent = `Помилка: ${error.message}`;
     errorMessage.style.display = 'block';
     successMessage.style.display = 'none';
@@ -150,7 +150,7 @@ async function saveGalleryImages() {
 
     try {
       console.log(`Відправка зображення ${i + 1}/${files.length}...`);
-      const response = await fetch(`https://api.cloudinary.com/v1_1/dofeufhjd/image/upload`, {  // Оновлено Cloud name
+      const response = await fetch(`https://api.cloudinary.com/v1_1/dofeufhjd/image/upload`, {
         method: 'POST',
         body: formData
       });
@@ -272,7 +272,7 @@ async function fetchGalleryImages() {
   console.log('Завантаження зображень галереї о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
   const galleryPreview = document.getElementById('galleryPreview');
   try {
-    const response = await fetch(`https://api.cloudinary.com/v1_1/dofeufhjd/resources/image?folder=gallery&max_results=300&api_key=197628645921524`);  // Оновлено Cloud name
+    const response = await fetch(`https://api.cloudinary.com/v1_1/dofeufhjd/resources/image?folder=gallery&max_results=300&api_key=197628645921524`);
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
