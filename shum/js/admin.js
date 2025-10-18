@@ -34,7 +34,7 @@ function checkPassword() {
 
 window.onload = function() {
   console.log('Сторінка admin.html завантажена о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
-  const preview = document.getElementById('preview');
+  const bannerImage = document.getElementById('bannerImage'); // Оновлено на bannerImage
   const galleryPreview = document.getElementById('galleryPreview');
   if (galleryPreview) {
     galleryPreview.innerHTML = '<p>Завантажте зображення для галереї.</p>';
@@ -53,7 +53,7 @@ async function saveBanner() {
   const file = fileInput?.files[0];
   const successMessage = document.getElementById('successMessage');
   const errorMessage = document.getElementById('errorMessage');
-  const preview = document.getElementById('preview');
+  const bannerImage = document.getElementById('bannerImage'); // Оновлено на bannerImage
 
   if (!file) {
     console.log('Помилка: файл не вибрано');
@@ -92,8 +92,9 @@ async function saveBanner() {
     console.log('Повна відповідь Cloudinary:', JSON.stringify(data, null, 2));
     if (data.secure_url) {
       console.log('Афіша завантажена:', data.secure_url);
-      preview.src = data.secure_url;
-      preview.style.display = 'block';
+      bannerImage.src = data.secure_url + '?t=' + new Date().getTime(); // Оновлено src і додано timestamp
+      bannerImage.style.display = 'block';
+      bannerImage.onload = () => console.log('Зображення баннера завантажено в DOM');
       successMessage.style.display = 'block';
       errorMessage.style.display = 'none';
       updatePageWithBanner(data.secure_url);
@@ -250,10 +251,10 @@ function updateGalleryPage(images) {
 
 function clearBanner() {
   console.log('Очищення афіші о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
-  const preview = document.getElementById('preview');
+  const bannerImage = document.getElementById('bannerImage'); // Оновлено на bannerImage
   const successMessage = document.getElementById('successMessage');
   const errorMessage = document.getElementById('errorMessage');
-  preview.style.display = 'none';
+  bannerImage.style.display = 'none'; // Очищаємо зображення
   successMessage.style.display = 'none';
   errorMessage.style.display = 'block';
 }
@@ -308,4 +309,5 @@ async function fetchGalleryImages() {
     galleryPreview.innerHTML = '<p>Помилка завантаження галереї.</p>';
   }
 }
+
 
