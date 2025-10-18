@@ -1,3 +1,40 @@
+function checkPassword() {
+  console.log('Функція checkPassword викликана о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
+
+  const passwordInput = document.getElementById('adminPassword');
+  const passwordError = document.getElementById('passwordError');
+  const passwordPrompt = document.getElementById('passwordPrompt');
+  const adminContent = document.getElementById('adminContent');
+
+  console.log('Елементи знайдені:', {
+    passwordInput: !!passwordInput,
+    passwordError: !!passwordError,
+    passwordPrompt: !!passwordPrompt,
+    adminContent: !!adminContent
+  });
+
+  if (!passwordInput || !passwordError || !passwordPrompt || !adminContent) {
+    console.error('Помилка: один із елементів не знайдено!');
+    alert('Помилка: один із елементів не знайдено!');
+    return;
+  }
+
+  const passwordValue = passwordInput.value.trim();
+  console.log('Введений пароль:', passwordValue ? passwordValue : '[порожньо]');
+
+  const correctPassword = 'shum2025';
+  if (passwordValue === correctPassword) {
+    console.log('Пароль правильний, змінюємо відображення');
+    alert('Пароль правильний! Увійшли.');
+    passwordPrompt.style.display = 'none';
+    adminContent.style.display = 'block';
+  } else {
+    console.log('Пароль неправильний');
+    alert('Пароль неправильний!');
+    passwordError.style.display = 'block';
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Сторінка admin.html завантажена о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
   const preview = document.getElementById('preview');
@@ -13,40 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (galleryPreview) {
     fetchGalleryImages();
-  }
-
-  function checkPassword() {
-    console.log('Функція checkPassword викликана о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
-
-    const passwordInput = document.getElementById('adminPassword');
-    const passwordError = document.getElementById('passwordError');
-    const passwordPrompt = document.getElementById('passwordPrompt');
-    const adminContent = document.getElementById('adminContent');
-
-    console.log('Елементи знайдені:', {
-      passwordInput: !!passwordInput,
-      passwordError: !!passwordError,
-      passwordPrompt: !!passwordPrompt,
-      adminContent: !!adminContent
-    });
-
-    if (!passwordInput || !passwordError || !passwordPrompt || !adminContent) {
-      console.error('Помилка: один із елементів не знайдено!');
-      return;
-    }
-
-    const passwordValue = passwordInput.value.trim();
-    console.log('Введений пароль:', passwordValue ? passwordValue : '[порожньо]');
-
-    const correctPassword = 'shum2025';
-    if (passwordValue === correctPassword) {
-      console.log('Пароль правильний, змінюємо відображення');
-      passwordPrompt.style.display = 'none';
-      adminContent.style.display = 'block';
-    } else {
-      console.log('Пароль неправильний');
-      passwordError.style.display = 'block';
-    }
   }
 
   async function saveBanner() {
@@ -255,10 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateBannerImageOnMainPage(url) {
     console.log('Оновлення bannerImage на основній сторінці:', url, 'о', new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kiev' }));
-    // Спроба оновити bannerImage на основній сторінці (наприклад, index.html)
-    // Оскільки це клієнтська логіка, ми можемо оновити лише поточну сторінку або перенаправити
     window.location.href = '/index.html?banner=' + encodeURIComponent(url);
-    // Примітка: Для реального оновлення на сервері потрібен бекенд (наприклад, Node.js)
   }
 
   function updateGalleryPage(images) {
