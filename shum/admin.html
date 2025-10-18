@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Адмін-панель - ШУМ</title>
+  <link rel="stylesheet" href="./css/admin.css">
+</head>
+
+<body>
+  <div id="passwordPrompt" class="password-prompt">
+    <h2>Введіть пароль</h2>
+    <input type="password" id="adminPassword" placeholder="Пароль">
+    <button onclick="checkPassword()">Увійти</button>
+    <p id="passwordError" class="error-message" style="display: none;">Неправильний пароль!</p>
+  </div>
+  <div id="adminContent" style="display: none;">
+    <h1>Адмін-панель - Заміна афіші та галереї</h1>
+    <div class="admin-container">
+      <h2>Завантажити нову афішу</h2>
+      <input type="file" id="bannerInput" accept="image/*">
+      <button onclick="saveBanner()">Зберегти афішу</button>
+      <button onclick="clearBanner()">Очистити афішу</button>
+      <p class="success-message" id="successMessage">Афіша успішно оновлена!</p>
+      <p class="error-message" id="errorMessage">Помилка: виберіть зображення або перевірте розмір (макс. 2 МБ)!</p>
+      <h3>Попередній перегляд афіші</h3>
+      <img id="preview" class="preview-img" alt="Попередній перегляд афіші">
+
+      <h2>Завантажити зображення до галереї</h2>
+      <input type="file" id="galleryInput" accept="image/*" multiple>
+      <button onclick="saveGalleryImages()">Зберегти зображення</button>
+      <button onclick="clearGalleryImages()">Очистити галерею</button>
+      <p class="success-message" id="gallerySuccessMessage">Зображення галереї успішно оновлені!</p>
+      <p class="error-message" id="galleryErrorMessage">Помилка: виберіть зображення або перевірте розмір (макс. 2 МБ на
+        зображення)!</p>
+      <h3>Попередній перегляд галереї</h3>
+      <div id="galleryPreview" class="gallery-preview"></div>
+    </div>
+  </div>
+  <script src="./js/admin.js"></script>
+</body>
+
+</html>
