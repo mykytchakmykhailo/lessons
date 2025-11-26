@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ужгород — Карта</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+	<main>
+		<!-- Головний контейнер, який згортається до 0 -->
+		<div class="map-wrapper" id="mapWrapper">
+
+			<!-- Верхня смужка, яка завжди видно -->
+			<div class="top-bar">
+				<div class="golovna"><a href="index.html">Головна</a></div>
+				<div class="sculpture_info">Всі скульптури</div>
+
+				<!-- Бургер-кнопка -->
+				<button class="burger-btn" id="burgerBtn" aria-label="Згорнути/розгорнути">
+					<span></span><span></span><span></span>
+				</button>
+			</div>
+
+			<!-- Карта -->
+			<div id="map"></div>
+
+			<!-- КНОПКА "Я ТУТ" — по центру знизу -->
+			<button class="locateBtn center-locate" id="locateBtn">
+				Я ТУТ
+			</button>
+			<button class="startNavBtn" id="startNavBtn">Почати маршрут</button>
+
+		</div>
+
+	</main>
+	<footer>
+		<div class="sculpture"><!-- НОВИЙ КРУТИЙ ФУТЕР-ГРИД З СКУЛЬПТУРАМИ -->
+			<div class="sculptures-grid" id="sculpturesGrid">
+				<!-- Приклад 8 популярних скульптур Ужгорода (додай/змінюй як хочеш) -->
+				<div class="grid-item" data-lat="48.623" data-lng="22.299" data-title="Статуя Свободи">
+					<img src="img/figure/1.jpg" alt="Статуя Свободи">
+					<p>Свободи</p>
+				</div>
+				<div class="grid-item" data-lat="48.6215" data-lng="22.2941" data-title="Годинникар">
+					<img src="img/figure/2.jpg" alt="Статуя Свободи">
+					<p>Годинникар</p>
+				</div>
+				<div class="grid-item" data-lat="48.6231" data-lng="22.3025" data-title="Моцарт">
+					<img src="img/figure/3.jpg" alt="Статуя Свободи">
+					<p>Моцарт</p>
+				</div>
+				<div class="grid-item" data-lat="48.6201" data-lng="22.2754" data-title="Енді Воргол">
+					<img src="img/figure/4.jpg" alt="Статуя Свободи">
+					<p>Воргол</p>
+				</div>
+				<div class="grid-item" data-lat="48.6240" data-lng="22.3001" data-title="Джон Лорд">
+					<img src="img/figure/5.jpg" alt="Статуя Свободи">
+					<p>Джон Лорд</p>
+				</div>
+				<div class="grid-item" data-lat="48.6198" data-lng="22.2987" data-title="Піноккіо">
+					<img src="img/figure/6.jpg" alt="Статуя Свободи">
+					<p>Піноккіо</p>
+				</div>
+				<div class="grid-item" data-lat="48.6219" data-lng="22.2875" data-title="Гаррі Гудіні">
+					<img src="img/figure/7.jpeg" alt="Статуя Свободи">
+					<p>Гудіні</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/8.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/9.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/10.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/11.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/12.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/13.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/14.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/15.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/16.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/17.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/18.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/19.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/20.jpeg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/21.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/22.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/23.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/24.png" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/25.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/26.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/27.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/28.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/29.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/30.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/31.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/32.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/33.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/34.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/35.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/36.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/37.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/38.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/39.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/40.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/41.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/42.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/43.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/44.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/45.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/46.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/47.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/48.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/49.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/50.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/51.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/52.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+				<div class="grid-item" data-lat="48.6223" data-lng="22.2912" data-title="Лампочка Ілона Маска">
+					<img src="img/figure/53.jpg" alt="Статуя Свободи">
+					<p>Лампочка</p>
+				</div>
+			</div>
+		</div>
+		<a href="https://www.mykyweb.tech/" target="_blank">https://www.mykyweb.tech/</a>
+	</footer>
+
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+	<script src="js/data.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/burger_maps.js"></script>
+	<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+</body>
+
+</html> <!--
+  <div id="map"></div>
+  <button class="locateBtn" id="locateBtn">Я ТУТ</button>
+
+-->
