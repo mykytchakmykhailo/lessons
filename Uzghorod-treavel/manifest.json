@@ -2,10 +2,10 @@
   "background_color": "#ffffff",
   "dir": "ltr",
   "display": "standalone",
-  "name": "mykytchakmykhailo.github",
+  "name": "uztravel",
   "orientation": "any",
   "scope": "/",
-  "short_name": "mykytchakmykhailo.github",
-  "start_url": "/",
+  "short_name": "mykytchakuztravelmykhailo.github",
+  "start_url": "https://mykytchakmykhailo.github.io/lessons/Uzghorod-treavel/index.html",
   "theme_color": "#ffffff"
 }
