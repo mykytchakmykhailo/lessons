@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Обери свій нік — Тіні Парку</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a14;
+      color: #e0e0ff;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      background: rgba(20,20,40,0.7);
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 380px;
+      width: 90%;
+    }
+    h1 { color: #a0c0ff; margin-bottom: 0.8rem; }
+    input {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.2rem;
+      margin: 1.2rem 0;
+      border-radius: 10px;
+      border: 2px solid #444;
+      background: #111;
+      color: white;
+    }
+    button {
+      padding: 14px 48px;
+      font-size: 1.2rem;
+      background: #7c5dfa;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+    }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .error { color: #ff6b6b; margin: 12px 0; min-height: 1.4em; }
+    .success { color: #51cf66; }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h1>Привіт у Тінях!</h1>
+  <p>Обери собі унікальний нікнейм</p>
+
+  <input type="text" id="nickname" placeholder="Твій нік..." maxlength="20" autocomplete="off"/>
+  <div class="error" id="status"></div>
+  <button id="save" disabled>Зберегти та грати</button>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+  import { getFirestore, doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCEToRTAs4z8SLW8DIiFMzZYWTZOHfmvhs",
+    authDomain: "carpathianstories-b826c.firebaseapp.com",
+    projectId: "carpathianstories-b826c",
+    // ... решта твого конфігу
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const input = document.getElementById('nickname');
+  const btn = document.getElementById('save');
+  const status = document.getElementById('status');
+
+  let currentUser = null;
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      window.location.href = 'index.html';
+      return;
+    }
+    currentUser = user;
+  });
+
+  // Перевірка унікальності в реальному часі
+  let checkTimeout;
+  input.addEventListener('input', () => {
+    clearTimeout(checkTimeout);
+    btn.disabled = true;
+    status.textContent = '';
+
+    const nick = input.value.trim();
+    if (nick.length < 3) {
+      status.textContent = 'Мінімум 3 символи';
+      status.className = 'error';
+      return;
+    }
+
+    checkTimeout = setTimeout(async () => {
+      status.textContent = 'Перевіряємо...';
+      status.className = '';
+
+      const lowerNick = nick.toLowerCase();
+      const nickRef = doc(db, "usernames", lowerNick);
+      const exists = (await getDoc(nickRef)).exists();
+
+      if (exists) {
+        status.textContent = 'Такий нік вже зайнятий 😔';
+        status.className = 'error';
+      } else {
+        status.textContent = 'Цей нік вільний! ✓';
+        status.className = 'success';
+        btn.disabled = false;
+      }
+    }, 600);
+  });
+
+  btn.onclick = async () => {
+    const nick = input.value.trim();
+    if (!nick || nick.length < 3) return;
+
+    btn.disabled = true;
+    status.textContent = 'Зберігаємо...';
+
+    try {
+      const lowerNick = nick.toLowerCase();
+
+      // Записуємо нік гравця
+      await updateDoc(doc(db, "players", currentUser.uid), {
+        username: nick
+      });
+
+      // Резервуємо нік (для швидкої перевірки)
+      await setDoc(doc(db, "usernames", lowerNick), {
+        uid: currentUser.uid,
+        createdAt: new Date()
+      });
+
+      status.textContent = 'Готово! Зараз перенаправимо...';
+      setTimeout(() => {
+        window.location.href = 'main.html';
+      }, 800);
+    } catch (e) {
+      status.textContent = 'Щось пішло не так... спробуй ще';
+      status.className = 'error';
+      btn.disabled = false;
+      console.error(e);
+    }
+  };
+</script>
+</body>
+</html>
