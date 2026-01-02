@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("header.css");
+@import url("footer.css");
+@import url("gallery.css");
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #0a0a14;
+  color: #e0e0ff;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=2400") center/cover;
+  filter: brightness(0.3);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 420px;
+  padding: 1.5rem;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 12vw, 5rem);
+  color: #b0d0ff;
+  margin-bottom: 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.btn {
+  padding: 1.2rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+.google {
+  background: linear-gradient(135deg, #4285f4, #34a853);
+}
+.facebook {
+  background: #1877f2;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.hint {
+  font-size: 1rem;
+  color: #b0b0d0;
+}
