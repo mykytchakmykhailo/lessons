@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Тіні Парку — Меню</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="bg"></div>
+
+<div class="content">
+  <!-- Профіль користувача -->
+  <div class="user-profile">
+    <div class="avatar-container">
+      <img id="user-avatar" src="https://via.placeholder.com/50/333/aaa?text=..." alt="Аватар">
+    </div>
+    <p class="greeting">
+      Привіт, <span id="user-nick">Завантаження...</span>!
+    </p>
+    <button class="secondary small-btn" id="change-avatar">Змінити</button>
+  </div>
+
+  <div class="progress">
+    Пройдено історій: <strong id="completed-stories">0</strong><br>
+    Відкрито досягнень: <strong id="achievements-count">0</strong>
+  </div>
+
+  <div class="menu-buttons">
+    <button class="primary">Почати нову історію</button>
+    <button class="primary">Продовжити останню</button>
+    <button class="secondary">Досягнення</button>
+    <button class="secondary">Магазин</button>
+    <button class="secondary">Налаштування</button>
+    <button class="logout" id="logout-btn">Вийти</button>
+  </div>
+
+  <p class="hint">Прогрес зберігається автоматично</p>
+</div>
+
+<!-- Модальне вікно для зміни аватарки -->
+<div id="avatar-modal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Зміна аватарки</h3>
+    <input type="file" id="new-avatar" accept="image/*">
+    <div class="modal-buttons">
+      <button id="save-avatar">Зберегти</button>
+      <button id="cancel-avatar">Скасувати</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
