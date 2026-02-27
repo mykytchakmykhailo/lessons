@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Обери героя</title>
+  <link rel="stylesheet" href="css/story.css">
+</head>
+<body>
+
+  <div id="selection" class="screen active">
+    <h1>Обери персонажа</h1>
+
+    <div class="characters" id="characters-list">
+      <div class="card" data-gender="boy">
+        <img src="characters/boy-1.png" alt="Хлопець">
+        <span>Хлопець</span>
+      </div>
+
+      <div class="card" data-gender="girl">
+        <img src="characters/girl-1.png" alt="Дівчина">
+        <span>Дівчина</span>
+      </div>
+    </div>
+
+    <div id="look-slider" class="slider hidden">
+      <button class="arrow left">←</button>
+      <div class="slider-window">
+        <img id="current-look" src="" alt="Вигляд" class="look-img">
+      </div>
+      <button class="arrow right">→</button>
+
+      <p id="look-name">Варіант 1 з 4</p>
+
+      <button id="confirm-look" class="confirm">Це мій вигляд → Почати</button>
+    </div>
+  </div>
+
+  <div id="story" class="screen hidden">
+    <div class="scene full-bg">
+      <div class="dialogue-container">
+        <div class="speech-bubble fade-sequence" style="--delay: 0.8s;">
+          <p>Місто спить під важким туманом. Місяць ледь пробивається крізь хмари...</p>
+        </div>
+
+        <div class="speech-bubble right fade-sequence" style="--delay: 2.4s;">
+          <p>Ти стоїш на старому мосту. Чути кроки. Хтось наближається...</p>
+        </div>
+
+        <div class="speech-bubble fade-sequence" style="--delay: 4.2s;">
+          <p class="choice-title">Що робиш?</p>
+          <div class="choices">
+            <button>Повернутися і подивитися</button>
+            <button>Прискорити крок</button>
+            <button>Сховатися в темряві</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button id="back" class="back-btn">← Змінити вибір</button>
+  </div>
+
+  <script src="js/story.js"></script>
+</body>
+</html>
