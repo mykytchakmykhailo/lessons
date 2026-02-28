@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Карпатські історії</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      background: #0a0015;
+      color: #f0e8ff;
+      font-family: system-ui, -apple-system, sans-serif;
+      touch-action: manipulation;
+    }
+
+    .screen {
+      position: fixed;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.7s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .screen.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .hidden { display: none !important; }
+
+    /* ─── Вибір ──────────────────────────────────────────────── */
+    h1 {
+      font-size: clamp(2.2rem, 9vw, 4rem);
+      margin-bottom: 30px;
+      color: #d0b0ff;
+      text-shadow: 0 0 20px #8a4fff;
+    }
+
+    .characters {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      transition: all 0.7s ease;
+    }
+
+    .characters.fade-out {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .card {
+      width: clamp(140px, 40vw, 210px);
+      background: rgba(40, 25, 70, 0.75);
+      border: 2px solid #8a4fff50;
+      border-radius: 16px;
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.35s;
+      backdrop-filter: blur(6px);
+    }
+
+    .card:hover, .card.active {
+      transform: scale(1.08);
+      border-color: #b388ff;
+      box-shadow: 0 12px 35px #8a4fff50;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3/4;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    /* ─── Слайдер вигляду ────────────────────────────────────── */
+    .slider { width: 100%; max-width: 460px; margin-top: 25px; text-align: center; }
+    .slider-window {
+      width: 100%;
+      height: clamp(360px, 68vh, 560px);
+      background: rgba(0,0,0,0.4);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 0 auto 18px;
+    }
+    .look-img { width: 100%; height: 100%; object-fit: contain; transition: opacity 0.6s ease; }
+    .arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 50px; height: 50px; background: rgba(0,0,0,0.6); border: none;
+      color: white; font-size: 2.4rem; border-radius: 50%; cursor: pointer;
+    }
+    .left  { left: 10px; }
+    .right { right: 10px; }
+    #look-name { font-size: 1.2rem; margin: 12px 0 20px; color: #c4a1ff; }
+    .confirm {
+      padding: 14px 50px; font-size: 1.2rem; background: #e91e63; border: none;
+      border-radius: 50px; color: white; cursor: pointer; box-shadow: 0 8px 25px #e91e6380;
+    }
+
+    /* ─── Історія ────────────────────────────────────────────── */
+    .scene {
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1.5s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .character {
+      position: absolute;
+      bottom: 8vh;
+      height: 60vh;
+      max-height: 460px;
+      pointer-events: none;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
+    }
+
+    .character-left  { left:  1vw; }
+    .character-right { right: 1vw; }
+
+    .character.hidden { opacity: 0; transform: scale(0.9) translateY(60px); }
+
+    .dialogue-container {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto 100px auto;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .speech-bubble {
+      background: rgba(28, 22, 68, 0.93);
+      backdrop-filter: blur(6px);
+      color: #f0e8ff;
+      padding: 16px 24px;
+      border-radius: 16px;
+      border: 2px solid #7a5aff90;
+      max-width: 80%;
+      font-size: clamp(1.1rem, 4.2vw, 1.35rem);
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .speech-bubble.visible { opacity: 1; transform: translateY(0); }
+
+    .speech-bubble.left  { align-self: flex-start; }
+    .speech-bubble.right { align-self: flex-end; }
+
+    .speech-bubble.narrator {
+      align-self: center;
+      text-align: center;
+      background: rgba(18, 12, 48, 0.95);
+      border-color: #6644aa;
+    }
+
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .choices button {
+      padding: 16px 24px;
+      font-size: 1.15rem;
+      background: #5a48d8;
+      border: none;
+      border-radius: 14px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .choices button:hover {
+      background: #7a68ff;
+      transform: translateY(-3px);
+    }
+
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 12px 28px;
+      background: rgba(0,0,0,0.75);
+      border: 1px solid #888;
+      border-radius: 50px;
+      color: #eee;
+      z-index: 100;
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Вибір персонажа -->
+  <div id="selection" class="screen active">
+    <h1>Обери героя</h1>
+    <div class="characters" id="characters-list">
+      <div class="card" data-gender="boy">
+        <img src="img/story_1/person/boyz/1.png" alt="Хлопець">
+        <span>Хлопець</span>
+      </div>
+      <div class="card" data-gender="girl">
+        <img src="img/story_1/person/girlz/1.png" alt="Дівчина">
+        <span>Дівчина</span>
+      </div>
+    </div>
+
+    <div id="look-slider" class="slider hidden">
+      <button class="arrow left">←</button>
+      <div class="slider-window">
+        <img id="current-look" src="" alt="Вигляд" class="look-img">
+      </div>
+      <button class="arrow right">→</button>
+      <p id="look-name">Варіант 1 з 4</p>
+      <button id="confirm-look" class="confirm hidden">Це мій вигляд → Почати</button>
+    </div>
+  </div>
+
+  <!-- Історія -->
+  <div id="story" class="screen hidden">
+    <div class="scene" id="scene-container">
+      <!-- Герой гравця -->
+      <img id="player-char" class="character hidden" src="" alt="Твій герой">
+
+      <!-- Інші персонажі (якщо будуть) -->
+      <img id="char-left"  class="character character-left hidden" src="" alt="">
+      <img id="char-right" class="character character-right hidden" src="" alt="">
+
+      <div class="dialogue-container" id="dialogue-container"></div>
+    </div>
+
+    <button id="back" class="back-btn">← Змінити героя</button>
+  </div>
+
+  <script>
+    // ─── Вибір ─────────────────────────────────────────────────────────────
+    let selectedGender = null;
+    let currentIndex = 0;
+
+    const looks = {
+      boy: [
+        { src: "img/story_1/person/boyz/1.png", name: "Повсякденний" },
+        { src: "img/story_1/person/boyz/2.png", name: "Джинси + футболка" },
+        { src: "img/story_1/person/boyz/3.png", name: "Темний стиль" },
+        { src: "img/story_1/person/boyz/4.png", name: "Літній лук" }
+      ],
+      girl: [
+        { src: "img/story_1/person/girlz/1.png", name: "Повсякденний" },
+        { src: "img/story_1/person/girlz/2.png", name: "Джинси + топ" },
+        { src: "img/story_1/person/girlz/3.png", name: "Готичний" },
+        { src: "img/story_1/person/girlz/4.png", name: "Літній легкий" }
+      ]
+    };
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        selectedGender = card.dataset.gender;
+
+        const chars = document.getElementById('characters-list');
+        chars.classList.add('fade-out');
+
+        setTimeout(() => {
+          chars.style.display = 'none';
+          document.getElementById('look-slider').classList.remove('hidden');
+          currentIndex = 0;
+          updateLook();
+        }, 700);
+      });
+    });
+
+    function updateLook() {
+      if (!selectedGender) return;
+      const look = looks[selectedGender][currentIndex];
+      if (!look) return;
+
+      const img = document.getElementById('current-look');
+      img.style.opacity = '0';
+      setTimeout(() => {
+        img.src = look.src;
+        document.getElementById('look-name').textContent = 
+          `${look.name} (${currentIndex + 1}/${looks[selectedGender].length})`;
+        setTimeout(() => {
+          img.style.opacity = '1';
+          document.getElementById('confirm-look').classList.remove('hidden');
+        }, 400);
+      }, 600);
+    }
+
+    document.querySelector('.arrow.left')?.addEventListener('click', () => {
+      if (currentIndex > 0) { currentIndex--; updateLook(); }
+    });
+
+    document.querySelector('.arrow.right')?.addEventListener('click', () => {
+      if (currentIndex < looks[selectedGender]?.length - 1) { currentIndex++; updateLook(); }
+    });
+
+    // ─── Історія ────────────────────────────────────────────────────────────
+    const scenes = {
+      start: {
+        bg: "scenes/night-bridge.jpg",
+        leftChar: null,
+        rightChar: null,
+        texts: [
+          { text: "Місто тоне в густому тумані. Місяць майже не видно...", side: "narrator" },
+          { text: "Ти стоїш посеред старого мосту. Холод пробирає до кісток.", side: "narrator" },
+          { text: "Раптом чути чіткі кроки... хтось наближається.", side: "narrator" }
+        ],
+        choices: [
+          { text: "Обернутися й подивитись", next: "look_back" },
+          { text: "Прискорити крок",         next: "hurry" },
+          { text: "Сховатися за опорою",     next: "hide" }
+        ]
+      },
+
+      look_back: {
+        bg: "scenes/bridge-shadow-figure.jpg",
+        leftChar: null,
+        rightChar: "characters/mystery-man.png",
+        texts: [
+          { text: "Ти різко обертаєшся...", side: "narrator" },
+          { text: "Перед тобою стоїть висока постать у темному плащі.", side: "narrator" },
+          { text: "— Нарешті ти тут... — голос низький, трохи хриплий.", side: "right" }
+        ],
+        choices: [
+          { text: "— Хто ти такий?",             next: "ask_who" },
+          { text: "Вдарити його й тікати",       next: "fight" },
+          { text: "Стояти мовчки",               next: "wait" }
+        ]
+      },
+
+      // додай інші сцени сюди
+    };
+
+    let currentSceneKey = "start";
+    let currentScene = null;
+    let currentTextIndex = 0;
+    let currentBubble = null;  // поточна видима репліка
+    let isShowingChoices = false;
+
+    function startStory() {
+      currentSceneKey = "start";
+      renderScene(currentSceneKey);
+
+      // Показуємо героя гравця
+      const playerImg = document.getElementById("player-char");
+      if (selectedGender === "boy") {
+        playerImg.src = "img/story_1/person/boyz/1.png";
+        playerImg.classList.add("character-left");
+        playerImg.classList.remove("character-right");
+      } else if (selectedGender === "girl") {
+        playerImg.src = "img/story_1/person/girlz/1.png";
+        playerImg.classList.add("character-right");
+        playerImg.classList.remove("character-left");
+      }
+      playerImg.classList.remove("hidden");
+    }
+
+    function renderScene(key) {
+      const scene = scenes[key];
+      if (!scene) return;
+
+      currentScene = scene;
+      currentTextIndex = 0;
+      isShowingChoices = false;
+
+      // фон
+      document.getElementById("scene-container").style.backgroundImage = `url("${scene.bg}")`;
+
+      // інші персонажі
+      const left  = document.getElementById("char-left");
+      const right = document.getElementById("char-right");
+      scene.leftChar  ? (left.src = scene.leftChar,  left.classList.remove("hidden"))  : left.classList.add("hidden");
+      scene.rightChar ? (right.src = scene.rightChar, right.classList.remove("hidden")) : right.classList.add("hidden");
+
+      // очищення діалогу
+      const container = document.getElementById("dialogue-container");
+      container.innerHTML = "";
+      if (currentBubble) currentBubble = null;
+
+      showNextText();
+
+      container.onclick = handleClick;
+    }
+
+    function showNextText() {
+      if (currentTextIndex >= currentScene.texts.length) {
+        if (currentScene.choices?.length && !isShowingChoices) {
+          showChoices();
+        }
+        return;
+      }
+
+      // якщо є попередня репліка — ховаємо її
+      if (currentBubble) {
+        currentBubble.classList.remove("visible");
+        currentBubble.style.opacity = "0";
+        currentBubble.style.transform = "translateY(50px)";
+        setTimeout(() => {
+          if (currentBubble && currentBubble.parentNode) {
+            currentBubble.parentNode.removeChild(currentBubble);
+          }
+          addNewBubble();
+        }, 700);
+      } else {
+        addNewBubble();
+      }
+    }
+
+    function addNewBubble() {
+      const item = currentScene.texts[currentTextIndex];
+
+      const div = document.createElement("div");
+      div.className = `speech-bubble ${item.side}`;
+      div.innerHTML = `<p>${item.text}</p>`;
+      document.getElementById("dialogue-container").appendChild(div);
+
+      setTimeout(() => {
+        div.classList.add("visible");
+      }, 80);
+
+      currentBubble = div;
+      currentTextIndex++;
+    }
+
+    function showChoices() {
+      isShowingChoices = true;
+
+      const choiceDiv = document.createElement("div");
+      choiceDiv.className = "speech-bubble narrator visible";
+
+      const title = document.createElement("p");
+      title.style.fontWeight = "600";
+      title.style.marginBottom = "12px";
+      title.textContent = "Що робиш?";
+      choiceDiv.appendChild(title);
+
+      const btns = document.createElement("div");
+      btns.className = "choices";
+
+      currentScene.choices.forEach(ch => {
+        const btn = document.createElement("button");
+        btn.textContent = ch.text;
+        btn.onclick = e => {
+          e.stopPropagation();
+          renderScene(ch.next);
+        };
+        btns.appendChild(btn);
+      });
+
+      choiceDiv.appendChild(btns);
+      document.getElementById("dialogue-container").appendChild(choiceDiv);
+    }
+
+    function handleClick(e) {
+      if (isShowingChoices) return;
+      if (e.target.tagName === "BUTTON") return;
+      showNextText();
+    }
+
+    // ─── Кнопки ─────────────────────────────────────────────────────────────
+    document.getElementById('confirm-look').addEventListener('click', () => {
+      if (!selectedGender) {
+        alert("Обери спочатку хлопця чи дівчину!");
+        return;
+      }
+
+      const selection = document.getElementById('selection');
+      selection.classList.remove('active');
+      selection.classList.add('fade-out');
+
+      setTimeout(() => {
+        selection.classList.add('hidden');
+        const story = document.getElementById('story');
+        story.classList.remove('hidden');
+        setTimeout(() => {
+          story.classList.add('active');
+          startStory();
+        }, 400);
+      }, 800);
+    });
+
+    document.getElementById('back').addEventListener('click', () => {
+      const story = document.getElementById('story');
+      story.classList.remove('active');
+      story.classList.add('fade-out');
+
+      setTimeout(() => {
+        story.classList.add('hidden');
+        const selection = document.getElementById('selection');
+        selection.classList.remove('hidden');
+        selection.classList.remove('fade-out');
+
+        setTimeout(() => {
+          selection.classList.add('active');
+          if (selectedGender) {
+            document.getElementById('characters-list').style.display = 'none';
+            document.getElementById('look-slider').classList.remove('hidden');
+            updateLook();
+          }
+        }, 400);
+      }, 800);
+    });
+  </script>
+</body>
+</html>
