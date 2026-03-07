@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Моя Романтика</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Головний екран -->
+    <div id="main-screen" class="screen active">
+
+      <!-- Top bar з профілем, діамантами -->
+      <div class="top-bar">
+        <div class="profile">
+          <div class="avatar">👩‍🦰</div>
+          <div>
+            <div id="player-name" class="name">Віта, серце моє</div>
+            <div class="level">Рівень <strong id="player-level">7</strong></div>
+          </div>
+        </div>
+        <div class="resources">
+          <div class="diamonds">💎 <span id="diamonds">125</span></div>
+          <div class="teacups">☕ <span id="teacups">3</span></div>
+        </div>
+        <button class="settings-btn">⚙️</button>
+      </div>
+
+      <!-- Секція історій -->
+      <h2 class="section-title">Обери історію</h2>
+
+<div class="stories">
+  <a href="story.html" class="story-card">
+    <div class="cover" style="background-image: url('img/story_1/locat/image.jpg');"></div>
+    <div class="info">
+      <h3>Тіні Під Місяцем</h3>
+      <p class="tags">Фентезі • Драма • 4 LI</p>
+      <div class="progress-bar">
+        <div class="progress" style="width:42%"></div>
+      </div>
+      <span class="progress-text">42% прочитано</span>
+    </div>
+  </a>
+</div>
+        <div class="story-card locked">
+          <div class="cover" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800'); filter: brightness(0.6);"></div>
+          <div class="info">
+            <h3>Заборонений Договір</h3>
+            <p class="tags">Мафія • Романтика • 3 LI</p>
+            <div class="lock">🔒 Відкриється на 10 рівні</div>
+          </div>
+        </div>
+
+        <div class="story-card soon">
+          <div class="cover" style="background: linear-gradient(45deg, #2a1a4a, #1a0f2e);"></div>
+          <div class="info">
+            <h3>??? • Скоро</h3>
+            <p class="tags">Містика • Закарпаття</p>
+            <div class="lock">Незабаром</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom navigation (як у Romance Club) -->
+      <div class="bottom-nav">
+        <button class="nav-item active">📖 Історії</button>
+        <button class="nav-item">❤️ Профіль</button>
+        <button class="nav-item">🛍 Магазин</button>
+        <button class="nav-item">⚙️ Налаштування</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

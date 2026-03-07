@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Закарпатський Клуб Романтики • Реєстрація</title>
+  <link rel="stylesheet" href="css/register.css" />
+</head>
+<body>
+
+<div class="container">
+
+  <!-- відео фон -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="vid/regestration/1.mp4" type="video/mp4">
+  </video>
+
+  <!-- затемнення -->
+  <div class="overlay"></div>
+
+  <!-- форма -->
+  <div id="register-screen" class="register-screen">
+    
+    <div class="logo">Закарпатський Клуб Романтики</div>
+    <p class="tagline">Створи акаунт, щоб зберігати прогрес і отримувати бонуси</p>
+
+    <input type="text" id="reg-username" placeholder="Ім'я або нікнейм..." maxlength="25" required />
+    <input type="email" id="reg-email" placeholder="Твій email..." required />
+    <input type="password" id="reg-password" placeholder="Пароль (мін. 6 символів)..." required minlength="6" />
+
+    <button class="btn primary" onclick="register()">Зареєструватися</button>
+
+    <p class="already">Вже є акаунт? <a href="index.html">Увійти<!-- Кнопка "Увійти через Google" -->
+<div style="margin: 24px 0; text-align: center;">
+  <button 
+    type="button" 
+    class="google-login-btn"
+    onclick="googleLogin()"
+  >
+    <img 
+      src="img/icons/1.png" 
+      alt="Sign in with Google" 
+      style="height: 46px; width: auto;"
+    >
+  </button>
+</div></a></p>
+    <p class="terms">Натискаючи «Зареєструватися», ти погоджуєшся з <span>Умовами</span> та <span>Політикою конфідентивності</span></p>
+  </div>
+
+</div>
+  <script src="js/vid_reg.js"></script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карпатські історії</title>
+  <link rel="stylesheet" href="/css/story.css">
+</head>
+<body>
+
+  <!-- ВИБІР ГЕРОЯ -->
+  <div id="selection-screen" class="screen active">
+    <h1>Обери героя</h1>
+    <div class="gender-select">
+      <button data-gender="boy" class="gender-btn">Хлопець</button>
+      <button data-gender="girl" class="gender-btn">Дівчина</button>
+    </div>
+
+    <div id="look-select" class="hidden">
+      <img id="look-preview" alt="Вигляд героя">
+      <div class="look-controls">
+        <button id="prev-look">←</button>
+        <span id="look-label"></span>
+        <button id="next-look">→</button>
+      </div>
+      <button id="start-btn">Почати історію</button>
+    </div>
+  </div>
+
+  <!-- ІСТОРІЯ -->
+  <div id="story-screen" class="screen hidden">
+    <div id="intro-title" class="intro-title">1 серія</div>
+    <div id="scene">
+      <div id="background"></div>
+<div id="narrator-box" class="narrator hidden">
+  <div id="narrator-text"></div>
+</div>
+      <!-- Персонажі -->
+      <img id="player" class="character hidden" alt="Головний персонаж">
+      <img id="char2" class="character hidden" alt="Другий персонаж">
+
+      <!-- Діалог -->
+      <div id="dialogue-box">
+        <div id="dialogue-text"></div>
+        <div id="choices"></div>
+      </div>
+    </div>
+  </div>
+<audio id="bgMusic" loop preload="auto">
+  <!-- Початковий трек (може бути будь-який, бо все одно заміниться) -->
+  <source src="img/story_1/audio/silence.mp3" type="audio/mpeg">
+  Ваш браузер не підтримує аудіо.
+</audio>
+  <script src="/js/story.js"></script>
+</body>
+</html>

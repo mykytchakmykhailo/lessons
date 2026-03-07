@@ -1,0 +1,253 @@
+@charset "UTF-8";
+/* Базовий ресет + шрифти */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Comfortaa", system-ui, -apple-system, sans-serif;
+  background: linear-gradient(180deg, #0a051f 0%, #140b38 100%);
+  color: #f0e6d2;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Контейнер */
+.container {
+  position: relative;
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Відео-фон (якщо є) */
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -2;
+}
+
+/* Екран */
+.screen {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: rgba(10, 5, 31, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 160, 23, 0.18);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #d4a017, #f0d28a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  border: 2px solid #f0d28a;
+  box-shadow: 0 0 16px rgba(212, 160, 23, 0.4);
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f0e6d2;
+}
+
+.level {
+  font-size: 0.85rem;
+  color: #c9b28a;
+}
+
+.resources {
+  display: flex;
+  gap: 16px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.diamonds {
+  color: #d4a017;
+  text-shadow: 0 0 10px rgba(212, 160, 23, 0.5019607843);
+}
+
+.teacups {
+  color: #a8d8ff;
+  text-shadow: 0 0 10px rgba(168, 216, 255, 0.5019607843);
+}
+
+.settings-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #d4a017;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.settings-btn:hover {
+  transform: rotate(30deg);
+}
+
+/* Заголовок секції */
+.section-title {
+  padding: 24px 20px 16px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e8d5a3;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(232, 213, 163, 0.3);
+  letter-spacing: 0.5px;
+}
+
+/* Картки історій */
+.stories {
+  padding: 0 16px;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.story-card {
+  background: rgba(31, 22, 56, 0.78);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: all 0.35s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.story-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(212, 160, 23, 0.35);
+}
+
+.cover {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.locked .cover {
+  filter: brightness(0.55) grayscale(0.4);
+}
+
+.info {
+  padding: 16px 20px;
+}
+
+.info h3 {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+  color: #f0e6d2;
+}
+
+.tags {
+  color: #b89e6e;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: rgba(58, 42, 107, 0.6);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 10px 0 6px;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #d4a017, #f0d28a);
+  transition: width 0.8s ease;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  color: #c9b28a;
+  display: block;
+}
+
+.lock,
+.soon {
+  color: #a08860;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 12px 0;
+}
+
+/* Bottom nav */
+.bottom-nav {
+  background: rgba(10, 5, 31, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(212, 160, 23, 0.18);
+  display: flex;
+  padding: 12px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 480px;
+  margin: 0 auto;
+  z-index: 100;
+}
+
+.nav-item {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #b89e6e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nav-item.active {
+  color: #f0e6d2;
+  text-shadow: 0 0 10px rgba(240, 230, 210, 0.5);
+}
+
+.nav-item:hover {
+  color: #d4a017;
+}
