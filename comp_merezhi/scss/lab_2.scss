@@ -1,0 +1,155 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f6f9;
+	color: #333;
+	line-height: 1.6;
+	padding: 20px;
+}
+
+.lab-container {
+	max-width: 900px;
+	margin: 0 auto;
+	background: white;
+	padding: 25px;
+	border-radius: 10px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 30px;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #007bff;
+}
+
+.main-title {
+	font-size: 24px;
+	font-weight: bold;
+	color: #007bff;
+}
+
+.subtitle {
+	font-size: 18px;
+	color: #555;
+}
+
+.topic {
+	font-size: 17px;
+	font-weight: 600;
+	color: #333;
+}
+
+.block {
+	margin-bottom: 35px;
+}
+
+.block-title {
+	font-size: 19px;
+	font-weight: bold;
+	color: #007bff;
+	margin-bottom: 15px;
+	display: block;
+}
+
+.definition {
+	background-color: #f8f9fa;
+	padding: 12px 15px;
+	margin-bottom: 10px;
+	border-left: 4px solid #007bff;
+	border-radius: 5px;
+}
+
+.term {
+	font-weight: bold;
+	color: #0056b3;
+}
+
+.item {
+	background-color: #f8f9fa;
+	padding: 12px 15px;
+	margin-bottom: 15px;
+	border-radius: 6px;
+	border-left: 4px solid #28a745;
+}
+
+.step {
+	background-color: #f8f9fa;
+	padding: 12px 15px;
+	margin-bottom: 10px;
+	border-radius: 6px;
+	border-left: 4px solid #ffc107;
+}
+
+.step-num {
+	font-weight: bold;
+	color: #d35400;
+	margin-right: 8px;
+}
+
+.wires {
+	color: #e74c3c;
+	font-weight: 500;
+}
+
+.check {
+	background-color: #e8f5e9;
+	padding: 12px 15px;
+	margin-bottom: 10px;
+	border-radius: 6px;
+	border-left: 4px solid #28a745;
+}
+
+.conclusion {
+	background-color: #e3f2fd;
+	padding: 15px;
+	border-radius: 8px;
+	border-left: 5px solid #007bff;
+	margin-top: 15px;
+}
+
+.conclusion-title {
+	font-weight: bold;
+	color: #007bff;
+}
+
+.footer {
+	text-align: center;
+	margin-top: 40px;
+	padding-top: 15px;
+	border-top: 1px solid #ddd;
+	color: #555;
+	font-size: 15px;
+}
+
+ul {
+	margin-left: 20px;
+	margin-top: 8px;
+}
+
+a {
+	color: #007bff;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.lab3-img {
+	width: 500px;
+	height: 600px;
+}
+
+.block-2 {
+	margin-left: 20%;
+}
+
+.plan img {
+	width: 100%;
+	height: 400px;
+}
+
+.big img {
+	width: 100%;
+	height: 1500px;
+}
