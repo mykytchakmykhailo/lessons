@@ -1,0 +1,483 @@
+/* ====================== CONTACT PAGE — ЄДИНИЙ СТИЛЬ ====================== */
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: #0a0a0a;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ====================== NAVBAR ====================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links a {
+  color: #ddd;
+  margin: 0 1.3rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #d4af37;
+}
+
+.logo img {
+  height: 58px;
+}
+
+/* ====================== FORM ====================== */
+main {
+  flex: 1;
+  padding-top: 110px;
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+}
+
+.form-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.form-container {
+  background: rgba(15, 15, 15, 0.96);
+  padding: 3.5rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  max-width: 620px;
+  margin: 0 auto;
+  position: relative;
+  border: 1px solid #222;
+}
+
+.form-title {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  font-size: 3rem;
+  color: #d4af37;
+  margin-bottom: 2.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: #ccc;
+  font-size: 1.05rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 1.3rem;
+  background: #111;
+  border: 1px solid #444;
+  border-radius: 12px;
+  color: white;
+  font-size: 1.05rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+}
+
+.form-group textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #d4af37, #c9a96e);
+  color: #111;
+  padding: 1.15rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.4s ease;
+}
+
+.form-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+}
+
+/* Comic Bubble */
+.comic-bubble {
+  position: absolute;
+  left: -35%;
+  top: -13%;
+  background: #fff;
+  color: #111;
+  padding: 1.4rem 1.7rem;
+  max-width: 260px;
+  border-radius: 35% 40% 35% 45% / 40% 35% 45% 35%;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.5s ease;
+}
+
+.comic-bubble::after {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 45px;
+  border: 15px solid transparent;
+  border-right-color: #fff;
+}
+
+.form-container:focus-within .comic-bubble {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.chenko {
+  position: absolute;
+  top: -85px;
+  left: -355px;
+  width: 210px;
+  z-index: 10;
+}
+
+/* CTA Banner */
+.cta-banner {
+  background: linear-gradient(135deg, #1a1a1a, #111);
+  padding: 5rem 5%;
+  text-align: center;
+}
+
+/* ====================== FOOTER ====================== */
+footer {
+  background: #050505;
+  padding: 4rem 5% 2.5rem;
+  text-align: center;
+  color: #aaa;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+  font-size: 0.98rem;
+}
+
+.footer-content strong {
+  color: #d4af37;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chenko {
+    width: 160px;
+    top: -65px;
+    right: 30px;
+  }
+  .comic-bubble {
+    left: 50%;
+    top: -10px;
+    max-width: 220px;
+  }
+}
+:root {
+  --gold: #d4af37;
+  --dark: #0a0a0a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--dark);
+  color: #e0e0e0;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+}
+
+/* ====================== NAVBAR ====================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  transition: all 0.4s;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links a {
+  margin: 0 1.2rem;
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+}
+
+.logo img {
+  height: 58px;
+}
+
+.navbar .cta-button {
+  background: var(--gold);
+  color: #0a0a0a;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.4s;
+}
+
+.navbar .cta-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+}
+
+/* ====================== CTA BANNER (перед футером) ====================== */
+.cta-banner {
+  background: linear-gradient(135deg, #1a1a1a, #111);
+  padding: 5rem 5%;
+  text-align: center;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+
+.cta-banner h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.cta-banner p {
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.cta-banner .cta-button {
+  background: var(--gold);
+  color: #0a0a0a;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 0.5rem;
+  transition: all 0.4s;
+}
+
+.cta-banner .cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+}
+
+.cta-banner .cta-button.secondary {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+}
+
+/* ====================== FOOTER ====================== */
+footer {
+  background: #050505;
+  padding: 4rem 5% 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+footer p {
+  margin-bottom: 0.4rem;
+}
+
+/* ====================== MOBILE MENU — 2 СТОВПЦІ ====================== */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 32px;
+  height: 3.5px;
+  background: #d4af37;
+  transition: all 0.4s ease;
+}
+
+/* Анімація бургера */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Мобільне меню — 2 стовпці */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 стовпці */
+    gap: 2.5rem 1.5rem;
+    justify-content: center;
+    align-content: center;
+    padding: 100px 10% 80px;
+    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links a {
+    font-size: 1.65rem;
+    font-weight: 500;
+    text-align: center;
+    color: #ddd;
+  }
+
+  .nav-links a:hover {
+    color: #d4af37;
+  }
+}
+
+/* На дуже маленьких екранах — 1 стовпець */
+@media (max-width: 480px) {
+  .nav-links {
+    grid-template-columns: 1fr; /* 1 стовпець */
+    gap: 2.2rem;
+  }
+  .cta-banner .cta-button:nth-child(3) {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 1245px) {
+  .comic-bubble {
+    padding: 0.9rem 0.9rem;
+    background: #ffffff8a;
+    left: -10%;
+    top: -16%;
+  }
+  .chenko {
+    left: -32%;
+    top: -13%;
+  }
+}
+@media (max-width: 961px) {
+  .comic-bubble {
+    display: none;
+    padding: 0.9rem 0.9rem;
+    background: #ffffff8a;
+    left: -10%;
+    top: -16%;
+  }
+  .chenko {
+    display: none;
+    left: -32%;
+    top: -13%;
+  }
+}
+.insta {
+  width: 55px;
+  height: 57px;
+  transition: transform 0.4s ease; /* плавність */
+}
+
+.face {
+  position: relative;
+  top: -4px;
+  width: 45px;
+  height: 48px;
+  transition: transform 0.4s ease; /* плавність */
+}
+.insta:hover {
+  transform: rotate(12deg); /* плавний поворот */
+}
+
+/* Якщо хочеш ще цікавіше */
+.insta:hover {
+  transform: rotate(15deg) scale(1.1); /* поворот + легке збільшення */
+}
+
+.face:hover {
+  transform: rotate(12deg); /* плавний поворот */
+}
+
+/* Якщо хочеш ще цікавіше */
+.face:hover {
+  transform: rotate(15deg) scale(1.1); /* поворот + легке збільшення */
+}

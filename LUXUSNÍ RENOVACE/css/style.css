@@ -1,0 +1,763 @@
+@charset "UTF-8";
+:root {
+  --gold: #d4af37;
+  --dark: #0a0a0a;
+  --accent: #51fb02;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--dark);
+  color: #e0e0e0;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0);
+  backdrop-filter: blur(1px);
+  z-index: 1000;
+  transition: all 0.4s;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links a {
+  margin: 0 1.2rem;
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.logo img {
+  height: 90px;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  min-height: 800px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(0.65) contrast(1.1);
+  transition: transform 8s ease;
+}
+
+.hero:hover img {
+  transform: scale(1.08);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 900px;
+  margin-left: 12%;
+  z-index: 2;
+  color: white;
+}
+
+.par {
+  margin-top: -30px;
+  font-size: 3rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+  font-size: 1.35rem;
+  margin-bottom: 3rem;
+  opacity: 0.95;
+  max-width: 620px;
+}
+
+/* Buttons */
+.cta-button {
+  background: var(--gold);
+  color: #0a0a0a;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+}
+
+/* Sections */
+.section {
+  padding: 120px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  width: 90px;
+  height: 3px;
+  background: var(--gold);
+  display: block;
+  margin: 20px auto;
+}
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: #111;
+  padding: 2.8rem 2rem;
+  border-radius: 16px;
+  border: 1px solid #222;
+  transition: all 0.5s;
+}
+
+.service-card:hover {
+  transform: translateY(-15px);
+  border-color: var(--gold);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Portfolio */
+.portfolio {
+  background: #0f0f0f;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.8rem;
+}
+
+.portfolio-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16/11;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.09);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  padding: 2rem 1.5rem 1.5rem;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.portfolio-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Why Us */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  text-align: center;
+}
+
+.icon {
+  font-size: 4.5rem;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+/* CTA Banner */
+.cta-banner {
+  background: linear-gradient(135deg, #1a1a1a, #111);
+  padding: 5rem 5%;
+  text-align: center;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+
+/* FAQ */
+.faq-item {
+  background: #111;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #222;
+}
+
+.faq-question {
+  padding: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.8rem;
+  transition: all 0.5s ease;
+}
+
+.faq-answer.active {
+  max-height: 300px;
+  padding-bottom: 1.8rem;
+}
+
+/* Footer */
+footer {
+  background: #050505;
+  padding: 4rem 5% 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* ====================== CUSTOM CURSOR ====================== */
+.cursor {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: all 0.08s ease;
+  mix-blend-mode: difference;
+  display: none;
+}
+
+.cursor::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.cursor.active {
+  width: 18px;
+  height: 18px;
+  border-color: white;
+}
+
+.cursor.active::after {
+  background: white;
+  width: 4px;
+  height: 4px;
+}
+
+/* Приховуємо звичайний курсор */
+body {
+  cursor: none;
+}
+
+/* Для посилань та кнопок — більший ефект */
+a:hover,
+button:hover,
+.cta-button:hover,
+.scroll-circle:hover {
+  cursor: none;
+}
+
+/* ====================== GALLERY.CSS ====================== */
+body {
+  background: #0a0a0a;
+  color: #e0e0e0;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links a {
+  color: #ddd;
+  margin: 0 1.2rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #d4af37;
+}
+
+.logo img {
+  height: 58px;
+}
+
+/* ====================== ГАЛЕРЕЯ ====================== */
+#gall {
+  padding: 140px 5% 80px;
+  background: #0a0a0a;
+}
+
+.gall-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  max-width: 1700px;
+  margin: 0 auto;
+}
+
+.gall-grid img {
+  width: 100%;
+  height: 180px; /* Малі фото */
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+  transition: 1s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.gall-grid img:hover {
+  transition: 0.2s ease;
+  height: 210px;
+  transform: scale(1.04);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+}
+
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: #d4af37;
+  font-size: 45px;
+  cursor: pointer;
+}
+
+.lightbox-nav {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.lightbox-nav span {
+  color: #d4af37;
+  font-size: 55px;
+  cursor: pointer;
+}
+
+/* CTA Banner */
+.cta-banner {
+  background: linear-gradient(135deg, #1a1a1a, #111);
+  padding: 5rem 5%;
+  text-align: center;
+}
+
+.cta-button {
+  background: #d4af37;
+  color: #0a0a0a;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+}
+
+/* Footer */
+footer {
+  background: #050505;
+  padding: 4rem 5% 2rem;
+  text-align: center;
+  color: #aaa;
+}
+
+/* ====================== BURGER MENU ====================== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: #d4af37;
+  transition: all 0.4s ease;
+  border-radius: 3px;
+}
+
+/* Активний стан бургера */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Мобільне меню */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links li a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--gold);
+}
+
+/* Мобільний вигляд */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-top: 80px;
+    z-index: 1000;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+  .nav-links li a {
+    font-size: 1.6rem;
+  }
+  .mobile-cta {
+    background: var(--gold);
+    color: #0a0a0a;
+    padding: 12px 32px;
+    border-radius: 50px;
+    margin-top: 20px;
+  }
+}
+/* ====================== ADAPTIVE (RESPONSIVE) ====================== */
+/* Планшети та невеликі ноутбуки */
+@media (max-width: 1200px) {
+  .hero-content {
+    margin-left: 8%;
+  }
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+/* Мобільні та маленькі планшети */
+@media (max-width: 992px) {
+  .nav-container {
+    padding: 1rem 5%;
+  }
+  .nav-links {
+    gap: 1.2rem;
+  }
+  .nav-links a {
+    font-size: 1.05rem;
+  }
+  .hero-content {
+    margin-left: 5%;
+    max-width: 85%;
+    text-align: center;
+  }
+  .hero-content h1 {
+    font-size: clamp(2.4rem, 6.5vw, 3.8rem);
+  }
+  .par {
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
+  }
+  .section {
+    padding: 90px 5% 80px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+/* Мобільні телефони */
+@media (max-width: 768px) {
+  .logo img {
+    height: 55px;
+  }
+  .gall-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+  }
+  .gall-grid img {
+    height: 180px;
+  }
+  .gall-grid img:hover {
+    height: 210px;
+  }
+  .cta-banner {
+    padding: 4rem 5%;
+  }
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+}
+/* Дуже маленькі екрани */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0.9rem 5%;
+  }
+  .hero {
+    min-height: 650px;
+  }
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+  .section-title {
+    font-size: 2.6rem;
+  }
+  .gall-grid img {
+    height: 160px;
+  }
+  .gall-grid img:hover {
+    height: 190px;
+  }
+}
+.hero-content {
+  margin-bottom: -200px;
+  position: relative;
+  z-index: 2;
+  max-width: 920px;
+  margin-left: 8%;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.2rem, 5.8vw, 3.8rem);
+  line-height: 1.05;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+.par {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(2.2rem, 5.8vw, 3.8rem);
+  font-weight: 700;
+}
+
+/* Адаптив для hero */
+@media (max-width: 1200px) {
+  .hero-content {
+    margin-left: 6%;
+    max-width: 780px;
+  }
+}
+@media (max-width: 992px) {
+  .hero-content {
+    margin-left: 5%;
+    max-width: 90%;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .hero-content {
+    margin-left: 5%;
+    padding: 0 15px;
+  }
+  .hero-content h1 {
+    font-size: clamp(1.9rem, 6.5vw, 2.8rem);
+  }
+  .par {
+    font-size: clamp(1.9rem, 6.5vw, 2.8rem);
+    margin-top: 12px;
+  }
+  .hero-content p {
+    font-size: 1.15rem;
+    margin-bottom: 2.2rem;
+  }
+  .cta-button {
+    padding: 1rem 2.2rem;
+    font-size: 1.1rem;
+  }
+}
+/* Дуже маленькі екрани */
+@media (max-width: 480px) {
+  .hero-content {
+    margin-bottom: -120px;
+    margin-left: 4%;
+  }
+}
+.insta {
+  width: 55px;
+  height: 57px;
+  transition: transform 0.4s ease; /* плавність */
+}
+
+.face {
+  position: relative;
+  top: -4px;
+  width: 45px;
+  height: 48px;
+  transition: transform 0.4s ease; /* плавність */
+}
+
+.insta:hover {
+  transform: rotate(12deg); /* плавний поворот */
+}
+
+/* Якщо хочеш ще цікавіше */
+.insta:hover {
+  transform: rotate(15deg) scale(1.1); /* поворот + легке збільшення */
+}
+
+.face:hover {
+  transform: rotate(12deg); /* плавний поворот */
+}
+
+/* Якщо хочеш ще цікавіше */
+.face:hover {
+  transform: rotate(15deg) scale(1.1); /* поворот + легке збільшення */
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kontaktujte nás — Luxusní Renovace Plzeň">
+  <title>Kontakty | Luxusní Renovace Plzeň</title>
+  
+  <link rel="stylesheet" href="./css/contact.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR — ТОЧНО ЯК НА ГОЛОВНІЙ -->
+ <nav class="navbar" id="navbar">
+  <div class="nav-container">
+    
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Hlavní</a>
+      <a href="#sluzby">Služby</a>
+      <a href="#prace">Naše práce</a>
+      <a href="#onas">O nás</a>
+      <a href="#faq">Otázky</a>   
+      <a href="gallery.html">Gallery</a>
+    </div>
+
+    <div class="logo">
+      <a href="#"><img src="img/logo/1.png" alt="Luxusní Renovace"></a>
+    </div>
+
+    <a href="contact.html" class="cta-button">Kontaktovat</a>
+
+    <!-- Burger -->
+    <div class="menu-toggle" id="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+</nav>
+
+  <!-- FORM -->
+  <main>
+    <section class="form-section">
+      <div class="container">
+        <h1 class="form-title">Odešlete žádost</h1>
+        <form id="contactForm" class="form-container">
+          <img src="img/contact/1.png" class="chenko" alt="">
+          <div class="comic-bubble">Ahoj, jsem Andrij Čeňko. Jednatel firmy LUXUSNÍ RENOVACE.
+Popište své přání a já se vám ozvem zpět. ✅</div>
+          
+          <div class="form-group">
+            <label for="name">Vaše jméno</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Zpráva</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+
+          <button type="submit" class="form-btn">Odeslat</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FINAL CTA -->
+  <div class="cta-banner" id="kontakt">
+    <h2>Plánujete rekonstrukci v Plzni?</h2>
+    <p>Napište nebo zavolejte. První konzultace zdarma.</p>
+    <a href="tel:+420770377357" class="cta-button">+420 770 377 357</a>
+    <a href="contact.html" class="cta-button secondary">Napsat zprávu</a>
+  </div>
+
+  <!-- FOOTER — ТОЧНО ЯК НА ГОЛОВНІЙ -->
+  <footer>
+    <div class="footer-content">
+      <div class="icon">
+        <a href="https://www.instagram.com/luxus_v_plzni?igsh=MXNpZ3R0N3NocHB4dQ==" class="" target="_blank"> <img src="img/icon/1.png" alt="" class="insta"></a>
+        <a href="https://www.facebook.com/share/1GGTs29qkb/" class="" target="_blank"><img src="img/icon/2.png" alt="" class="face"></a>
+      </div>
+      <p><strong></strong> LUXUSNÍ RENOVACE s.r.o.</p>
+      <p>IČO: 23761318 | sady Pětatřicátníků 322/8, Plzeň</p>
+      <p>© 2025 Všechna práva vyhrazena.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/form_te.js"></script>
+  <script src="js/cont-img.js"></script>
+  <script src="js/burg.js"></script>
+  <script src="js/form.js"></script>
+
+</body>
+</html>
