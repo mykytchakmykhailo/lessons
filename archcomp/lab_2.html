@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота №2 | Комп'ютерні мережі</title>
+  <link rel="stylesheet" href="/css/lab_2.css">
+</head>
+<body>
+
+  <div class="lab-container">
+
+    <!-- Заголовок -->
+    <div class="header">
+      <h1>Лабораторна робота №1</h1>
+      <p class="subtitle">Дисципліна: Комп'ютерні мережі</p>
+    </div>
+
+    
+   <div class="block">
+  <h2>1. Основні налаштування BIOS CMOS (меню Main)</h2>
+
+  <p>
+    Було запущено програму-емулятор BIOS (ThinkPad Setup). 
+    У меню <strong>Main</strong> відображаються основні відомості про систему.Я довго не шукав,відкрив перший файл який запропонував нам симулятор у розділі (ThinkPad 11e (20E6 20E8))
+    <p> <a href="https://download.lenovo.com/bsco/index.html#/" target="_blank">Посилання на сайт де я знайшов симулятор</a></p>
+  </p>
+  
+  <img src="img/images/1.png" alt="Меню Main BIOS" style="max-width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  <p>
+<div class="item">
+  <strong>Основні параметри меню Main:</strong>
+  <ul>
+    <li>
+      <strong>UEFI BIOS Version</strong> — JHET56WW (1.56)<br>
+      Версія прошивки BIOS. Показує, яка саме версія BIOS встановлена на материнській платі.
+    </li>
+    <li>
+      <strong>UEFI BIOS Date</strong> — 2015-10-22<br>
+      Дата випуску цієї версії BIOS. Дозволяє зрозуміти, наскільки актуальна прошивка.
+    </li>
+    <li>
+      <strong>CPU Type</strong> — Intel(R) Core(TM) M-5Y10c CPU<br>
+      Модель процесора, який встановлений у системі.
+    </li>
+    <li>
+      <strong>CPU Speed</strong> — 0.800 GHz<br>
+      Поточна тактова частота процесора (у цьому випадку процесор працює в режимі енергозбереження).
+    </li>
+    <li>
+      <strong>Installed memory</strong> — 4096 MB<br>
+      Обсяг оперативної пам’яті (ОЗП), встановленої в комп’ютері (4 ГБ).
+    </li>
+    <li>
+      <strong>Machine Type Model</strong> — 20E600MCD<br>
+      Модель ноутбука (ThinkPad 11e).
+    </li>
+    <li>
+      <strong>UEFI Secure Boot</strong> — On<br>
+      Стан функції захищеного завантаження. Коли увімкнено — система дозволяє завантажувати лише підписані операційні системи.
+    </li>
+    <li>
+      <strong>System-unit serial number</strong> — LR123456<br>
+      Серійний номер самого ноутбука (системного блоку).
+    </li>
+    <li>
+      <strong>System board serial number</strong> — W1KS6123456<br>
+      Серійний номер материнської плати.
+    </li>
+  </ul>
+</div>
+
+    <em>Меню Main містить переважно інформацію про версію BIOS, процесор, обсяг пам’яті та серійні номери системи. Більшість параметрів доступні лише для перегляду.</em>
+  </p>
+</div>
+<div class="block">
+  <h2>2. Меню Config (Advanced) + у нашому випадку POWER знаходиться в цьому розділі</h2>
+
+  <img src="img/images/2.png" alt="Меню Config" style="max-width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+  <!-- Network -->
+  <div class="item">
+    <strong>Network</strong>
+    <ul>
+      <li><strong>Wake On LAN</strong> [AC Only] — дозволяє вмикати ноутбук по мережі. Працює тільки від мережевого адаптера.</li>
+      <li><strong>UEFI IPv4 Network Stack</strong> [Enabled] — підтримка мережевого стеку IPv4 у середовищі UEFI.</li>
+      <li><strong>UEFI IPv6 Network Stack</strong> [Enabled] — підтримка мережевого стеку IPv6 у середовищі UEFI.</li>
+      <li><strong>UEFI PXE Boot Priority</strong> [IPv4 First] — пріоритет завантаження по мережі (спочатку IPv4).</li>
+    </ul>
+  </div>
+
+  <!-- USB -->
+  <div class="item">
+    <strong>USB</strong>
+    <ul>
+      <li><strong>USB UEFI BIOS Support</strong> [Enabled] — дозволяє завантажуватися з USB-пристроїв у режимі UEFI.</li>
+      <li><strong>Always On USB</strong> [Enabled] — USB-порти залишаються активними навіть у вимкненому стані (для заряджання пристроїв).</li>
+      <li><strong>Charge in Battery Mode</strong> [Disabled] — забороняє заряджання пристроїв від батареї, коли ноутбук вимкнений.</li>
+      <li><strong>USB3.0 Mode</strong> [Auto] — автоматичний вибір режиму роботи USB 3.0.</li>
+    </ul>
+  </div>
+
+  <!-- Keyboard/Mouse -->
+  <div class="item">
+    <strong>Keyboard/Mouse</strong>
+    <ul>
+      <li><strong>Fn and Ctrl Key swap</strong> [Disabled] — міняє місцями клавіші Fn і Ctrl.</li>
+      <li><strong>Fn Sticky Key</strong> [Disabled] — робить клавішу Fn «липкою» (не потрібно тримати).</li>
+      <li><strong>F1-F12 as Primary Function</strong> [Disabled] — робить функціональні клавіші F1–F12 основними (без Fn).</li>
+    </ul>
+  </div>
+
+  <!-- Display -->
+  <div class="item">
+    <strong>Display</strong>
+    <ul>
+      <li><strong>Boot Display Device</strong> [ThinkPad LCD] — вибір дисплея, на якому буде показуватися процес завантаження (вбудований екран ноутбука).</li>
+    </ul>
+  </div>
+
+  <!-- Power -->
+  <div class="item">
+    <strong>Power</strong>
+    <ul>
+      <li><strong>Intel (R) SpeedStep technology</strong> [Enabled] — технологія динамічної зміни частоти процесора для економії енергії.
+        <ul>
+          <li><strong>Mode for AC</strong> [Maximum Performance] — максимальна продуктивність від мережі.</li>
+          <li><strong>Mode for Battery</strong> [Battery Optimized] — оптимізований режим від батареї.</li>
+        </ul>
+      </li>
+      <li><strong>CPU Power Management</strong> [Enabled] — керування живленням процесора.</li>
+      <li><strong>Disable Built-in Battery</strong> — можливість програмно вимкнути вбудовану батарею.</li>
+    </ul>
+  </div>
+
+  <!-- Beep and Alarm -->
+  <div class="item">
+    <strong>Beep and Alarm</strong>
+    <ul>
+      <li><strong>Password Beep</strong> [Disabled] — звуковий сигнал при введенні пароля.</li>
+      <li><strong>Keyboard Beep</strong> [Enabled] — звуковий сигнал при натисканні клавіш.</li>
+    </ul>
+  </div>
+</div>
+<div class="block">
+  <h2>3. Меню Startup (Boot)</h2>
+
+  <img src="img/images/3.png" alt="Меню Startup" style="max-width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+  <div class="item">
+    <strong>Network Boot</strong> [PCI LAN]<br>
+    Вибір пристрою для завантаження по мережі (PXE). Зараз встановлено PCI LAN.
+  </div>
+
+  <div class="item">
+    <strong>UEFI/Legacy Boot</strong> [UEFI Only]<br>
+    Режим завантаження. Встановлено тільки UEFI (без підтримки Legacy BIOS).
+  </div>
+
+  <div class="item">
+    <strong>CSM Support</strong> [No]<br>
+    Compatibility Support Module — підтримка завантаження старих операційних систем у режимі Legacy. Вимкнено.
+  </div>
+
+  <div class="item">
+    <strong>Boot Mode</strong> [Quick]<br>
+    Швидкий режим завантаження (пропускає частину перевірок POST для прискорення старту системи).
+  </div>
+
+  <div class="item">
+    <strong>Option key Display</strong> [Enabled]<br>
+    Показує підказки щодо гарячих клавіш під час завантаження (наприклад, F1, F12).
+  </div>
+
+  <div class="item">
+    <strong>Boot device List F12 Option</strong> [Enabled]<br>
+    Дозволяє викликати меню вибору завантажувального пристрою клавішею F12.
+  </div>
+
+  <div class="item">
+    <strong>Boot Order Lock</strong> [Disabled]<br>
+    Блокування зміни порядку завантаження. Зараз вимкнено (можна змінювати).
+  </div>
+
+  <div class="item">
+    <strong>Boot (Boot Priority Order)</strong>
+    <img src="img/images/4.png" alt="Boot Priority Order" style="max-width: 100%; border-radius: 8px; margin: 12px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <p>Порядок завантаження пристроїв:</p>
+    <ol>
+      <li><strong>Windows Boot Manager</strong> — менеджер завантаження Windows</li>
+      <li><strong>USB CD</strong> — завантаження з USB-оптичного приводу</li>
+      <li><strong>USB FDD</strong> — завантаження з USB-дисковода</li>
+      <li><strong>ATA HDD0 HGST HTS725050A7E630</strong> — основний жорсткий диск</li>
+      <li><strong>USB HDD</strong> — завантаження з USB-накопичувача</li>
+      <li><strong>PCI LAN</strong> — завантаження по мережі</li>
+    </ol>
+  </div>
+</div>
+<div class="block">
+  <h2>3. Інформація з eSupport BIOS Agent (Get Bios Info)</h2>
+
+  <img src="img/images/5.png" alt="eSupport BIOS Agent - Get Bios Info" style="max-width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+  <p>
+    Було запущено програму <strong>eSupport BIOS Agent</strong>. Після натискання кнопки 
+    <strong>Get Bios Info</strong> програма зібрала та відобразила детальну інформацію 
+    про BIOS та апаратну частину особистого ноутбука ASUS X542U.
+  </p>
+
+  <div class="item">
+    <strong>Отримана інформація:</strong>
+    <ul>
+      <li><strong>BIOS Type</strong> — American Megatrends Inc. (AMI)</li>
+      <li><strong>BIOS Version</strong> — X542UAS.309</li>
+      <li><strong>BIOS Date</strong> — 06/06/2019</li>
+      <li><strong>BIOS ID String</strong> — X542UAS.309</li>
+      <li><strong>OEM / Manufacturer</strong> — ASUSTeK COMPUTER INC.</li>
+      <li><strong>Motherboard Model</strong> — X542UQ</li>
+      <li><strong>Chipset</strong> — Intel HM175 / Skylake-U</li>
+      <li><strong>CPU Type</strong> — Intel Core i5-7200U / i7-7500U (залежно від комплектації)</li>
+      <li><strong>CPU Speed</strong> — 2.50 GHz (base) / до 3.10–3.50 GHz (Turbo)</li>
+      <li><strong>Installed Memory</strong> — 8 GB (або 4/12/16 GB залежно від конфігурації)</li>
+      <li><strong>Max Memory Capacity</strong> — до 16 GB</li>
+      <li><strong>BIOS ROM Size</strong> — 8 MB / 16 MB</li>
+    </ul>
+  </div>
+
+</div>
+<div class="block">
+  <h2>4. Дослідження та опис звукових кодів BIOS власного ПК</h2>
+
+  <p>
+    На особистому ноутбуці було досліджено BIOS American Megatrends Version 309 
+    (ASUS X542U).
+  </p>
+
+  <div class="item">
+    <strong>Характеристика BIOS:</strong>
+    <ul>
+      <li><strong>BIOS Vendor</strong> — American Megatrends</li>
+      <li><strong>Version</strong> — 309</li>
+      <li><strong>VBIOS Version</strong> — 1049.I021X542UQ.001</li>
+      <li><strong>EC Version</strong> — F0KL2301.005</li>
+      <li><strong>Процесор</strong> — Intel Core i3-7100U @ 2.40 GHz</li>
+      <li><strong>ОЗП</strong> — 12288 МБ</li>
+      <li><strong>Серійний номер</strong> — H8N0CV08H187338</li>
+    </ul>
+  </div>
+  <img src="img/images/7.jpg" alt="eSupport BIOS Agent - Get Bios Info" style="max-width: 100%; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+  <p>
+    Оскільки виробник не надає окремої документації зі звуковими кодами саме для Version 309, 
+    використано офіційні коди American Megatrends з документа 
+    <strong>«AMIBIOS8 Checkpoint & Beep Code List» Version 2.0 <a href="https://www.congatec.com/fileadmin/user_upload/Documents/Others/AMIBIOS8_Checkpoint_and_Beep_Code_List_PUB.pdf">Ось посилання пдф файла ,яке я знайшов на офііцйному сайті,Звукові сигнали знаходяться на останній сторінці.</a></strong>.
+  </p>
+
+  <div class="item">
+    <strong>POST BIOS Beep Codes:</strong>
+    <ul>
+      <li><strong>1 сигнал</strong> — Memory refresh timer error (помилка таймера оновлення пам’яті)</li>
+      <li><strong>3 сигнали</strong> — Base memory read/write test error (помилка читання/запису базової пам’яті)</li>
+      <li><strong>6 сигналів</strong> — Keyboard controller BAT command failed (помилка контролера клавіатури)</li>
+      <li><strong>7 сигналів</strong> — General exception error (загальна помилка процесора)</li>
+      <li><strong>8 сигналів</strong> — Display memory error (помилка відеопам’яті / відеоадаптера)</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <strong>Рекомендації з усунення несправностей:</strong>
+    <ul>
+      <li><strong>Коди 1 і 3</strong> — перевстановити або замінити модулі оперативної пам’яті</li>
+      <li><strong>Коди 6 і 7</strong> — серйозна помилка системи (перевірити клавіатуру, процесор, материнську плату)</li>
+      <li><strong>Код 8</strong> — проблема з відеосистемою (інтегрована графіка або дисплей)</li>
+    </ul>
+  </div>
+
+<p>
+  <strong>Примітка щодо джерела звукових кодів:</strong><br>
+  Виробник ноутбука (ASUS) та American Megatrends не публікують окрему таблицю звукових кодів 
+  саме для BIOS Version 309. У відкритому доступі відсутня офіційна документація з beep-кодами 
+  для цієї конкретної версії прошивки тому  я використав стандартні бумаги за 2008 рік.
+</p>
+
+
+</div>
+<div class="block">
+  <h2>Висновок</h2>
+  <p>
+    У ході виконання лабораторної роботи було досліджено основні налаштування BIOS 
+    на прикладі емулятора ThinkPad Setup та особистого ноутбука ASUS з BIOS 
+    American Megatrends Version 309. 
+  </p>
+  <p>
+    Проаналізовано меню Main, Config (Advanced), Startup (Boot) та отримано детальну 
+    інформацію про апаратну частину за допомогою eSupport BIOS Agent. 
+    Також досліджено звукові коди BIOS. Оскільки для версії 309 окремої офіційної 
+    таблиці beep-кодів немає, використано стандартні коди American Megatrends 
+    (AMIBIOS8 Checkpoint & Beep Code List, 2008).
+  </p>
+  <p>
+    Завдяки цій лабораторній роботі я закріпив практичні навички роботи з BIOS/UEFI, та  порозумів 
+    основні параметри системи та методи діагностики апаратних несправностей 
+    за допомогою звукових сигналів.
+  </p>
+</div>
+  </div>
+
+</body>
+</html>
