@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота №2 | Архітектура комп'ютерів</title>
+  <link rel="stylesheet" href="/css/lab_2.css">
+  <style>
+    .small-photos img {
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: zoom-in;
+    }
+
+    .small-photos img:hover {
+      transform: scale(2.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      z-index: 100;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .small-photos img:hover {
+        transform: scale(1.4);
+      }
+    }
+
+    .home-btn {
+      display: inline-block;
+      margin: 15px 0 25px;
+      padding: 10px 22px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background 0.25s;
+    }
+    .home-btn:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lab-container">
+
+    <div class="header">
+      <h1>Лабораторна робота №2</h1>
+      <p class="subtitle">Дисципліна: Архітектура комп'ютерів</p>
+      <p>Варіант: 5 (2023 р.) — Микитчак М.</p>
+      <a href="/" class="home-btn">← На головну</a>
+    </div>
+
+    <div class="block">
+      <h2>1. Основні показники ринку ПК та комплектуючих у 2023 році</h2>
+
+      <p>
+        У 2023 році світовий ринок персональних комп’ютерів зазнав одного з найсильніших спадів за останні 15 років. 
+        За даними аналітичної компанії <strong>Gartner</strong>, глобальні поставки ПК склали <strong>241,8 млн одиниць</strong>, 
+        що на <strong>14,8%</strong> менше порівняно з 2022 роком (284 млн). Це найнижчий показник з 2006 року.
+      </p>
+
+      <p>
+        <strong>Частки ринку виробників ПК у 2023 році (Gartner):</strong>
+      </p>
+      <ul>
+        <li>Lenovo — 24,7% (59,7 млн шт.)</li>
+        <li>HP Inc. — 21,9% (52,9 млн шт.)</li>
+        <li>Dell — 16,6% (40,2 млн шт.)</li>
+        <li>Apple — 9,0% (21,9 млн шт.)</li>
+        <li>ASUS — 7,1% (17,1 млн шт.)</li>
+        <li>Acer — 6,6%</li>
+      </ul>
+
+      <p>
+        <strong>Оперативна пам’ять (DRAM)</strong><br>
+        Ринок пам’яті зазнав ще сильнішого падіння. За даними Gartner, доходи від DRAM у 2023 році знизилися на <strong>38,5%</strong> 
+        і склали близько <strong>$48,4 млрд</strong>. Загальний ринок пам’яті (DRAM + NAND) впав приблизно на 37%. 
+        Причини — надлишок складських запасів після пандемії та слабкий попит на ПК і смартфони в першій половині року.
+      </p>
+
+      <p>
+        <strong>Зовнішня / внутрішня пам’ять (SSD + HDD, NAND Flash)</strong><br>
+        Доходи від NAND Flash зменшилися на ≈37,5% (до $36,2 млрд). 
+        При цьому частка SSD у нових ПК продовжувала зростати — більше 55% нових комп’ютерів 2023 року поставлялися виключно з SSD. 
+        Середня ємність клієнтських SSD зросла лише на ≈11% (один з найнижчих показників за останні роки).
+      </p>
+
+      <p>
+        <strong>Першоджерела:</strong><br>
+        • <a href="https://www.gartner.com/en/newsroom/press-releases/01-10-2024-gartner-says-worldwide-pc-shipments-increased-zero-point-three-percent-in-fourth-quarter-of-2023-but-declined-fourteen-point-eight-percent-for-the-year" target="_blank">Gartner — Worldwide PC Shipments 2023</a><br>
+        • <a href="https://biz.nv.ua/ukr/markets/rinok-personalnih-komp-yuteriv-dosyag-dna-pidsumki-2023-roku-chastki-naybilshih-virobnikiv-50383259.html" target="_blank">NV Бізнес — підсумки ринку ПК 2023</a>
+      </p>
+
+      <img src="img/images/8.png" alt="Динаміка поставок ПК та доходів від пам'яті 2022–2023" 
+           style="max-width: 100%; border-radius: 8px; margin: 20px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <p style="text-align:center; font-size:0.9em; color:#666;">
+        Рисунок 1. Порівняння поставок ПК та доходів від DRAM/NAND у 2022–2023 рр. (на основі даних Gartner)
+      </p>
+    </div>
+
+<div class="block">
+  <h2>2. Підбір конфігурацій ПК</h2>
+
+  <h3>2.1. Конфігурації для офісу</h3>
+
+  <div class="item">
+    <strong>Стаціонарний ПК для офісу (бюджет ≈ 16–20 тис. грн)</strong>
+    <ul>
+      <li>Процесор: Intel Core i3-12100 (4 ядра / 8 потоків)</li>
+      <li>Материнська плата: H610M (DDR4)</li>
+      <li>Corsair Vengeance LPX 16GB (2×8) 3200 MHz</li>
+      <li>Накопичувач: SSD 256 ГБ NVMe M.2</li>
+      <li>Відео: інтегрована Intel UHD Graphics 730</li>
+      <li>Блок живлення: 400–450 Вт</li>
+      <li>Корпус: Mini-Tower / Micro-ATX,можна також вживаний корпус використати(на ринку від 200 грн) </li>
+    </ul>
+    <p>Призначення: робота з документами, браузером, відеоконференції, Excel.Можна додати окрему відеокарту наприклад radeon rx570 на 4 гб,зарас за них дуже низькі ціни від 2.5 тис до 4 тис грн за вживану відеокарту.</p>
+  </div>
+
+  <div class="small-photos" style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0; justify-content: center;">
+    <div style="text-align: center;">
+      <img src="img/images/9.jpg" alt="Процесор Intel Core i3-12100" 
+           style="max-width: 220px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <p style="font-size: 0.85em; margin-top: 6px;">Процесор Intel Core i3-12100</p>
+    </div>
+    <div style="text-align: center;">
+      <img src="img/images/10.jpg" alt="Оперативна пам'ять 16 ГБ DDR4" 
+           style="max-width: 220px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <p style="font-size: 0.85em; margin-top: 6px;"> ddr 4 Corsair Vengeance LPX 16GB (2×8) 3200 MHz</p>
+    </div>
+    <div style="text-align: center;">
+      <img src="img/images/11.jpg" alt="SSD 256 ГБ NVMe M.2" 
+           style="max-width: 220px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <p style="font-size: 0.85em; margin-top: 6px;">SSD 256 ГБ NVMe M.2</p>
+    </div>
+  </div>
+
+  <p>
+    <strong>Посилання на комплектуючі:</strong><br>
+    • Процесор: <a href="https://hard.rozetka.com.ua/ua/intel-bx8071512100/p331700473/" target="_blank">Intel Core i3-12100</a><br>
+    • ОЗП: <a href="https://hard.rozetka.com.ua/ua/403386963/p403386963/" target="_blank">ddr 4 Corsair Vengeance LPX 16GB (2×8) 3200 MHz (2×8)</a><br>
+• SSD: <a href="https://hard.rozetka.com.ua/ua/kingston-diakinssd0124-action/p364579758/" target="_blank">SSD 256 ГБ NVMe M.2</a>  </p>
+
+<div class="item" style="margin-top: 30px;">
+    <strong>Ноутбук для офісу</strong>
+    <ul>
+      <li>Модель: HP Laptop 15.6 (2QHLP15AS-4/128SBLU)</li>
+      <li>Процесор: AMD Athlon Silver 3050U</li>
+      <li>ОЗП: 4 ГБ (просто докупляємо оперативну память на 8гб <a href="https://hard.rozetka.com.ua/ua/354953448/p354953448/" target="_blank">посилання на оперативку.Для роботи в офісі цього буде достатньо</a>  )</li>
+      <li>SSD: 128 ГБ</li>
+      <li>Екран: 15.6" IPS</li>
+      <li>ОС: Windows 11 Home</li>
+    </ul>
+    <p>Для офісних завдань (документи, браузер, пошта, Zoom) цього достатньо. При потребі можна додати оперативну пам’ять.</p>
+  </div>
+
+  <div style="text-align: center; margin: 20px 0;">
+    <img src="img/images/13.webp" alt="Ноутбук HP Laptop 15.6" 
+         style="max-width: 450px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <p style="font-size: 0.85em; margin-top: 8px;">Ноутбук HP Laptop 15.6 (2QHLP15AS-4/128SBLU)</p>
+  </div>
+
+  <p>
+    Посилання на ноутбук: 
+    <a href="https://rozetka.com.ua/ua/hp-2qhlp15as-4-128sblu/p608678360/" target="_blank">HP Laptop 15.6 на Rozetka</a>
+  </p>
+</div>
+
+<div class="block">
+  <h3>2.2. Конфігурації для студента ІТ-спеціальності</h3>
+
+  <div class="item">
+    <strong>Стаціонарний ПК для студента ІТ (бюджет ≈ 28–35 тис. грн)</strong>
+    <ul>
+      <li>Процесор: Intel Core i5-12400F (6 ядер / 12 потоків)</li>
+      <li>Материнська плата: B660 (DDR4)</li>
+      <li>Оперативна пам’ять: 32 ГБ DDR4-3200 (2×16 ГБ) Kingston Fury Beast</li>
+      <li>Накопичувач: 1 ТБ NVMe SSD Kingston NV3</li>
+      <li>Відеокарта GeForce RTX 3050 8GB MSI Ventus 2X OC (RTX 3050 VENTUS 2X 8G OC) Б/В</li>
+      <li>Блок живлення: 550–650 Вт 80+ Bronze</li>
+      <li>Корпус: Midi-Tower ATX</li>
+    </ul>
+    <p>
+      Призначення: програмування, Docker, віртуальні машини, Android Studio, 
+      Visual Studio, легке редагування відео та навчання,Blender.
+    </p>
+  </div>
+
+  <div class="small-photos" style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0; justify-content: center;">
+    <div style="text-align: center;">
+      <img src="img/images/14.jpg" alt="Процесор Intel Core i5-12400F" 
+           style="max-width: 220px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <p style="font-size: 0.85em; margin-top: 6px;">Процесор Intel Core i5-12400F</p>
+    </div>
+    <div style="text-align: center;">
+      <img src="img/images/15.jpg" alt="ОЗП 32 ГБ Kingston Fury" 
+           style="max-width: 220px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <p style="font-size: 0.85em; margin-top: 6px;">ОЗП 32 ГБ DDR4-3200</p>
+    </div>
+    <div style="text-align: center;">
+      <img src="img/images/16.jpg" alt="SSD Kingston NV3 1 ТБ" 
+           style="max-width: 220px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <p style="font-size: 0.85em; margin-top: 6px;">SSD Kingston NV3 1 ТБ</p>
+    </div>
+  </div>
+
+  <p>
+    <strong>Посилання на комплектуючі:</strong><br>
+    • Процесор: <a href="https://hard.rozetka.com.ua/ua/intel-bx8071512400f/p331700554/" target="_blank">Intel Core i5-12400F</a><br>
+    • ОЗП: <a href="https://hard.rozetka.com.ua/ua/memory-kingston-133318839/p541880020/" target="_blank">Kingston Fury Beast 32GB (2×16)</a><br>
+    • SSD: <a href="https://hard.rozetka.com.ua/ua/kingston-snv3s-1000g/p444146648/" target="_blank">Kingston NV3 1TB</a><br>
+    • Відеокарта: <a href="https://hard.rozetka.com.ua/ua/619626098/p619626098/" target="_blank">RTX 3050 8GB</a><br>
+    • Блок живлення: <a href="https://hard.rozetka.com.ua/ua/486850709/p486850709/" target="_blank">Cougar 550W 80+ Bronze</a><br>
+    • Корпус: <a href="https://hard.rozetka.com.ua/ua/cases/c80090/21392=4497;21393=4502/" target="_blank">Midi-Tower ATX</a>
+  </p>
+
+  <div class="item" style="margin-top: 35px;">
+    <strong>Ноутбук для студента ІТ</strong>
+    <ul>
+      <li>Модель: ASUS TUF Gaming A16</li>
+      <li>Процесор: AMD Ryzen 7 7445HS</li>
+      <li>ОЗП: 16 ГБ DDR5</li>
+      <li>SSD: 512 ГБ NVMe</li>
+      <li>Відеокарта: NVIDIA GeForce RTX 4050</li>
+      <li>Екран: 16" IPS 144 Гц</li>
+    </ul>
+    <p>
+      Потужний ноутбук для навчання та розробки: програмування, 
+      віртуальні машини, робота з графікою та нові ігри.
+    </p>
+  </div>
+
+  <div style="text-align: center; margin: 20px 0;">
+    <img src="img/images/16.webp" alt="Ноутбук ASUS TUF Gaming A16" 
+         style="max-width: 450px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <p style="font-size: 0.85em; margin-top: 8px;">ASUS TUF Gaming A16 (RTX 4050)</p>
+  </div>
+
+  <p>
+    Посилання на ноутбук: 
+    <a href="https://rozetka.com.ua/ua/notebooks-asus-157213075/p562754442/" target="_blank">ASUS TUF Gaming A16 RTX 4050</a>
+  </p>
+</div>
+
+<div class="block">
+  <h2>3. Аналіз власного комп’ютера</h2>
+
+  <p>
+Комп’ютер зібраний самостійно. Основна ідея збірки — бюджетний системний блок для гри в World of Warcraft, роботи з великими обсягами файлів, а також для програм типу Blender і Visual Studio.
+Серверні процесори зазвичай дуже витривалі і розраховані на роботу 24/7. Після кількох років використання система добре справляється з такими іграми, як The Witcher 3, World of Warcraft та GTA 5. Замість GTX 1050 було обрано Radeon RX 570 — вона виявилася вигіднішою за ціною і показала кращу продуктивність.
+  </p>
+
+  <div class="item">
+    <strong>Характеристики системи:</strong>
+    <ul>
+      <li><strong>Процесор:</strong>  Intel Xeon E5-2630v3 2.4-3.2 GHz, 8 ядер / потоків 16</li>
+      <li><strong>Материнська плата:</strong> Китайська плата х99</li>
+      <li><strong>Оперативна пам’ять:</strong> 40 ГБ DDR4 (б/у з AliExpress, вартість ≈ 1500 грн)2 серверні планкти по 16 гб,8 гб було замало,2 планки по 1666гц</li>
+      <li><strong>Відеокарта:</strong> AMD Radeon RX 570 4 ГБ (куплена ≈ 4 роки тому після спаду ринку майнінгу за 6 тис грн,зарас її ціна до 3500 грн)</li>
+      <li><strong>Накопичувачі:</strong> 5× HDD по 500 ГБ (б/у) — загальний обсяг 2,5 ТБ</li>
+      <li><strong>Блок живлення:</strong> 700 Вт</li>
+      <li><strong>Корпус:</strong> Micro-ATX «акваріум» (з прозорими панелями)</li>
+      <li><strong>Додатково:</strong> приймач 5G-інтернету</li>
+    </ul>
+  </div>
+
+  <p>
+    <strong>Особливості збірки:</strong><br>
+   Відеокарту Radeon RX 570 було придбано приблизно 4 роки тому, коли після буму майнінгу на ринку з’явилася велика кількість вживаних відеокарт за значно зниженими цінами. Оперативну пам’ять (40 ГБ) також взято б/у з AliExpress за дуже низьку ціну. Для зберігання великих обсягів даних (ігор) встановлено 5 жорстких дисків по 500 ГБ.
+За 4 роки використання система залишається цілком придатною для користувача, який не запускає сучасні важкі ігри на кшталт S.T.A.L.K.E.R. 2. Єдине, що варто додати — SSD на 120–256 ГБ для швидшої роботи операційної системи.
+  </p>
+
+  <p>
+    За 4 роки використання,для користувача який не дуже має потреба запускати такі ігри як stalker 2,дуже нормально.Я би добавив тільки ссд на 120 гб,задля швидшої роботи операійної системи.
+  </p>
+
+  <div style="text-align: center; margin: 20px 0;">
+    <img src="img/images/17.jpg" alt="Мій комп’ютер" 
+         style="max-width: 500px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <p style="font-size: 0.85em; margin-top: 8px;"></p>
+  </div>
+</div>
+
+    <div class="block">
+      <h2>Висновок</h2>
+      <p>
+      У 2023 році світовий ринок персональних комп’ютерів і пам’яті пережив один із найглибших спадів за останні 15 років. Поставки ПК скоротилися на 14,8 % (до 241,8 млн одиниць), а доходи від DRAM і NAND Flash впали більш ніж на третину. При цьому SSD продовжили активно витісняти жорсткі диски, а середній обсяг оперативної пам’яті в нових системах зростав.
+Підібрані конфігурації чітко демонструють різницю між вимогами до офісного комп’ютера та системи для студента ІТ-спеціальності. <br> <br> Для офісних завдань достатньо відносно недорогого процесора з інтегрованою графікою та 16 ГБ ОЗП. Натомість для програмування, роботи з віртуальними машинами, графікою та сучасним програмним забезпеченням потрібні багатопотоковий процесор, 32 ГБ оперативної пам’яті, швидкий SSD і дискретна відеокарта.
+<br> <br> Аналіз власного комп’ютера показав, що навіть бюджетна збірка на базі серверного процесора Xeon E5-2630 v3, китайської материнської плати X99, 40 ГБ оперативної пам’яті та відеокарти Radeon RX 570 після кількох років використання залишається цілком працездатною. Система успішно справляється з іграми середньої вимоги, роботою в Blender, Visual Studio та зберіганням великих обсягів даних. Єдиним суттєвим недоліком є відсутність SSD, який значно прискорив би роботу операційної системи.
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
